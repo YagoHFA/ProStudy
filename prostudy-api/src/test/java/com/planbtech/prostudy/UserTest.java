@@ -38,4 +38,16 @@ public class UserTest {
         User userTest = userRepository.login("XXXXXXXXXXXXX","test");
         Assertions.assertEquals(userTest, user);
     }
+
+    @Test
+    void registerUserTest(){
+        User user = new User();
+        user.setUserName("test");
+        user.setUserPassword("test");
+        user.setUserEmail("XXXXXXXXXXXXX");
+        userRepository.save(user);
+        User userTest = userRepository.findByUserName("test");
+        System.out.println(userTest.getUserEmail());
+        Assertions.assertEquals(userTest, user);
+    }
 }

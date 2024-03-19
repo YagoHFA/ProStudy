@@ -19,4 +19,9 @@ public class CategoryServices implements ICategoryServices {
 
         return categoryRepository.findAll().stream().map(CategoryDTO::new).toList();
     }
+
+    @Override
+    public CategoryDTO findCategory(String s) {
+        return new CategoryDTO(categoryRepository.findCategory(s));
+    }
 }

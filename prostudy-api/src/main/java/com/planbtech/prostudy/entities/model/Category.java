@@ -17,7 +17,7 @@ public class Category {
     @Column(name = "categoryname")
     private String categoryName;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "videoCategory")
     private List<Video> videoList;
 
     public Long getCategoryId() {

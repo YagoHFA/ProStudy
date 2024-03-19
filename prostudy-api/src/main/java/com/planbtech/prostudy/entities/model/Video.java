@@ -3,16 +3,19 @@ package com.planbtech.prostudy.entities.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "videos")
 public class Video  {
 
     @Id
+    @Column(name = "videoid")
     private String videoId;
 
+    @Column(name = "videotitle")
     private String videoTitle;
 
     @ManyToOne
     @JoinColumn(name = "categoryid")
-    private Category category;
+    private Category videoCategory;
 
 
     public String getVideoId() {
@@ -34,11 +37,11 @@ public class Video  {
 
 
     public Category getCategory() {
-        return this.category;
+        return this.videoCategory;
     }
 
 
     public void setCategory(Category category) {
-        this.category = category;
+        this.videoCategory = category;
     }
 }
