@@ -48,7 +48,7 @@ public class CategoryTest {
         categoryReporitory.save(category2);
 
         Category category3 = new Category();
-        category3.setCategoryName("Database");
+        category3.setCategoryName("");
         category3.setCategoryId(3L);
         categoryReporitory.save(category3);
 
