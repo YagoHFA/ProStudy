@@ -1,5 +1,7 @@
 package com.planbtech.prostudy.entities.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
@@ -35,11 +37,10 @@ public class Video  {
         this.videoTitle = title;
     }
 
-
+    @JsonBackReference
     public Category getCategory() {
         return this.videoCategory;
     }
-
 
     public void setCategory(Category category) {
         this.videoCategory = category;
