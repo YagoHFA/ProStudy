@@ -1,9 +1,8 @@
 package com.planbtech.prostudy.entities.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -17,7 +16,7 @@ public class Category {
     @Column(name = "categoryname")
     private String categoryName;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "videoCategory",fetch = FetchType.EAGER)
     private List<Video> videoList;
 
     public Long getCategoryId() {
@@ -37,6 +36,7 @@ public class Category {
         this.categoryName = categoryName;
     }
 
+    @JsonManagedReference
     public List<Video> getVideoList() {
         return videoList;
     }

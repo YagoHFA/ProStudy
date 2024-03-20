@@ -6,14 +6,14 @@ public class UserDTO {
 
     private Long userId;
     private String userName;
-    private String password;
-    private String email;
+    private String userPassword;
+    private String userEmail;
 
     UserDTO(User entity) {
         this.userId = entity.getUserId();
         this.userName = entity.getUserName();
-        this.password = entity.getUserPassword();
-        this.email = entity.getUserEmail();
+        this.userPassword = entity.getUserPassword();
+        this.userEmail = entity.getUserEmail();
     }
 
     public Long getUserId() {
@@ -33,19 +33,19 @@ public class UserDTO {
     }
 
     public String getPassword() {
-        return password;
+        return userPassword;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.userPassword = password;
     }
 
     public String getEmail() {
-        return email;
+        return userEmail;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.userEmail = email;
     }
 
     @Override

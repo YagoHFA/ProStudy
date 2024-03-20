@@ -10,4 +10,5 @@ import java.util.List;
 public interface ICategoryServices {
     List<CategoryDTO> findAll();
 
+    CategoryDTO findCategory(String s);
 }
