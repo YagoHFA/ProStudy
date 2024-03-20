@@ -4,29 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href='https://fonts.googleapis.com/css?family=Chakra Petch' rel='stylesheet'>
     <link rel="stylesheet" href="app.component.css">
     <title>HomePage</title>
 </head>
 <body>
-    <app-main-header></app-main-header>
-    <div class="centro">
-    <h1 class="h1-titulo">Escolha vários cursos e fique por dentro das <b class="n">novidades</b> do mundo tecnológico</h1>
-
-    <p class="phtml">Desenvolvimento Web</p>
-    <p class="phtml">HTML e CSS</p>
-
-    <app-video-list></app-video-list>
-
-    <p class="pp">Programação Back-End</p>
-    <p class="ppp">Python</p>
-
-    <app-video-list></app-video-list>
-
-    <p class="pp">Banco de Dados</p>
-    <p class="ppp">SQL e NoSQl</p>
-
-    <app-video-list></app-video-list>
-    </div>
     
+    <div class="centro">
+        <app-main-header style="text-align: left;"></app-main-header>
+        <div class="titulo">
+            <h1>Escolha vários cursos e fique por dentro das novidades do mundo <span>tecnológico!</span></h1>
+        </div>
+        
+        <p class="phtml" style="margin-top: 3em">Desenvolvimento Web</p>
+        <p class="pcursos">HTML e CSS</p>
+
+        <app-video-list></app-video-list>
+
+        <p class="phtml">Programação Back-End</p>
+        <p class="pcursos">Python</p>
+
+        <app-video-list></app-video-list>
+
+        <p class="phtml">Banco de Dados</p>
+        <p class="pcursos">SQL e NoSQl</p>
+
+        <app-video-list></app-video-list>
+    </div> 
 </body>
 </html>
