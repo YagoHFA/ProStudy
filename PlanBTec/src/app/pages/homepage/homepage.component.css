@@ -1,0 +1,77 @@
+body{
+    background-image: linear-gradient( to right, #212121, #5201a4 );
+}
+
+.titulo h1 {
+    font-size:30px; 
+    font-weight: 700;  
+    letter-spacing:1px; 
+    width:160px; 
+    text-align:center; 
+    margin:auto;
+    padding-bottom:13px;
+    width:auto;
+    height:100%;
+    text-align:center;
+    color:#D7F9FF;
+    margin-top: 4em;
+    white-space: nowrap;
+    font-family: "Chakra Petch", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    }
+
+.titulo span {
+    color: #2BDEFD;
+    text-transform: uppercase;
+}
+
+b.n{
+    font-family: Arial, Helvetica, sans-serif;
+    color: aqua;
+}
+
+p.phtml{
+    font-size: 1.5em;
+    font-weight: bolder;
+    color: #D7F9FF;
+    margin-left: 2em;
+    margin-bottom: 0.1em;
+    text-decoration: underline;
+    white-space: nowrap;
+    font-family: "Chakra Petch", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+p.pcursos {
+    font-size: 1.4em;
+    color: white;
+    margin-left: 2em;
+    margin-bottom: 0.1em;
+    font-family: "Chakra Petch", sans-serif;
+    
+}
+
+p.pp{
+    margin-top: 1em;
+    margin-left: 2em;
+    font-size: 1.4em;
+    color: white;
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p.ppp{
+    margin-left: 2em;
+    font-size: 1.4em;
+    color: white;
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.centro{
+    width: auto;
+    height: 100%;
+    text-align: center;
+}
+
+
+
