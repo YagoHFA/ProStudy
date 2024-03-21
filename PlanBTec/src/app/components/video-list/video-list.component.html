@@ -1,5 +1,9 @@
-<div class="progamacao">
-    <ul class="ulprog">
-        <app-video [video]="video"></app-video>
-    </ul>
+<div>
+    <div class="videoList">
+        <div *ngFor="let video of videoList">
+            <div style="height: 300px; width: 300px; margin: 10px">
+                <app-video [video]="video"></app-video>
+            </div>
+        </div>
+    </div>
 </div>
