@@ -1,16 +1,9 @@
-<div class="progamacao">
-    <ul class="ulprog">
-        <div class="oba">
-            <li class="liprog">Python para Iniciantes </li>
-            <button class="botaoa"><a href="https://" target="_blank">Assistir</a></button>
+<div>
+    <div class="videoList">
+        <div *ngFor="let video of videoList">
+            <div style="height: 300px; width: 300px; margin: 10px">
+                <app-video [video]="video"></app-video>
+            </div>
         </div>
-        <div class="oba">
-            <li class="liprog">Manipulação de Arquivos e Dados </li>
-            <button class="botaoa"><a href="https://" target="_blank">Assistir</a></button>
-        </div>
-        <div class="oba">
-            <li class="liprog">APIs com Flash </li>
-            <button class="botaoa"><a href="https://" target="_blank">Assistir</a></button>
-        </div>
-    </ul>
+    </div>
 </div>
