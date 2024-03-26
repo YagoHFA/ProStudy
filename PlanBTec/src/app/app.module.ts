@@ -8,6 +8,8 @@ import { VideoListComponent } from './components/video-list/video-list.component
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { VideoComponent } from './components/video/video.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
+import { CategoryComponent } from './components/category/category.component';
+import { CategoryListComponent } from './components/category-list/category-list.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     MainHeaderComponent,
     VideoListComponent,
     HomepageComponent,
-    VideoComponent
+    VideoComponent,
+    CategoryComponent,
+    CategoryListComponent
   ],
   imports: [
     BrowserModule,
