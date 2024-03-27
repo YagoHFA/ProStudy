@@ -9,12 +9,12 @@ public class CategoryDTO {
 
     private Long  categoryId;
     private String categoryName;
-    private List<Video> videoList;
+    private List<VideoDTO> videoList;
 
     public CategoryDTO(Category entity) {
         this.categoryId = entity.getCategoryId();
         this.categoryName = entity.getCategoryName();
-        this.videoList = entity.getVideoList();
+        this.videoList = entity.getVideoList().stream().map(VideoDTO::new).toList();
     }
 
     public Long getCategoryId() {
@@ -33,11 +33,11 @@ public class CategoryDTO {
         this.categoryName = categoryName;
     }
 
-    public List<Video> getVideoList() {
+    public List<VideoDTO> getVideoList() {
         return videoList;
     }
 
-    public void setVideoList(List<Video> videoList) {
+    public void setVideoList(List<VideoDTO> videoList) {
         this.videoList = videoList;
     }
 

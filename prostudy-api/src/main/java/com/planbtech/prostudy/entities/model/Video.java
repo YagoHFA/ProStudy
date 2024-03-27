@@ -19,7 +19,6 @@ public class Video  {
     @JoinColumn(name = "categoryid")
     private Category videoCategory;
 
-
     public String getVideoId() {
         return this.videoId;
     }
