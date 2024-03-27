@@ -2,9 +2,8 @@ p.ptitle{
     font-size: 1.5em;
     font-weight: bolder;
     color: #D7F9FF;
-    margin-left: 2em;
-    margin-bottom: 0.1em;
     white-space: nowrap;
     font-family: "Chakra Petch", sans-serif;
     -webkit-font-smoothing: antialiased;
+    margin-left: 22%;
 }
