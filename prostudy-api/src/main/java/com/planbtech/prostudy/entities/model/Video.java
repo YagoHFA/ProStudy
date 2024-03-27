@@ -15,10 +15,6 @@ public class Video  {
     @Column(name = "videotitle")
     private String videoTitle;
 
-    @ManyToOne
-    @JoinColumn(name = "categoryid")
-    private Category videoCategory;
-
     public String getVideoId() {
         return this.videoId;
     }
@@ -36,12 +32,5 @@ public class Video  {
         this.videoTitle = title;
     }
 
-    @JsonBackReference
-    public Category getCategory() {
-        return this.videoCategory;
-    }
 
-    public void setCategory(Category category) {
-        this.videoCategory = category;
-    }
 }

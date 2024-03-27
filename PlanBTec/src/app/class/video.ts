@@ -1,4 +1,4 @@
 export class Video {
-    id:string = "";
-    titulo:string = "";
+  videoId:string = "";
+  videoTitle:string = "";
 }

@@ -10,6 +10,7 @@ import { VideoComponent } from './components/video/video.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { CategoryComponent } from './components/category/category.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
+import { HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,10 +25,12 @@ import { CategoryListComponent } from './components/category-list/category-list.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    YouTubePlayerModule
+    YouTubePlayerModule,
+    HttpClientModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })

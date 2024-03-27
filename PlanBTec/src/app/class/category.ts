@@ -1,7 +1,7 @@
 import { Video } from "./video";
 
 export class Category {
-    id:number = 0;
-    name:string = "";
-    video:Video[] = [];
+  categoryId:number = 0;
+  categoryName:string = "";
+  videoList:Video[] = [];
 }

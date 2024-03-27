@@ -8,12 +8,10 @@ public class VideoDTO {
 
     private String videoId;
     private String videoTitle;
-    private Category videoCategory;
 
     public VideoDTO(Video entity) {
         this.videoId = entity.getVideoId();
         this.videoTitle = entity.getVideoTitle();
-        this.videoCategory = entity.getCategory();
     }
 
     public String getVideoId() {
@@ -32,29 +30,19 @@ public class VideoDTO {
         this.videoTitle = videoTitle;
     }
 
-    public Category getVideoCategory() {
-        return videoCategory;
-    }
-
-    public void setVideoCategory(Category videoCategory) {
-        this.videoCategory = videoCategory;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof VideoDTO videoDTO)) return false;
 
         if (!getVideoId().equals(videoDTO.getVideoId())) return false;
-        if (!getVideoTitle().equals(videoDTO.getVideoTitle())) return false;
-        return getVideoCategory() != null ? getVideoCategory().equals(videoDTO.getVideoCategory()) : videoDTO.getVideoCategory() == null;
+        return getVideoTitle().equals(videoDTO.getVideoTitle());
     }
 
     @Override
     public int hashCode() {
         int result = getVideoId().hashCode();
         result = 31 * result + getVideoTitle().hashCode();
-        result = 31 * result + (getVideoCategory() != null ? getVideoCategory().hashCode() : 0);
         return result;
     }
 }
