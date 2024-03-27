@@ -1,8 +1,8 @@
     <div class="videoList">
-        <div *ngFor="let category of categoryList">
-            <div>
-                <app-category [category]="category"></app-category>
-                <app-video-list [videoList]="category.video"></app-video-list>
-            </div>
-        </div>
+        <div *ngFor="let category of categoryTest">
+          <div>
+              <app-category [category]="category"></app-category>
+              <app-video-list [videoList]="category.videoList"></app-video-list>
+          </div>
+      </div>
     </div>

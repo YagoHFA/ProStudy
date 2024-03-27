@@ -5,7 +5,7 @@ import { Category } from '../../class/category';
 @Injectable({
   providedIn: 'root'
 })
-export class HomepageconfigService {
+export class HomepageConfigService {
 
   constructor(private http:HttpClient) {
 
@@ -17,7 +17,7 @@ export class HomepageconfigService {
     this.http.get<Category[]>(url).subscribe(
       (Response:Category[]) => {
         categoryList.push(...Response)
-        categoryList.forEach(x => console.log(x.id + ' - ' + x.name + '\n' +  x.video.forEach(y => console.log(y.id + ' - ' + y.titulo))))
+
 
 
       }

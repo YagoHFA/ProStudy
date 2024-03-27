@@ -16,7 +16,8 @@ public class Category {
     @Column(name = "categoryname")
     private String categoryName;
 
-    @OneToMany(mappedBy = "videoCategory",fetch = FetchType.EAGER)
+    @OneToMany
+    @JoinColumn(name = "categoryid")
     private List<Video> videoList;
 
     public Long getCategoryId() {
