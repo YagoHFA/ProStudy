@@ -11,6 +11,9 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
 import { CategoryComponent } from './components/category/category.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { LoginComponent } from './pages/login/login.component';
+import { SecondHeaderComponent } from './components/second-header/second-header.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@ang
     HomepageComponent,
     VideoComponent,
     CategoryComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    LoginComponent,
+    SecondHeaderComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
