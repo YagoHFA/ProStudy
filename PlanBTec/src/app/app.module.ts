@@ -14,6 +14,7 @@ import { HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@ang
 import { LoginComponent } from './pages/login/login.component';
 import { SecondHeaderComponent } from './components/second-header/second-header.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { VideopageComponent } from './pages/videopage/videopage.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RegisterComponent } from './pages/register/register.component';
     CategoryListComponent,
     LoginComponent,
     SecondHeaderComponent,
-    RegisterComponent
+    RegisterComponent,
+    VideopageComponent
   ],
   imports: [
     BrowserModule,

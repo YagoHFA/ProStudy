@@ -17,7 +17,7 @@ export class HomepageConfigService {
     this.http.get<Category[]>(url).subscribe(
       (Response:Category[]) => {
         categoryList.push(...Response)
-
+        console.log(Response)
 
 
       }

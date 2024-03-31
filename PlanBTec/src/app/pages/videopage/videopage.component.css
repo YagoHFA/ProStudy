@@ -1,0 +1,14 @@
+.centro{
+    width: 100%;
+    height: 100%;
+}
+
+.backgroud {
+    background: linear-gradient(to bottom right, #0A0010, #36005A);
+    height: calc(100vh - 60px); 
+    display: flex;
+}
+
+.video {
+    
+}
