@@ -15,7 +15,7 @@ export class VideoComponent implements OnInit{
 
   }
   ngOnInit(): void {
-      this.router.navigate.toString
+      console.log(this.router.navigate.toString)
   }
   @Input() video:Video = new Video();
 }

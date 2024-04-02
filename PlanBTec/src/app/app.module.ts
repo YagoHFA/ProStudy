@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
-import { AppRoutingModule, routes } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainHeaderComponent } from './components/main-header/main-header.component';
 import { VideoListComponent } from './components/video-list/video-list.component';
@@ -40,7 +40,6 @@ import { provideRouter, withComponentInputBinding } from '@angular/router';
   providers: [
     provideClientHydration(),
     provideHttpClient(withFetch()),
-    provideRouter(routes, withComponentInputBinding())
   ],
   bootstrap: [AppComponent]
 })
