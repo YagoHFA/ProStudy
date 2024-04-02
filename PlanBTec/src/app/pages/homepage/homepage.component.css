@@ -24,9 +24,11 @@
 }
 
 .backgroud {
-  background-image: linear-gradient( to right, #212121, #5201a4 );
-  height: calc(100% - 64%);
-  width: 100%;
+  background: linear-gradient(to bottom right, #0A0010, #36005A);
+    height: calc(100% - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 

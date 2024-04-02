@@ -20,6 +20,9 @@ public class Category {
     @JoinColumn(name = "categoryid")
     private List<Video> videoList;
 
+    @Column(name = "categorythumb")
+    private String categoryThumb;
+
     public Long getCategoryId() {
         return this.categoryId;
     }
@@ -44,6 +47,14 @@ public class Category {
 
     public void setVideoList(List<Video> videoList) {
         this.videoList = videoList;
+    }
+
+    public String getCategoryThumb() {
+        return categoryThumb;
+    }
+
+    public void setCategoryThumb(String categoryThumb) {
+        this.categoryThumb = categoryThumb;
     }
 }
 

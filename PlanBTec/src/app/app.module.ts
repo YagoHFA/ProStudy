@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainHeaderComponent } from './components/main-header/main-header.component';
 import { VideoListComponent } from './components/video-list/video-list.component';
@@ -14,6 +14,8 @@ import { HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@ang
 import { LoginComponent } from './pages/login/login.component';
 import { SecondHeaderComponent } from './components/second-header/second-header.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { VideopageComponent } from './pages/videopage/videopage.component';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { RegisterComponent } from './pages/register/register.component';
     CategoryListComponent,
     LoginComponent,
     SecondHeaderComponent,
-    RegisterComponent
+    RegisterComponent,
+    VideopageComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { RegisterComponent } from './pages/register/register.component';
   ],
   providers: [
     provideClientHydration(),
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch()),
+    provideRouter(routes, withComponentInputBinding())
   ],
   bootstrap: [AppComponent]
 })
