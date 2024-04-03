@@ -1,7 +1,8 @@
     <div class="videoList">
         <div *ngFor="let video of videoList">
             <div style="height: 300px; width: 300px; margin: 10px">
-                <app-video [video]="video"></app-video>
+                <label for="" class="title">{{video.videoTitle}}</label>
+                <a routerLink="/videopage/watch" [queryParams]="{v:video.videoId}"><img src="../../../assets/img/logo.png" alt=""></a>
             </div>
         </div>
     </div>

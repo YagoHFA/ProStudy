@@ -1,7 +1,6 @@
 package com.planbtech.prostudy.DTO;
 
 
-import com.planbtech.prostudy.entities.model.Category;
 import com.planbtech.prostudy.entities.model.Video;
 
 public class VideoDTO {

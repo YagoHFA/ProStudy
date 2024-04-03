@@ -10,11 +10,12 @@ import { VideoComponent } from './components/video/video.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { CategoryComponent } from './components/category/category.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
-import { HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
 import { SecondHeaderComponent } from './components/second-header/second-header.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { VideopageComponent } from './pages/videopage/videopage.component';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { VideopageComponent } from './pages/videopage/videopage.component';
   ],
   providers: [
     provideClientHydration(),
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch()),
   ],
   bootstrap: [AppComponent]
 })

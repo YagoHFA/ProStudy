@@ -3,4 +3,20 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    max-width: 80%;
+    margin-left: 5%;
+  }
+
+  .videoList scrollbar{
+    overflow: auto;
+  }
+
+.title{
+  font-weight: bolder;
+  color: #D7F9FF;
+  white-space: nowrap;
+  font-family: "Chakra Petch", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  margin-bottom: 10px;
 }

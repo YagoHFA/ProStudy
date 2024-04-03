@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Video } from '../../class/video';
+import { ActivatedRoute } from '@angular/router';
+import { VideoService } from '../../service/controller/video.service';
 
 @Component({
   selector: 'app-videopage',
   templateUrl: './videopage.component.html',
-  styleUrl: './videopage.component.css'
+  styleUrl: './videopage.component.css',
+  providers:[VideoService]
 })
 export class VideopageComponent implements OnInit{
+
   ngOnInit(): void {
-    this.video.videoId= "ZeMErc0kOkQ";
-    this.video.videoTitle = "POINT BLANK - RUSHANDO ADOIDADO DE P90"
+       this.videoService.getVideoById().subscribe(
+        (video:Video)=>{
+          this.video = video;
+        }
+       )
   }
+  constructor(private route:ActivatedRoute, private videoService:VideoService){
+
+  }
+
+
     video:Video = new Video();
 }

@@ -12,7 +12,6 @@
 .items {
     display: flex;
     margin-left: 100px;
-    margin-top: 50px;
     text-align: center;
     justify-items: center;
 }

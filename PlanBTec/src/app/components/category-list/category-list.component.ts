@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../../class/category';
-import { Video } from '../../class/video';
 import { HomepageConfigService } from '../../service/controller/homepageconfig.service';
 
 @Component({
@@ -10,7 +9,14 @@ import { HomepageConfigService } from '../../service/controller/homepageconfig.s
 })
 export class CategoryListComponent implements OnInit{
   ngOnInit(): void {
-    this.categoryTest = this.homePageConf.getAllCategory();
+    this.homePageConf.getVideoById().subscribe(
+      (categoryList:Category[]) =>{
+        categoryList.forEach(x => {
+          console.log(x.videoList)
+        })
+        this.categoryTest = categoryList
+      }
+    )
   }
 
   constructor(private homePageConf:HomepageConfigService){
