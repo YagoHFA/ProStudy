@@ -2,5 +2,13 @@
     background: linear-gradient(to bottom right, #0A0010, #36005A);
     height: calc(100% - 60px);
     display: flex;
+    position: absolute;
+    width: 100%;
+
+}
+
+.video{
+  height: 100%;
+  width: 100%;
 }
 
