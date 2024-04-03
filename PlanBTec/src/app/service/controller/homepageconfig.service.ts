@@ -13,7 +13,6 @@ export class HomepageConfigService {
   getAllCategory(): Category[]{
     const categoryList:Category[] = [];
     const url = 'http://localhost:8080/category/allcategory';
-
     this.http.get<Category[]>(url).subscribe(
       (Response:Category[]) => {
         categoryList.push(...Response)

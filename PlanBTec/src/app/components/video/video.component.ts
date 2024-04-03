@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, input } from '@angular/core';
 import { Video } from '../../class/video';
 import { ActivatedRoute, Router } from '@angular/router';
+import { VideoService } from '../../service/controller/video.service';
 
 @Component({
   selector: 'app-video',
@@ -9,13 +10,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class VideoComponent implements OnInit{
 
-  constructor(private route: ActivatedRoute,
-              private router: Router){
+  constructor(){
 
 
   }
   ngOnInit(): void {
-      console.log(this.router.navigate.toString)
+
   }
   @Input() video:Video = new Video();
 }

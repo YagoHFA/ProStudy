@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../../class/category';
-import { Video } from '../../class/video';
 import { HomepageConfigService } from '../../service/controller/homepageconfig.service';
 
 @Component({
