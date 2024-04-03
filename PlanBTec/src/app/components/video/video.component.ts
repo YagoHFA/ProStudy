@@ -1,7 +1,5 @@
 import { Component, Input, OnInit, input } from '@angular/core';
 import { Video } from '../../class/video';
-import { ActivatedRoute, Router } from '@angular/router';
-import { VideoService } from '../../service/controller/video.service';
 
 @Component({
   selector: 'app-video',

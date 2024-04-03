@@ -19,7 +19,7 @@ export class VideopageComponent implements OnInit{
        )
   }
   constructor(private route:ActivatedRoute, private videoService:VideoService){
-    console.log('pas')
+
   }
 
 
