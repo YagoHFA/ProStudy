@@ -15,6 +15,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { SecondHeaderComponent } from './components/second-header/second-header.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { VideopageComponent } from './pages/videopage/videopage.component';
+import { LandingpageComponent } from './pages/landingpage/landingpage.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { VideopageComponent } from './pages/videopage/videopage.component';
     LoginComponent,
     SecondHeaderComponent,
     RegisterComponent,
-    VideopageComponent
+    VideopageComponent,
+    LandingpageComponent
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,9 @@ public class Video  {
     @Column(name = "videotitle")
     private String videoTitle;
 
+    @Column(name = "videothumbnail")
+    private String videoThumbnail;
+
     public String getVideoId() {
         return this.videoId;
     }
@@ -32,5 +35,11 @@ public class Video  {
         this.videoTitle = title;
     }
 
+    public String getVideoThumbnail() {
+        return videoThumbnail;
+    }
 
+    public void setVideoThumbnail(String videoThumbnail) {
+        this.videoThumbnail = videoThumbnail;
+    }
 }

@@ -1,6 +1,5 @@
 package com.planbtech.prostudy.entities.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -19,9 +18,6 @@ public class Category {
     @OneToMany
     @JoinColumn(name = "categoryid")
     private List<Video> videoList;
-
-    @Column(name = "categorythumb")
-    private String categoryThumb;
 
     public Long getCategoryId() {
         return this.categoryId;
@@ -49,12 +45,5 @@ public class Category {
         this.videoList = videoList;
     }
 
-    public String getCategoryThumb() {
-        return categoryThumb;
-    }
-
-    public void setCategoryThumb(String categoryThumb) {
-        this.categoryThumb = categoryThumb;
-    }
 }
 

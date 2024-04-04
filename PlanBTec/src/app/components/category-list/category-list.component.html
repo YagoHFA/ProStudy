@@ -1,8 +1,12 @@
     <div class="videoList">
         <div *ngFor="let category of categoryTest">
-          <div>
-              <app-category [category]="category"></app-category>
-              <app-video-list [videoList]="category.videoList"></app-video-list>
+          <div style="overflow: hidden;">
+              <div style="margin-bottom: 2%;">
+                <app-category [category]="category"></app-category>
+              </div>
+              <div style="overflow: hidden;">
+                <app-video-list [videoList]="category.videoList"></app-video-list>
+              </div>
           </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
-    <div class="videoList">
+    <div class="videoList" style="justify-content: space-evenly;">
         <div *ngFor="let video of videoList">
-            <div style="height: 300px; width: 300px; margin: 10px">
+            <div style="height: 100%; width: 100%; display: flex; flex-direction: column;">
                 <label for="" class="title">{{video.videoTitle}}</label>
                 <a routerLink="/videopage/watch" [queryParams]="{v:video.videoId}"><img src="../../../assets/img/logo.png" alt=""></a>
             </div>
