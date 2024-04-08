@@ -7,10 +7,12 @@ public class VideoDTO {
 
     private String videoId;
     private String videoTitle;
+    private String thumb;
 
     public VideoDTO(Video entity) {
         this.videoId = entity.getVideoId();
         this.videoTitle = entity.getVideoTitle();
+        this.thumb = entity.getVideoThumbnail();
     }
 
     public String getVideoId() {
@@ -36,6 +38,14 @@ public class VideoDTO {
 
         if (!getVideoId().equals(videoDTO.getVideoId())) return false;
         return getVideoTitle().equals(videoDTO.getVideoTitle());
+    }
+
+    public String getThumb() {
+        return thumb;
+    }
+
+    public void setThumb(String thumb) {
+        this.thumb = thumb;
     }
 
     @Override

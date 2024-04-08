@@ -1,13 +1,15 @@
 <header><app-second-header></app-second-header></header>
 <div class="background" style="padding-bottom: 3%; padding-top: 3%;">
-  <div class="apresentention">
+  <div class="apresentention" style="margin-bottom: 2%;">
     <h1 style="float: inline-end">
       Começe a estudar <span>agora</span> na melhor plataforma de cursos
       tecnológicos do país
     </h1>
   </div>
-  <div class="imgLadingPage"></div>
-  <div class="description">
+  <div class="imgLadingPage" style="justify-content: center; display: flex;">
+    <img src="../../../assets/img/intro.png" alt="" width="30%" height="20%">
+  </div>
+  <div class="description" style="margin-top: 2%;">
     <div class="paragraph">
       <p>
         Se você está pronto para transformar sua carreira e entrar no
@@ -26,9 +28,11 @@
   </div>
   <div style="justify-content: center; display: flex;">
     <div class="box">
+
       <p class="box-title">Vantagens de escolher a <span>Pro</span>Connect</p>
       <div *ngFor="let item of litsString">
-        <p style="margin-top: 4%; ">{{item}}</p>
+
+        <p style="margin-top: 4%; "><img src="../../../assets/img/visto.png" width="5%" height="5%" /> {{item}}</p>
       </div>
       <button class="botao-menu-ultimo-azul" routerLink="/register">Matricule-se</button>
     </div>
