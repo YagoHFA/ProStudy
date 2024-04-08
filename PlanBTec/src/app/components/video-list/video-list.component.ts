@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Category } from '../../class/category';
 import { Video } from '../../class/video';
+import { NgOptimizedImage } from '@angular/common'
 
 @Component({
   selector: 'app-video-list',

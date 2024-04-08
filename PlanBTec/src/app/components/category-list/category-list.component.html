@@ -1,12 +1,14 @@
-    <div class="videoList">
-        <div *ngFor="let category of categoryTest">
-          <div style="overflow: hidden;">
-              <div style="margin-bottom: 2%;">
-                <app-category [category]="category"></app-category>
-              </div>
-              <div style="overflow: hidden;">
-                <app-video-list [videoList]="category.videoList"></app-video-list>
-              </div>
-          </div>
+<div class="videoList">
+  <div *ngFor="let category of categoryTest">
+    <div *ngIf="category.videoList.length >0">
+      <div style="overflow: hidden">
+        <div style="margin-bottom: 2%">
+          <app-category [category]="category"></app-category>
+        </div>
+        <div style="overflow: hidden">
+          <app-video-list [videoList]="category.videoList"></app-video-list>
+        </div>
       </div>
     </div>
+  </div>
+</div>

@@ -15,7 +15,7 @@ public class Video  {
     @Column(name = "videotitle")
     private String videoTitle;
 
-    @Column(name = "videothumbnail")
+    @Column(name = "videothumb")
     private String videoThumbnail;
 
     public String getVideoId() {
