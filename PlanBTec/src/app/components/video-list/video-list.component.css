@@ -1,14 +1,6 @@
 .videoList {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    max-width: 80%;
-    margin-left: 5%;
-  }
-
-  .videoList scrollbar{
-    overflow: auto;
+    transition: transform 0.5s ease;
   }
 
 .title{
@@ -19,4 +11,33 @@
   -webkit-font-smoothing: antialiased;
   text-align: center;
   margin-bottom: 10px;
+}
+
+.video-item {
+  flex: 0 0 0%; /* Tamanho de cada vídeo */
+  margin-right: 4%;
+}
+.video-carousel {
+  overflow: hidden;
+  position: relative;
+}
+
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
 }

@@ -11,19 +11,14 @@ export class HomepageConfigService {
   constructor(private http:HttpClient) {
 
   }
-  getAllCategory(): Category[]{
-    const categoryList:Category[] = [];
-    const url = 'http://localhost:8080/category/allcategory';
-    this.http.get<Category[]>(url).subscribe(
-      (Response:Category[]) => {
-        categoryList.push(...Response)
-      }
-    );
-    return categoryList;
-  }
-  getVideoById(): Observable<Category[]> {
+
+  categoryList(): Observable<Category[]> {
 
         const url = 'http://localhost:8080/category/allcategory';
+        this.http.get<Category[]>(url).forEach((x) => x.forEach((y) =>{
+          console.log(y.categoryName)
+          console.log(y.videoList.length)}
+        ))
         return this.http.get<Category[]>(url);
       }
     ;
