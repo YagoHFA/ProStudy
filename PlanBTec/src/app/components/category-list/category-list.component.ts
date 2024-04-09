@@ -9,11 +9,8 @@ import { HomepageConfigService } from '../../service/controller/homepageconfig.s
 })
 export class CategoryListComponent implements OnInit{
   ngOnInit(): void {
-    this.homePageConf.getVideoById().subscribe(
+    this.homePageConf.categoryList().subscribe(
       (categoryList:Category[]) =>{
-        categoryList.forEach(x => {
-          console.log(x.videoList)
-        })
         this.categoryTest = categoryList
       }
     )

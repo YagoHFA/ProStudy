@@ -17,7 +17,6 @@ import { RegisterComponent } from './pages/register/register.component';
 import { VideopageComponent } from './pages/videopage/videopage.component';
 import { LandingpageComponent } from './pages/landingpage/landingpage.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +36,7 @@ import { LandingpageComponent } from './pages/landingpage/landingpage.component'
     BrowserModule,
     AppRoutingModule,
     YouTubePlayerModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     provideClientHydration(),
