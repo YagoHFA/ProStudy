@@ -11,7 +11,7 @@ export class VideoListComponent implements OnInit {
   @ViewChild('videoCarousel', { static: true }) videoCarousel!: ElementRef;
 
   currentIndex: number = 0;
-  maxVisibleItems: number = 3; // Defina o número máximo de itens visíveis aqui
+  maxVisibleItems: number = 4; // Defina o número máximo de itens visíveis aqui
 
   ngOnInit(): void {
     this.updateCarousel();
