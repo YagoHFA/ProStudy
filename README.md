@@ -25,7 +25,9 @@ O mesmo permite que o estudante realize um aprendizado, testes com base no curso
 
 <h2 id = "Funcionalidade">Funcionalidades ⚙️</h2> 
 ✔️ Realizar um aprendizado;
+
 ✔️ Realizar testes sobre o aprendizado;
+
 ✔️ Gerar certificado; 
 
 <h2 id = "Distribuição">Distribuição</h2>
