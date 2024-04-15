@@ -16,15 +16,8 @@
 
 🔹 <a href = "#Linguagens, dependências e libs utilizadas">Linguagens, dependências e libs utilizadas</a>
 
-🔹 <a href = "#">Novas Recursos</a>
-
-🔹 <a href = "#Resolvendo Problemas">Resolvendo problemas</a>
-
-🔹 <a href = "#Recursos de inseridos">Recursos inseridos </a>
-
 🔹 <a href = "#Desenvolvedores/Contribuintes:">Desenvolvedores/Contribuintes</a>
 
-🔹 <a href = "#Informações Extras">Informações Extras</a>
 
 <h2 id = "Descrição">Descrição do projeto</h2>
 O projeto consiste em um site de aprendizado com foco em profissionais da área de tecnologia. 
