@@ -16,7 +16,6 @@ public class VideoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<VideoDTO> findById(@PathVariable String id){
-        System.out.println("testde "+ iVideoServices.findById(id).getVideoId() + " - " + iVideoServices.findById(id).getVideoTitle());;
-        return ResponseEntity.ok(new VideoDTO(iVideoServices.findById(id)));
+        return ResponseEntity.ok(iVideoServices.findById(id));
     }
 }

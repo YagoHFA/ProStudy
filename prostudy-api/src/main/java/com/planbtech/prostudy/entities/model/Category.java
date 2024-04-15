@@ -3,6 +3,7 @@ package com.planbtech.prostudy.entities.model;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+
 import java.util.List;
 
 @Entity
@@ -15,8 +16,7 @@ public class Category {
     @Column(name = "categoryname")
     private String categoryName;
 
-    @OneToMany
-    @JoinColumn(name = "categoryid")
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<Video> videoList;
 
     public Long getCategoryId() {

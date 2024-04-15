@@ -9,7 +9,7 @@ public class UserDTO {
     private String userPassword;
     private String userEmail;
 
-    UserDTO(User entity) {
+    public UserDTO(User entity) {
         this.userId = entity.getUserId();
         this.userName = entity.getUserName();
         this.userPassword = entity.getUserPassword();
