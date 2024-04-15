@@ -33,7 +33,7 @@ O mesmo permite que o estudante realize um aprendizado, testes com base no curso
 <h2 id = "Distribuição">Distribuição</h2>
 https://github.com/PlanBTechnology/ProStudy
 
-<h2 id = "Pré-requisitos">Pré-requisitoso ⚠️ </h2>    
+<h2 id = "Pré-requisitos">Pré-requisitos ⚠️ </h2>    
 <p>Acesso a internet</p>
 <p>Navegador web</p>
 
