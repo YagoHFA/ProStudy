@@ -1,5 +1,6 @@
 package com.planbtech.prostudy.services.interfaces;
 
+import com.planbtech.prostudy.DTO.UserDTO;
 import com.planbtech.prostudy.entities.model.User;
 import org.springframework.stereotype.Service;
 

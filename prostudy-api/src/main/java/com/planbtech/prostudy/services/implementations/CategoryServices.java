@@ -20,8 +20,6 @@ public class CategoryServices implements ICategoryServices {
     @Transactional
     @Override
     public List<CategoryDTO> findAll() {
-        List<Category> categoryList = categoryRepository.findAll().stream().toList();
-        categoryList.forEach(System.out::println);
         return categoryRepository.findAll().stream().map(CategoryDTO::new).toList();
     }
 

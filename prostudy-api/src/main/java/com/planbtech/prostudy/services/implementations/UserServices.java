@@ -1,5 +1,6 @@
 package com.planbtech.prostudy.services.implementations;
 
+import com.planbtech.prostudy.DTO.UserDTO;
 import com.planbtech.prostudy.entities.model.User;
 import com.planbtech.prostudy.repositories.UserRepository;
 import com.planbtech.prostudy.services.interfaces.IUserServices;

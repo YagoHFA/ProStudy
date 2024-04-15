@@ -6,5 +6,5 @@ import com.planbtech.prostudy.entities.model.Video;
 import java.util.List;
 
 public interface IVideoServices {
-    Video findById(String id);
+    VideoDTO findById(String id);
 }

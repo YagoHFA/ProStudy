@@ -1,5 +1,6 @@
 package com.planbtech.prostudy.services.implementations;
 
+import com.planbtech.prostudy.DTO.VideoDTO;
 import com.planbtech.prostudy.entities.model.Video;
 import com.planbtech.prostudy.repositories.VideoRepository;
 import com.planbtech.prostudy.services.interfaces.IVideoServices;
@@ -15,8 +16,8 @@ public class VideosServices implements IVideoServices {
    private VideoRepository videoRepository;
 
    @Transactional
-   public Video findById(String id){
-       System.out.println("teste de pego o valor: " + videoRepository.getReferenceById(id).getVideoTitle());
-       return videoRepository.getReferenceById(id);
+   public VideoDTO findById(String id){
+      new VideoDTO(this.videoRepository.findByVideoId(id));
+       return new VideoDTO(this.videoRepository.findByVideoId(id));
    }
 }
