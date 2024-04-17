@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
@@ -25,6 +22,12 @@ public class UserController {
 
     @GetMapping("/login/{email}&{password}")
     public ResponseEntity<UserDTO> login(@PathVariable String email, @PathVariable String password) {
-        return ResponseEntity.ok(new UserDTO(this.iUserServices.login(email, password)));
+        return ResponseEntity.ok(iUserServices.login(email, password));
     }
+
+    @PostMapping("/register")
+    public ResponseEntity<UserDTO> register(@RequestBody User user){
+        return ResponseEntity.ok(iUserServices.createUser(user));
+    }
+
 }
