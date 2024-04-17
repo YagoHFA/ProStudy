@@ -7,7 +7,6 @@ import java.util.List;
 public class SkillTest {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "testid")
     private String testId;
 
