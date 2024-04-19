@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface IUserServices {
-    UserDTO createUser(User userToCreate);
+    void createUser(UserDTO userToCreate);
 
     UserDTO login(String email, String password);
 
-    UserDTO update(User user);
+    UserDTO update(UserDTO user);
 }

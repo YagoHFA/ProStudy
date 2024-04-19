@@ -51,4 +51,13 @@ public class User {
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
     }
+
+    public User(Long userId, String userName, String userPassword, String userEmail) {
+        this.userId = userId;
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userEmail = userEmail;
+    }
+
+    public User() {}
 }

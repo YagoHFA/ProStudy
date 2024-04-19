@@ -1,7 +1,13 @@
 package com.planbtech.prostudy.DTO;
 
 import com.planbtech.prostudy.entities.model.User;
+import lombok.*;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class UserDTO {
 
     private Long userId;
@@ -16,38 +22,6 @@ public class UserDTO {
         this.userEmail = entity.getUserEmail();
     }
 
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return userPassword;
-    }
-
-    public void setPassword(String password) {
-        this.userPassword = password;
-    }
-
-    public String getEmail() {
-        return userEmail;
-    }
-
-    public void setEmail(String email) {
-        this.userEmail = email;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -55,16 +29,17 @@ public class UserDTO {
 
         if (!getUserId().equals(userDTO.getUserId())) return false;
         if (!getUserName().equals(userDTO.getUserName())) return false;
-        if (!getPassword().equals(userDTO.getPassword())) return false;
-        return getEmail().equals(userDTO.getEmail());
+        if (!getUserPassword().equals(userDTO.getUserPassword())) return false;
+        return getUserEmail().equals(userDTO.getUserEmail());
     }
 
     @Override
     public int hashCode() {
         int result = getUserId().hashCode();
         result = 31 * result + getUserName().hashCode();
-        result = 31 * result + getPassword().hashCode();
-        result = 31 * result + getEmail().hashCode();
+        result = 31 * result + getUserPassword().hashCode();
+        result = 31 * result + getUserEmail().hashCode();
         return result;
     }
+
 }

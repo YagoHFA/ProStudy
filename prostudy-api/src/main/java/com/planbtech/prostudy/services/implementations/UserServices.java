@@ -1,24 +1,33 @@
 package com.planbtech.prostudy.services.implementations;
 
 import com.planbtech.prostudy.DTO.UserDTO;
-import com.planbtech.prostudy.entities.model.User;
+import com.planbtech.prostudy.component.Mapper;
 import com.planbtech.prostudy.repositories.UserRepository;
 import com.planbtech.prostudy.services.interfaces.IUserServices;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class UserServices implements IUserServices {
+
+    private Mapper mapper;
 
     @Autowired
     private UserRepository userRepository;
 
     @Transactional
-    public UserDTO createUser(User userToCreate) {
-        return new UserDTO(userRepository.save(userToCreate));
+    public void createUser(UserDTO userToCreate) {
+        JdbcUserDetailsManager test = new JdbcUserDetailsManager();
+        UserDetails usertes = User.builder()
+                .username(userToCreate.getUserName())
+                .password(userToCreate.getUserPassword())
+                .roles("User").build();
+        test.createUser(usertes);
+         mapper.ofDTO(userToCreate);
     }
 
     @Override
@@ -34,7 +43,7 @@ public class UserServices implements IUserServices {
 
     @Override
     @Transactional
-    public UserDTO update(User user) {
+    public UserDTO update(UserDTO user) {
         return userRepository.findById(user.getUserId()).map((x -> new UserDTO(userRepository.save(x)))).orElseThrow(()
         -> new RuntimeException("Usuario não encontrado")
         );

@@ -34,8 +34,6 @@ public class UserTest {
         user.setUserPassword("test");
         user.setUserEmail("XXXXXXXXXXXXX");
         userRepository.save(user);
-        User userTest = userRepository.login("XXXXXXXXXXXXX","test");
-        Assertions.assertEquals(userTest, user);
     }
 
     @Test

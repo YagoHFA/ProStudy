@@ -2,9 +2,15 @@ package com.planbtech.prostudy.DTO;
 
 import com.planbtech.prostudy.entities.model.Category;
 import com.planbtech.prostudy.entities.model.Video;
+import lombok.*;
 
 import java.util.List;
 
+@Setter
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class CategoryDTO {
 
     private Long  categoryId;
@@ -15,30 +21,6 @@ public class CategoryDTO {
         this.categoryId = entity.getCategoryId();
         this.categoryName = entity.getCategoryName();
         this.videoList = entity.getVideoList().stream().map(VideoDTO::new).toList();
-    }
-
-    public Long getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    public List<VideoDTO> getVideoList() {
-        return videoList;
-    }
-
-    public void setVideoList(List<VideoDTO> videoList) {
-        this.videoList = videoList;
     }
 
     @Override
