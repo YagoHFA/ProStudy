@@ -2,11 +2,14 @@ package com.planbtech.prostudy.entities.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-
+import lombok.Getter;
+import lombok.Setter;
 
 
 @Entity
 @Table(name = "videos")
+@Getter
+@Setter
 public class Video  {
 
     @Id
@@ -23,37 +26,10 @@ public class Video  {
     @JoinColumn(name = "categoryid")
     private Category category;
 
-    public String getVideoId() {
-        return this.videoId;
-    }
-
-
-    public void setVideoId(String videoId) {
-        this.videoId = videoId;
-    }
-
-    public String getVideoTitle() {
-        return this.videoTitle;
-    }
-
-    public void setVideoTitle(String title) {
-        this.videoTitle = title;
-    }
-
-    public String getVideoThumbnail() {
-        return videoThumbnail;
-    }
-
-    public void setVideoThumbnail(String videoThumbnail) {
-        this.videoThumbnail = videoThumbnail;
-    }
-
     @JsonBackReference
     public Category getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
+
 }

@@ -17,7 +17,7 @@ public class UserDTO {
 
     public UserDTO(User entity) {
         this.userId = entity.getUserId();
-        this.userName = entity.getUserName();
+        this.userName = entity.getUsername();
         this.userPassword = entity.getUserPassword();
         this.userEmail = entity.getUserEmail();
     }

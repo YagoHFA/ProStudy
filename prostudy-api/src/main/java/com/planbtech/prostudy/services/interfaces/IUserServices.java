@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public interface IUserServices {
     void createUser(UserDTO userToCreate);
 
-    UserDTO login(String email, String password);
+
 
     UserDTO update(UserDTO user);
 }

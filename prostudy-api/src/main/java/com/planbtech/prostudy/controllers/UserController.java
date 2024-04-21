@@ -20,11 +20,6 @@ public class UserController {
          this.iUserServices.createUser(userToCreate);
     }
 
-    @GetMapping("/login/{email}&{password}")
-    public ResponseEntity<UserDTO> login(@PathVariable String email, @PathVariable String password) {
-        return ResponseEntity.ok(iUserServices.login(email, password));
-    }
-
     @PostMapping("/register")
     public void register(@RequestBody UserDTO user){
        iUserServices.createUser(user);
