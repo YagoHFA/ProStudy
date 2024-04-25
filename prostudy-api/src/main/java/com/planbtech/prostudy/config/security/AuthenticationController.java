@@ -40,11 +40,11 @@ public class AuthenticationController {
     @PostMapping("/register/user")
     public ResponseEntity<Boolean> register(@RequestBody UserRegisterDTO userToRegister){
         if(this.userRepository.findByUserName(userToRegister.userName()).isPresent()) return ResponseEntity.badRequest().build();
-
         String encodedPassword = new BCryptPasswordEncoder().encode(userToRegister.password());
-        User user = new User(userToRegister.userName(), encodedPassword);
-        this.userRepository.save(user);
-
+        this.userRepository.save(User.builder()
+                .userName(userToRegister.userName())
+                .userPassword(encodedPassword)
+                .build());
         return ResponseEntity.ok().build();
     }
 }

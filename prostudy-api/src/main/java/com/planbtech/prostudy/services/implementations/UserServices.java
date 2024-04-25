@@ -1,7 +1,6 @@
 package com.planbtech.prostudy.services.implementations;
 
 import com.planbtech.prostudy.DTO.UserDTO;
-import com.planbtech.prostudy.component.Mapper;
 import com.planbtech.prostudy.entities.model.User;
 import com.planbtech.prostudy.repositories.RoleRepository;
 import com.planbtech.prostudy.repositories.UserRepository;
@@ -13,8 +12,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServices implements IUserServices {
 
-    private Mapper mapper;
-
     @Autowired
     private UserRepository userRepository;
 
@@ -23,9 +20,13 @@ public class UserServices implements IUserServices {
 
     @Transactional
     public void createUser(UserDTO userToCreate) {
-        User user = mapper.ofDTO(userToCreate);
-        user.getUserRole().add(roleRepository.findByRoleName("USER"));
-        userRepository.save(user);
+
+        User userToSave = User.builder()
+                .userName(userToCreate.getUserName())
+                .userPassword(userToCreate.getUserPassword())
+                .build();
+        userToSave.getUserRole().add(roleRepository.findByRoleName("USER"));
+        userRepository.save(userToSave);
     }
 
 
@@ -35,6 +36,4 @@ public class UserServices implements IUserServices {
         -> new RuntimeException("Usuario não encontrado")
         );
     }
-
-
 }
