@@ -1,8 +1,7 @@
 package com.planbtech.prostudy.entities.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.UUID;
 
@@ -10,6 +9,9 @@ import java.util.UUID;
 @Getter
 @Entity
 @Table(name = "roles")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Role {
 
     @Id
@@ -18,9 +20,6 @@ public class Role {
 
     @Column(name = "rolename")
     private String roleName;
-
-
-    public Role() {}
 
     public Role(String roleName) {
         this.roleName = roleName;

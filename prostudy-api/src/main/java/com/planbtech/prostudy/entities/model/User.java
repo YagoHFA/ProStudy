@@ -1,8 +1,7 @@
 package com.planbtech.prostudy.entities.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -13,6 +12,9 @@ import java.util.List;
 @Table(name = "users")
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class User implements UserDetails {
 
     @Id
@@ -31,20 +33,6 @@ public class User implements UserDetails {
 
     @ManyToMany
     private List<Role> userRole;
-
-    public User(Long userId, String userName, String userPassword, String userEmail) {
-        this.userId = userId;
-        this.userName = userName;
-        this.userPassword = userPassword;
-        this.userEmail = userEmail;
-    }
-
-    public User() {}
-
-    public User(String userName, String userPassword){
-        this.userName = userName;
-        this.userPassword = userPassword;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -80,6 +68,4 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-
-
 }

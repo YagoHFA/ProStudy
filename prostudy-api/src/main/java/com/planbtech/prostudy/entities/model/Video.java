@@ -2,14 +2,16 @@ package com.planbtech.prostudy.entities.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 
 @Entity
 @Table(name = "videos")
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Video  {
 
     @Id
@@ -25,11 +27,5 @@ public class Video  {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoryid")
     private Category category;
-
-    @JsonBackReference
-    public Category getCategory() {
-        return category;
-    }
-
 
 }

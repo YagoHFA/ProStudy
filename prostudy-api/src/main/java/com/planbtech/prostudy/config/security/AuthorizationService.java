@@ -1,6 +1,5 @@
 package com.planbtech.prostudy.config.security;
 
-import com.planbtech.prostudy.entities.model.User;
 import com.planbtech.prostudy.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,7 +15,6 @@ public class AuthorizationService  implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
         return userRepository
                 .findByUserName(username)
                 .orElseThrow(()-> new UsernameNotFoundException("Usuario não encontrado"));
