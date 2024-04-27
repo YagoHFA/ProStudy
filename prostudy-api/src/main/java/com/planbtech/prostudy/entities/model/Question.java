@@ -29,5 +29,5 @@ public class Question {
     private SkillTest testId;
 
     @OneToMany(mappedBy = "question")
-    private List<Anwers> anwersList;
+    private List<Answer> answerList;
 }

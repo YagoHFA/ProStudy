@@ -3,21 +3,26 @@ package com.planbtech.prostudy.entities.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Anwers {
+public class Answer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long AnwersId;
+    @Column(name = "answerid")
+    private Long AnswersId;
 
-    private String anwers;
+    @Column(name = "answertext")
+    private String answers;
 
-    private float points;
+    @Column(name = "answerpoints")
+    private BigDecimal points;
 
     @ManyToOne
     @JoinColumn(name = "questionid")

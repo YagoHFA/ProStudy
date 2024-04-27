@@ -32,6 +32,9 @@ public class User implements UserDetails {
     private String userEmail;
 
     @ManyToMany
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "userid"),
+            inverseJoinColumns = @JoinColumn(name = "roleid"))
     private List<Role> userRole;
 
     @Override

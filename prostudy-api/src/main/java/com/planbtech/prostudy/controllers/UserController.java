@@ -16,13 +16,4 @@ public class UserController {
     @Autowired
     private IUserServices iUserServices;
 
-    public void createUser(UserDTO userToCreate) {
-         this.iUserServices.createUser(userToCreate);
-    }
-
-    @PostMapping("/register")
-    public void register(@RequestBody UserDTO user){
-       iUserServices.createUser(user);
-    }
-
 }
