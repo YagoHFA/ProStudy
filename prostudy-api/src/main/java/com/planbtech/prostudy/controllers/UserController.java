@@ -16,4 +16,10 @@ public class UserController {
     @Autowired
     private IUserServices iUserServices;
 
+    @PostMapping("conclusion/{userid}/{testid}")
+    public ResponseEntity<Boolean> testConclusion(@PathVariable Long userid, @PathVariable String testid){
+        iUserServices.testConclusion(userid, testid);
+        return ResponseEntity.ok(true);
+    }
+
 }

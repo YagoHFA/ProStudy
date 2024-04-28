@@ -18,3 +18,7 @@ spring:
       settings:
         trace: false
         web-allow-others: false
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:my-secret-key}

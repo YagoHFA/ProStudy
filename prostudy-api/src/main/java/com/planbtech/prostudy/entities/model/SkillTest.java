@@ -29,6 +29,9 @@ public class SkillTest {
     @OneToMany(mappedBy = "testId", cascade = CascadeType.ALL)
     private List<Question> questions;
 
+    @ManyToMany(mappedBy = "skillTests")
+    private List<User> users;
+
     public SkillTest(String testId, String testTitle, String testLongDescription, String testShortDescription) {
         this.testId = testId;
         this.testTitle = testTitle;

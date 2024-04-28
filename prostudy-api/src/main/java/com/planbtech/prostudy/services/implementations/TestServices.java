@@ -1,5 +1,6 @@
 package com.planbtech.prostudy.services.implementations;
 
+import com.planbtech.prostudy.DTO.SkillTestDTO;
 import com.planbtech.prostudy.DTO.SkillTestMinDTO;
 import com.planbtech.prostudy.repositories.TestRepository;
 import com.planbtech.prostudy.services.interfaces.ITesteServices;
@@ -17,5 +18,10 @@ public class TestServices implements ITesteServices {
     @Override
     public List<SkillTestMinDTO> findAll() {
         return testRepository.findAll().stream().map(SkillTestMinDTO::new).toList();
+    }
+
+    @Override
+    public SkillTestDTO findExam(String projectId) {
+        return testRepository.findById(projectId).map(SkillTestDTO::new).orElseThrow();
     }
 }

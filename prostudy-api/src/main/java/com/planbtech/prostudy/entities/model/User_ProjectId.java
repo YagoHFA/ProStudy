@@ -1,6 +1,5 @@
 package com.planbtech.prostudy.entities.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;

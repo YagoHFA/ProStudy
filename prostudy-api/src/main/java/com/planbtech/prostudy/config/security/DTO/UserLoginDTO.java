@@ -1,6 +1,4 @@
-package com.planbtech.prostudy.DTO;
-
-import lombok.*;
+package com.planbtech.prostudy.config.security.DTO;
 
 public record UserLoginDTO(String userName, String password) {
 

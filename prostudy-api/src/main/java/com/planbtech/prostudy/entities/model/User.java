@@ -1,5 +1,6 @@
 package com.planbtech.prostudy.entities.model;
 
+import com.planbtech.prostudy.DTO.SkillTestDTO;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -39,6 +40,12 @@ public class User implements UserDetails {
 
     @OneToMany(mappedBy = "id.userId")
     private List<User_Project> userProjects;
+
+    @ManyToMany
+    @JoinTable(name = "user_skilltest",
+            joinColumns = @JoinColumn(name = "userid"),
+            inverseJoinColumns = @JoinColumn(name = "skilltestid"))
+    private List<SkillTest> skillTests;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

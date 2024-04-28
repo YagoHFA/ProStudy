@@ -1,4 +1,4 @@
-package com.planbtech.prostudy.config.security;
+package com.planbtech.prostudy.config.security.service;
 
 import com.planbtech.prostudy.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
