@@ -1,8 +1,16 @@
 package com.planbtech.prostudy.entities.model;
 
 import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Question {
 
     @Id
@@ -19,4 +27,7 @@ public class Question {
     @ManyToOne
     @JoinColumn(name = "testid", nullable = false)
     private SkillTest testId;
+
+    @OneToMany(mappedBy = "question")
+    private List<Answer> answerList;
 }

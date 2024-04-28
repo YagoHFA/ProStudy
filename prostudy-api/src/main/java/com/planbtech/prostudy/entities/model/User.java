@@ -1,10 +1,22 @@
 package com.planbtech.prostudy.entities.model;
 
+import com.planbtech.prostudy.DTO.SkillTestDTO;
 import jakarta.persistence.*;
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User {
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,35 +32,53 @@ public class User {
     @Column(name = "useremail")
     private String userEmail;
 
-    public Long getUserId() {
-        return this.userId;
+    @ManyToMany
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "userid"),
+            inverseJoinColumns = @JoinColumn(name = "roleid"))
+    private List<Role> userRole;
+
+    @OneToMany(mappedBy = "id.userId")
+    private List<User_Project> userProjects;
+
+    @ManyToMany
+    @JoinTable(name = "user_skilltest",
+            joinColumns = @JoinColumn(name = "userid"),
+            inverseJoinColumns = @JoinColumn(name = "skilltestid"))
+    private List<SkillTest> skillTests;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of();
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getUserName() {
-        return this.userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserPassword() {
+    @Override
+    public String getPassword() {
         return this.userPassword;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    @Override
+    public String getUsername() {
+        return this.userName;
     }
 
-    public String getUserEmail() {
-        return this.userEmail;
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

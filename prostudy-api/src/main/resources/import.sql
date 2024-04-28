@@ -11,3 +11,5 @@ insert  into Category values (1, 'Front-End'), (2, 'Back-end'), (3, 'Banco de Da
  insert into videos (videoid, videotitle, categoryid, videothumb) values ('q4f7MQk3B7Q', 'Fundamentos do HTML5', 1, '../../../assets/img/html.jpg');
  insert into videos (videoid, videotitle, categoryid, videothumb) values ('q2f7MQk3B7Q', 'Fundamentos do HTML5', 1 , '../../../assets/img/html.jpg');
  insert into videos (videoid, videotitle, categoryid, videothumb) values ('q9f7MQk3B7Q', 'Fundamentos do HTML5', 1, '../../../assets/img/html.jpg');
+
+ insert into roles (roleid, rolename) values ('CO1','USER'), ('CO2','Company');

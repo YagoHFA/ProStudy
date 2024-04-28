@@ -1,9 +1,16 @@
 package com.planbtech.prostudy.entities.model;
 
 import jakarta.persistence.*;
+import lombok.*;
+
 import java.util.List;
 
 @Entity(name = "tests")
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class SkillTest {
 
     @Id
@@ -22,9 +29,8 @@ public class SkillTest {
     @OneToMany(mappedBy = "testId", cascade = CascadeType.ALL)
     private List<Question> questions;
 
-    public SkillTest() {
-    }
-
+    @ManyToMany(mappedBy = "skillTests")
+    private List<User> users;
 
     public SkillTest(String testId, String testTitle, String testLongDescription, String testShortDescription) {
         this.testId = testId;
@@ -33,35 +39,4 @@ public class SkillTest {
         this.testShortDescription = testShortDescription;
     }
 
-    public String getTestId() {
-        return testId;
-    }
-
-    public void setTestId(String testId) {
-        this.testId = testId;
-    }
-
-    public String getTestTitle() {
-        return testTitle;
-    }
-
-    public void setTestTitle(String testTitle) {
-        this.testTitle = testTitle;
-    }
-
-    public String getTestLongDescription() {
-        return testLongDescription;
-    }
-
-    public void setTestLongDescription(String testLongDescription) {
-        this.testLongDescription = testLongDescription;
-    }
-
-    public String getTestShortDescription() {
-        return testShortDescription;
-    }
-
-    public void setTestShortDescription(String testShortDescription) {
-        this.testShortDescription = testShortDescription;
-    }
 }
