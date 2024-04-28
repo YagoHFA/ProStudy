@@ -32,6 +32,9 @@ public class SecutiryConfig {
         http    .authorizeHttpRequests(authorize ->authorize
                 .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth/register/user").permitAll()
+                .requestMatchers(HttpMethod.POST, "/auth/register/company").permitAll()
+                .requestMatchers(HttpMethod.GET, "/video/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/category/**").permitAll()
                 .anyRequest().authenticated())
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
