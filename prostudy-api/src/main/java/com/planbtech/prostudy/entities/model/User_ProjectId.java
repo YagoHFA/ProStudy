@@ -10,7 +10,7 @@ public class User_ProjectId {
 
     @ManyToOne
     @JoinColumn(name = "userid")
-    private User userid;
+    private User userId;
 
     @ManyToOne
     @JoinColumn(name = "projectid")

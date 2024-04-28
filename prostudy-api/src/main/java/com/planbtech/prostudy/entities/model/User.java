@@ -37,6 +37,9 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "roleid"))
     private List<Role> userRole;
 
+    @OneToMany(mappedBy = "id.userId")
+    private List<User_Project> userProjects;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of();
