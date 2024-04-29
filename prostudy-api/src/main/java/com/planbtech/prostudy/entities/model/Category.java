@@ -1,6 +1,5 @@
 package com.planbtech.prostudy.entities.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 

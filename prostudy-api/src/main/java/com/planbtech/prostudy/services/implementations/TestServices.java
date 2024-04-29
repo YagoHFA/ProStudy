@@ -21,7 +21,7 @@ public class TestServices implements ITesteServices {
     }
 
     @Override
-    public SkillTestDTO findExam(String projectId) {
-        return testRepository.findById(projectId).map(SkillTestDTO::new).orElseThrow();
+    public SkillTestDTO findExam(String testId) {
+        return testRepository.findById(testId).map(SkillTestDTO::new).orElseThrow();
     }
 }

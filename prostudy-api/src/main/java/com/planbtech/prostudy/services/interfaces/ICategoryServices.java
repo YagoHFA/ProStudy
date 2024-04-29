@@ -1,14 +1,16 @@
 package com.planbtech.prostudy.services.interfaces;
 
-import com.planbtech.prostudy.DTO.CategoryDTO;
-import com.planbtech.prostudy.entities.model.Category;
+import com.planbtech.prostudy.DTO.CategoryTestDTO;
+import com.planbtech.prostudy.DTO.CategoryVideoDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public interface ICategoryServices {
-    List<CategoryDTO> findAll();
+    List<CategoryVideoDTO> findAllVideo();
 
-    CategoryDTO findCategory(String s);
+    CategoryVideoDTO findCategory(String s);
+
+    List<CategoryTestDTO> findAllTest();
 }

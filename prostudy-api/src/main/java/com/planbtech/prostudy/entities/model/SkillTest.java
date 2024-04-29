@@ -37,5 +37,5 @@ public class SkillTest {
             joinColumns=@JoinColumn (name = "testid"),
     inverseJoinColumns = @JoinColumn(name = "categoryid"))
     private List<Category> categoryList;
-    
+
 }

@@ -1,6 +1,6 @@
 package com.planbtech.prostudy;
 
-import com.planbtech.prostudy.DTO.CategoryDTO;
+import com.planbtech.prostudy.DTO.CategoryVideoDTO;
 import com.planbtech.prostudy.entities.model.Category;
 import com.planbtech.prostudy.repositories.CategoryReporitory;
 import org.junit.jupiter.api.Test;
@@ -33,7 +33,7 @@ public class CategoryTest {
 
         Category categoryTest = categoryReporitory.findCategory("Front-End");
 
-        assertEquals(new CategoryDTO(categoryTest), new CategoryDTO(category));
+        assertEquals(new CategoryVideoDTO(categoryTest), new CategoryVideoDTO(category));
     }
 
     @Test
