@@ -32,11 +32,10 @@ public class SkillTest {
     @ManyToMany(mappedBy = "skillTests")
     private List<User> users;
 
-    public SkillTest(String testId, String testTitle, String testLongDescription, String testShortDescription) {
-        this.testId = testId;
-        this.testTitle = testTitle;
-        this.testLongDescription = testLongDescription;
-        this.testShortDescription = testShortDescription;
-    }
-
+    @ManyToMany
+    @JoinTable(name = "testscategory",
+            joinColumns=@JoinColumn (name = "testid"),
+    inverseJoinColumns = @JoinColumn(name = "categoryid"))
+    private List<Category> categoryList;
+    
 }
