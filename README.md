@@ -48,6 +48,8 @@ https://github.com/PlanBTechnology/ProStudy
 
 ![SpringBoot]( https://img.shields.io/badge/Spring_Boot-F2F4F9?style=for-the-badge&logo=spring-boot)
 
+![Angular](https://img.shields.io/badge/Angular-DD0031?logo=angular&logoColor=fff&style=flat)
+
 
 <h2 id = "Desenvolvedores/Contribuintes:">Desenvolvedores/Contribuintes:</h2> 
 <p>Yago Almeida - BackEnd</p>
