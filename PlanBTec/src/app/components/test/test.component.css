@@ -1,0 +1,17 @@
+.title{
+    font-size: 1.5em;
+    font-weight: bolder;
+    color: #D7F9FF;
+    white-space: nowrap;
+    font-family: "Chakra Petch", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.items {
+    display: flex;
+    margin-left: 100px;
+    text-align: center;
+    justify-items: center;
+}

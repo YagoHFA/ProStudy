@@ -16,6 +16,8 @@ import { SecondHeaderComponent } from './components/second-header/second-header.
 import { RegisterComponent } from './pages/register/register.component';
 import { VideopageComponent } from './pages/videopage/videopage.component';
 import { LandingpageComponent } from './pages/landingpage/landingpage.component';
+import { TestPageComponent } from './pages/test-page/test-page.component';
+import { TestListComponent } from './components/test-list/test-list.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { LandingpageComponent } from './pages/landingpage/landingpage.component'
     SecondHeaderComponent,
     RegisterComponent,
     VideopageComponent,
-    LandingpageComponent
+    LandingpageComponent,
+    TestPageComponent,
+    TestListComponent
   ],
   imports: [
     BrowserModule,

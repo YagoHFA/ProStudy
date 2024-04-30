@@ -1,0 +1,13 @@
+<div class="test-carousel" #testeCarousel>
+    <div class="testList">
+      <div *ngFor="let test of testList" class="test-item">
+        <div>
+          <label for="" class="title">{{test.testTitle}}</label>
+          <a routerLink="/videopage/watch" [queryParams]="{v:test.testId}"></a>
+        </div>
+      </div>
+    </div>
+    <button class="prev-button" (click)="prevSlide()">Anterior</button>
+    <button class="next-button" (click)="nextSlide()">Próximo</button>
+  </div>
+  

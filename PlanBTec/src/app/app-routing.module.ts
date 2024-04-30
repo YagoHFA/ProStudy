@@ -5,13 +5,15 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { VideopageComponent } from './pages/videopage/videopage.component';
 import { LandingpageComponent } from './pages/landingpage/landingpage.component';
+import { TestPageComponent } from './pages/test-page/test-page.component';
 
 const routes: Routes = [{path: "homepage", component: HomepageComponent},
 {path: "", redirectTo: "landingpage", pathMatch: 'full'},
 {path: "login", component: LoginComponent},
 {path: "register", component: RegisterComponent},
 {path: "videopage/watch", component: VideopageComponent},
-{path: "landingpage", component:LandingpageComponent}];
+{path: "landingpage", component:LandingpageComponent},
+{path: "testpage", component:TestPageComponent}];
 
 
 @NgModule({
