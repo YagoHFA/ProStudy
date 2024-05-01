@@ -15,11 +15,6 @@ export class HomepageConfigService {
   categoryList(): Observable<Category[]> {
 
         const url = 'http://localhost:8080/category/allcategory';
-        this.http.get<Category[]>(url).subscribe(x => x.forEach((y) =>{
-          console.log(y.categoryName)
-          console.log(y.videoList)
-          y.videoList.forEach(z => console.log(z.videoTitle))
-        }));
         return this.http.get<Category[]>(url);
       }
     ;

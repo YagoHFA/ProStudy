@@ -18,6 +18,9 @@ import { VideopageComponent } from './pages/videopage/videopage.component';
 import { LandingpageComponent } from './pages/landingpage/landingpage.component';
 import { TestPageComponent } from './pages/test-page/test-page.component';
 import { TestListComponent } from './components/test-list/test-list.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -41,6 +44,8 @@ import { TestListComponent } from './components/test-list/test-list.component';
     AppRoutingModule,
     YouTubePlayerModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration(),

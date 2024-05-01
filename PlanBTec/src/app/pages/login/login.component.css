@@ -40,6 +40,17 @@
     margin-top: 10px;
 }
 
+.login-box input[type="submit"]:disabled {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: gray;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
 .button-cadastro{
     width: 100%;
     padding: 10px;
