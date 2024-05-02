@@ -24,6 +24,9 @@ public class Project {
     @Column(name = "projectdescription")
     private String projectDescription;
 
+    @Column(name = "projectURL")
+    private String projectURL;
+
     @OneToMany(mappedBy = "id.projectId")
     private List<User_Project> ProjectsUser;
 

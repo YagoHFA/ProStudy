@@ -102,6 +102,7 @@ public class UserServices implements IUserServices {
                                                         .stream()
                                                         .map(categoryRepository::findByCategoryName)
                                                         .toList())
+                                                .projectURL(projectDTO.getProjectURL())
                                                 .build())
                                         .build()
 
