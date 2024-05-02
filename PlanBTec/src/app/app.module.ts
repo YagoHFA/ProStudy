@@ -22,6 +22,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CategoryTestComponent } from './components/category-test/category-test.component';
 import { TesthomeComponent } from './pages/testhome/testhome.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { TesthomeComponent } from './pages/testhome/testhome.component';
   providers: [
     provideClientHydration(),
     provideHttpClient(withFetch()),
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })
