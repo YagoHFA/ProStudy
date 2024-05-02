@@ -22,6 +22,8 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CategoryTestComponent } from './components/category-test/category-test.component';
 import { TesthomeComponent } from './pages/testhome/testhome.component';
+import { MainFooterComponent } from './components/main-footer/main-footer.component';
+import { QuestionComponent } from './components/question/question.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { TesthomeComponent } from './pages/testhome/testhome.component';
     TestPageComponent,
     TestListComponent,
     CategoryTestComponent,
-    TesthomeComponent
+    TesthomeComponent,
+    MainFooterComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,19 @@
+.bottom-bar {
+    background-color: #160027;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.contacts {
+    margin-bottom: 10px;
+}
+
+.contact-img {
+    width: 20px;
+    margin: 0 2px;
+    vertical-align: middle;
+}
