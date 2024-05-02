@@ -1,5 +1,6 @@
 package com.planbtech.prostudy.services.implementations;
 
+import com.planbtech.prostudy.DTO.CategoryDTO.CategoryMinDTO;
 import com.planbtech.prostudy.DTO.CategoryDTO.CategoryTestDTO;
 import com.planbtech.prostudy.DTO.CategoryDTO.CategoryVideoDTO;
 import com.planbtech.prostudy.repositories.CategoryReporitory;
@@ -30,5 +31,10 @@ public class CategoryServices implements ICategoryServices {
     @Override
     public List<CategoryTestDTO> findAllTest() {
         return categoryRepository.findAllCategoryWithTest().stream().map(CategoryTestDTO::new).toList();
+    }
+
+    @Override
+    public List<CategoryMinDTO> findAllCategoryName() {
+        return categoryRepository.findAllCategorName().stream().map(CategoryMinDTO::new).toList();
     }
 }

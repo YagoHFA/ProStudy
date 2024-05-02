@@ -34,7 +34,7 @@ public class CategoryController {
     public ResponseEntity<List<CategoryMinDTO>> toolsList(){
         try
         {
-            categoryServices.fin
+            return ResponseEntity.ok(categoryServices.findAllCategoryName());
         }
         catch (Exception e){
             return ResponseEntity.notFound().build();
