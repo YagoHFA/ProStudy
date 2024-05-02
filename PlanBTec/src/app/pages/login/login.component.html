@@ -4,12 +4,12 @@
     <div class="login-box">
         <h2 class="titulos">Login</h2>
         <p>Entre na sua conta com os dados que realizou ao se registrar</p>
-        <form>
+        <form [formGroup]="loginForm" (ngSubmit)="login()" >
             <label for="email">E-mail:</label><br>
-            <input type="text" id="email" name="email"><br>
+            <input type="text" formControlName="userName"  id="email" name="email" required ><br>
             <label for="password">Senha:</label><br>
-            <input type="password" id="password" name="password"><br>
-            <input class="bold" type="submit" routerLink="/homepage" value="Entrar">
+            <input type="password" id="password" name="password" formControlName="password" required><br>
+            <input class="bold" type="submit" value="Entrar" >
         </form>
         <div class="retangulo">
             <div class="signup-box">

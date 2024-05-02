@@ -3,8 +3,14 @@ package com.planbtech.prostudy.entities.model;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 @Embeddable
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class User_ProjectId {
 
     @ManyToOne

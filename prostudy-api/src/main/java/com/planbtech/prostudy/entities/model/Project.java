@@ -1,10 +1,8 @@
 package com.planbtech.prostudy.entities.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.ManyToAny;
 
 import java.util.List;
 
@@ -26,6 +24,15 @@ public class Project {
     @Column(name = "projectdescription")
     private String projectDescription;
 
+    @Column(name = "projectURL")
+    private String projectURL;
+
     @OneToMany(mappedBy = "id.projectId")
     private List<User_Project> ProjectsUser;
+
+    @ManyToAny
+    @JoinTable(name = "project_tools",
+            joinColumns = @JoinColumn(name = "projectid"),
+            inverseJoinColumns = @JoinColumn(name = "categoryid"))
+    private List<Category> tools;
 }
