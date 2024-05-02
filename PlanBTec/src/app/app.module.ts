@@ -20,6 +20,8 @@ import { TestPageComponent } from './pages/test-page/test-page.component';
 import { TestListComponent } from './components/test-list/test-list.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CategoryTestComponent } from './components/category-test/category-test.component';
+import { TesthomeComponent } from './pages/testhome/testhome.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     VideopageComponent,
     LandingpageComponent,
     TestPageComponent,
-    TestListComponent
+    TestListComponent,
+    CategoryTestComponent,
+    TesthomeComponent
   ],
   imports: [
     BrowserModule,
