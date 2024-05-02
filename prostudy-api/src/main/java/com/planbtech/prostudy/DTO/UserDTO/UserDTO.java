@@ -1,4 +1,4 @@
-package com.planbtech.prostudy.DTO;
+package com.planbtech.prostudy.DTO.UserDTO;
 
 import com.planbtech.prostudy.entities.model.User;
 import lombok.*;

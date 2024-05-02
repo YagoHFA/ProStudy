@@ -1,6 +1,6 @@
 package com.planbtech.prostudy;
 
-import com.planbtech.prostudy.DTO.CategoryVideoDTO;
+import com.planbtech.prostudy.DTO.CategoryDTO.CategoryVideoDTO;
 import com.planbtech.prostudy.entities.model.Category;
 import com.planbtech.prostudy.repositories.CategoryReporitory;
 import org.junit.jupiter.api.Test;

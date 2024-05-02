@@ -1,7 +1,7 @@
 package com.planbtech.prostudy.services.implementations;
 
-import com.planbtech.prostudy.DTO.CategoryTestDTO;
-import com.planbtech.prostudy.DTO.CategoryVideoDTO;
+import com.planbtech.prostudy.DTO.CategoryDTO.CategoryTestDTO;
+import com.planbtech.prostudy.DTO.CategoryDTO.CategoryVideoDTO;
 import com.planbtech.prostudy.repositories.CategoryReporitory;
 import com.planbtech.prostudy.services.interfaces.ICategoryServices;
 import jakarta.transaction.Transactional;

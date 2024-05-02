@@ -1,7 +1,7 @@
 package com.planbtech.prostudy.services.interfaces;
 
-import com.planbtech.prostudy.DTO.CategoryTestDTO;
-import com.planbtech.prostudy.DTO.CategoryVideoDTO;
+import com.planbtech.prostudy.DTO.CategoryDTO.CategoryTestDTO;
+import com.planbtech.prostudy.DTO.CategoryDTO.CategoryVideoDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

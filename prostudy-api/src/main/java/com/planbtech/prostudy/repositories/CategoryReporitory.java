@@ -17,4 +17,7 @@ public interface CategoryReporitory extends JpaRepository<Category, Long> {
     List<Category> findAllCategoryWithTest();
 
     Category findByCategoryName(String categoryName);
+
+    @Query(value = "select categoryname from category", nativeQuery = true)
+    List<Category> findAllCategorName();
 }

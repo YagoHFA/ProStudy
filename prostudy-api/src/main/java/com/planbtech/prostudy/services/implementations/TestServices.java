@@ -1,7 +1,7 @@
 package com.planbtech.prostudy.services.implementations;
 
-import com.planbtech.prostudy.DTO.SkillTestDTO;
-import com.planbtech.prostudy.DTO.SkillTestMinDTO;
+import com.planbtech.prostudy.DTO.SkillTestDTO.SkillTestDTO;
+import com.planbtech.prostudy.DTO.SkillTestDTO.SkillTestMinDTO;
 import com.planbtech.prostudy.repositories.TestRepository;
 import com.planbtech.prostudy.services.interfaces.ITesteServices;
 import org.springframework.beans.factory.annotation.Autowired;

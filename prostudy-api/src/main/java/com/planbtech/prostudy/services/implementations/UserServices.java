@@ -1,7 +1,7 @@
 package com.planbtech.prostudy.services.implementations;
 
-import com.planbtech.prostudy.DTO.ProjectAddDTO;
-import com.planbtech.prostudy.DTO.UserDTO;
+import com.planbtech.prostudy.DTO.ProjectDTO.ProjectAddDTO;
+import com.planbtech.prostudy.DTO.UserDTO.UserDTO;
 import com.planbtech.prostudy.config.security.DTO.UserRegisterDTO;
 import com.planbtech.prostudy.config.security.service.TokenService;
 import com.planbtech.prostudy.entities.model.Project;

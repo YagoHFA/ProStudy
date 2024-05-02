@@ -1,6 +1,6 @@
 package com.planbtech.prostudy.services.interfaces;
 
-import com.planbtech.prostudy.DTO.ProjectUpdateDTO;
+import com.planbtech.prostudy.DTO.ProjectDTO.ProjectUpdateDTO;
 import org.springframework.stereotype.Service;
 
 @Service

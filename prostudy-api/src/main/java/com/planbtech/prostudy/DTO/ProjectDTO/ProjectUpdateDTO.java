@@ -1,4 +1,4 @@
-package com.planbtech.prostudy.DTO;
+package com.planbtech.prostudy.DTO.ProjectDTO;
 
 import lombok.*;
 

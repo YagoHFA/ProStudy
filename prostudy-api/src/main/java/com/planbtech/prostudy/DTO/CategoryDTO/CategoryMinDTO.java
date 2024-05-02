@@ -1,9 +1,7 @@
-package com.planbtech.prostudy.DTO;
+package com.planbtech.prostudy.DTO.CategoryDTO;
 
 import com.planbtech.prostudy.entities.model.Category;
 import lombok.*;
-
-import javax.swing.text.html.parser.Entity;
 
 @Builder
 @Getter

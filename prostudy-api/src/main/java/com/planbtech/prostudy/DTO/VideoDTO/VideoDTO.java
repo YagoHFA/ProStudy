@@ -1,4 +1,4 @@
-package com.planbtech.prostudy.DTO;
+package com.planbtech.prostudy.DTO.VideoDTO;
 
 
 import com.planbtech.prostudy.entities.model.Video;

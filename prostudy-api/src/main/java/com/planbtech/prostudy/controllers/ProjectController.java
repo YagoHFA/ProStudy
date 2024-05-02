@@ -1,6 +1,6 @@
 package com.planbtech.prostudy.controllers;
 
-import com.planbtech.prostudy.DTO.ProjectUpdateDTO;
+import com.planbtech.prostudy.DTO.ProjectDTO.ProjectUpdateDTO;
 import com.planbtech.prostudy.services.interfaces.IProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

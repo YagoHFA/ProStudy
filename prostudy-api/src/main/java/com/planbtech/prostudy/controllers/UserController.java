@@ -1,8 +1,6 @@
 package com.planbtech.prostudy.controllers;
 
-import com.planbtech.prostudy.DTO.ProjectAddDTO;
-import com.planbtech.prostudy.DTO.UserDTO;
-import com.planbtech.prostudy.entities.model.User;
+import com.planbtech.prostudy.DTO.ProjectDTO.ProjectAddDTO;
 import com.planbtech.prostudy.services.interfaces.IUserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 

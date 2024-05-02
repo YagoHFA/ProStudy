@@ -1,6 +1,6 @@
 package com.planbtech.prostudy.services.implementations;
 
-import com.planbtech.prostudy.DTO.ProjectUpdateDTO;
+import com.planbtech.prostudy.DTO.ProjectDTO.ProjectUpdateDTO;
 import com.planbtech.prostudy.entities.model.Project;
 import com.planbtech.prostudy.repositories.CategoryReporitory;
 import com.planbtech.prostudy.repositories.ProjectRepository;
@@ -18,8 +18,9 @@ public class ProjectServices implements IProjectService {
     private CategoryReporitory categoryReporitory;
 
     @Override
-    public void updateProject(ProjectUpdateDTO projectUpdateDTO) {
-        Project projectToUpdate = projectRepository.findById(projectUpdateDTO.getId()).orElseThrow();
+    public void updateProject(ProjectUpdateDTO projectUpdateDTO){
+        Project projectToUpdate = projectRepository.findById(projectUpdateDTO.getId())
+                .orElseThrow();
         projectToUpdate.setProjectName(projectUpdateDTO.getTitle());
         projectToUpdate.setProjectDescription(projectUpdateDTO.getDescription());
         projectToUpdate.setTools(projectUpdateDTO.getTools().stream().map(categoryReporitory::findByCategoryName).toList());
