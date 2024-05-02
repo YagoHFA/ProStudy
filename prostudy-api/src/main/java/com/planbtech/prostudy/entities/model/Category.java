@@ -26,5 +26,8 @@ public class Category {
 
     @ManyToMany(mappedBy = "categoryList")
     private List<SkillTest> skillTestList;
+
+    @ManyToMany(mappedBy = "tools")
+    private List<Project> projectList;
 }
 

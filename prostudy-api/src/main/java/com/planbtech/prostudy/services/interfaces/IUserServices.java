@@ -1,5 +1,6 @@
 package com.planbtech.prostudy.services.interfaces;
 
+import com.planbtech.prostudy.DTO.ProjectAddDTO;
 import com.planbtech.prostudy.DTO.UserDTO;
 import com.planbtech.prostudy.config.security.DTO.UserRegisterDTO;
 import com.planbtech.prostudy.entities.model.User;
@@ -18,4 +19,6 @@ public interface IUserServices {
     void testConclusion(Long userid, String testid);
 
     void createCompany(UserRegisterDTO userToRegister);
+
+    void addProject(ProjectAddDTO projectDTO);
 }
