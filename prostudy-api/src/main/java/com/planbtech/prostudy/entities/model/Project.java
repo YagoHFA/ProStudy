@@ -28,11 +28,11 @@ public class Project {
     private String projectURL;
 
     @OneToMany(mappedBy = "id.projectId")
-    private List<User_Project> ProjectsUser;
+    private List<User_Project> projectsUser;
 
-    @ManyToAny
+    @ManyToMany
     @JoinTable(name = "project_tools",
             joinColumns = @JoinColumn(name = "projectid"),
-            inverseJoinColumns = @JoinColumn(name = "categoryid"))
+            inverseJoinColumns = @JoinColumn(name = "toolsid"))
     private List<Category> tools;
 }

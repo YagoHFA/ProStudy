@@ -23,16 +23,19 @@ public class CategoryServices implements ICategoryServices {
         return categoryRepository.findAll().stream().map(CategoryVideoDTO::new).toList();
     }
 
+    @Transactional
     @Override
     public CategoryVideoDTO findCategory(String s) {
         return new CategoryVideoDTO(categoryRepository.findCategory(s));
     }
 
+    @Transactional
     @Override
     public List<CategoryTestDTO> findAllTest() {
         return categoryRepository.findAllCategoryWithTest().stream().map(CategoryTestDTO::new).toList();
     }
 
+    @Transactional
     @Override
     public List<CategoryMinDTO> findAllCategoryName() {
         return categoryRepository.findAllCategorName().stream().map(CategoryMinDTO::new).toList();

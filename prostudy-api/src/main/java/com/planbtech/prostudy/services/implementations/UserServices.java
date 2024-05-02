@@ -40,6 +40,7 @@ public class UserServices implements IUserServices {
     private CategoryReporitory categoryRepository;
 
     @Transactional
+    @Override
     public void createUser(UserRegisterDTO userToRegister) {
         String encodedPassword = new BCryptPasswordEncoder().encode(userToRegister.password());
         User userToSave = User.builder()
@@ -52,18 +53,21 @@ public class UserServices implements IUserServices {
     }
 
     @Override
+    @Transactional
     public Optional<User> findByUserName(String userName) {
         return userRepository.findByUserName(userName);
     }
 
 
     @Transactional
+    @Override
     public UserDTO update(UserDTO user) {
         return userRepository.findById(user.getUserId()).map((x -> new UserDTO(userRepository.save(x)))).orElseThrow(()
         -> new RuntimeException("Usuario não encontrado")
         );
     }
 
+    @Transactional
     @Override
     public void testConclusion(Long userid, String testid) {
         User userToUpdate = userRepository.findById(userid).orElseThrow();
@@ -71,6 +75,7 @@ public class UserServices implements IUserServices {
         userRepository.save(userToUpdate);
     }
 
+    @Transactional
     @Override
     public void createCompany(UserRegisterDTO userToRegister) {
         String encodedPassword = new BCryptPasswordEncoder().encode(userToRegister.password());
@@ -83,6 +88,7 @@ public class UserServices implements IUserServices {
         userRepository.save(userToSave);
     }
 
+    @Transactional
     @Override
     public void addProject(ProjectAddDTO projectDTO) {
         String username = tokenService.validateToken(projectDTO.getProjectOwner());
