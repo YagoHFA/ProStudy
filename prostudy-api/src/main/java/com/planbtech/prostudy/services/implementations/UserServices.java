@@ -1,6 +1,7 @@
 package com.planbtech.prostudy.services.implementations;
 
 import com.planbtech.prostudy.DTO.ProjectDTO.ProjectAddDTO;
+import com.planbtech.prostudy.DTO.SkillTestDTO.TestCompleteDTO;
 import com.planbtech.prostudy.DTO.UserDTO.UserDTO;
 import com.planbtech.prostudy.config.security.DTO.UserRegisterDTO;
 import com.planbtech.prostudy.config.security.service.TokenService;
@@ -116,5 +117,12 @@ public class UserServices implements IUserServices {
                         .permission("Owner")
                         .build()
         );
+    }
+
+    @Override
+    public void completeTest(TestCompleteDTO testCompleteDTO) {
+        User userToComplete = userRepository.findByUserName(testCompleteDTO.getUserName()).orElseThrow();
+        userToComplete.getSkillTests().add(testRepository.findById(testCompleteDTO.getTestId()).orElseThrow());
+        userRepository.save(userToComplete);
     }
 }

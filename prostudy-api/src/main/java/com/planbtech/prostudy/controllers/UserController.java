@@ -1,12 +1,15 @@
 package com.planbtech.prostudy.controllers;
 
 import com.planbtech.prostudy.DTO.ProjectDTO.ProjectAddDTO;
+import com.planbtech.prostudy.DTO.SkillTestDTO.TestCompleteDTO;
 import com.planbtech.prostudy.services.interfaces.IUserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/user")
@@ -31,5 +34,17 @@ public class UserController {
         }
 
         return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/test/complete")
+    public ResponseEntity<String> compleTest(@RequestBody TestCompleteDTO testCompleteDTO){
+        try {
+            iUserServices.completeTest(testCompleteDTO);
+
+        }
+        catch (Exception e){
+            return ResponseEntity.badRequest().build();
+        }
+
     }
 }
