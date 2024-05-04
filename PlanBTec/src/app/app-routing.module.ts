@@ -6,6 +6,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { VideopageComponent } from './pages/videopage/videopage.component';
 import { LandingpageComponent } from './pages/landingpage/landingpage.component';
 import { TestPageComponent } from './pages/test-page/test-page.component';
+import { TesthomeComponent } from './pages/testhome/testhome.component';
 
 const routes: Routes = [{path: "homepage", component: HomepageComponent},
 {path: "", redirectTo: "landingpage", pathMatch: 'full'},
@@ -13,7 +14,8 @@ const routes: Routes = [{path: "homepage", component: HomepageComponent},
 {path: "register", component: RegisterComponent},
 {path: "videopage/watch", component: VideopageComponent},
 {path: "landingpage", component:LandingpageComponent},
-{path: "testpage", component:TestPageComponent}];
+{path: "testpage", component:TestPageComponent},
+{path: "testCatalog", component:TesthomeComponent}];
 
 
 @NgModule({

@@ -1,7 +1,8 @@
 package com.planbtech.prostudy.controllers;
 
-import com.planbtech.prostudy.DTO.CategoryTestDTO;
-import com.planbtech.prostudy.DTO.CategoryVideoDTO;
+import com.planbtech.prostudy.DTO.CategoryDTO.CategoryMinDTO;
+import com.planbtech.prostudy.DTO.CategoryDTO.CategoryTestDTO;
+import com.planbtech.prostudy.DTO.CategoryDTO.CategoryVideoDTO;
 import com.planbtech.prostudy.services.interfaces.ICategoryServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,5 +29,16 @@ public class CategoryController {
     @GetMapping("/test/allcategory")
     public ResponseEntity<List<CategoryTestDTO>> listCategoryTests(){
         return ResponseEntity.ok(categoryServices.findAllTest());
+    }
+
+    @GetMapping("tools/alltools")
+    public ResponseEntity<List<CategoryMinDTO>> toolsList(){
+        try
+        {
+            return ResponseEntity.ok(categoryServices.findAllCategoryName());
+        }
+        catch (Exception e){
+            return ResponseEntity.notFound().build();
+        }
     }
 }

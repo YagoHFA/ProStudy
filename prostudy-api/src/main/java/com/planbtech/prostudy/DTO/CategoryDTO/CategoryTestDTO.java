@@ -1,5 +1,6 @@
-package com.planbtech.prostudy.DTO;
+package com.planbtech.prostudy.DTO.CategoryDTO;
 
+import com.planbtech.prostudy.DTO.SkillTestDTO.SkillTestMinDTO;
 import com.planbtech.prostudy.entities.model.Category;
 import lombok.*;
 

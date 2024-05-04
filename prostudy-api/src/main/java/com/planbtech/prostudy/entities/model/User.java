@@ -1,6 +1,5 @@
 package com.planbtech.prostudy.entities.model;
 
-import com.planbtech.prostudy.DTO.SkillTestDTO;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;

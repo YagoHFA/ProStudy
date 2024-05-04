@@ -1,6 +1,6 @@
 package com.planbtech.prostudy.controllers;
 
-import com.planbtech.prostudy.DTO.VideoDTO;
+import com.planbtech.prostudy.DTO.VideoDTO.VideoDTO;
 import com.planbtech.prostudy.services.interfaces.IVideoServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

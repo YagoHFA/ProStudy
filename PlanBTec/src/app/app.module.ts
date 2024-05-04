@@ -24,6 +24,7 @@ import { CategoryTestComponent } from './components/category-test/category-test.
 import { TesthomeComponent } from './pages/testhome/testhome.component';
 import { MainFooterComponent } from './components/main-footer/main-footer.component';
 import { QuestionComponent } from './components/question/question.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { QuestionComponent } from './components/question/question.component';
   providers: [
     provideClientHydration(),
     provideHttpClient(withFetch()),
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })

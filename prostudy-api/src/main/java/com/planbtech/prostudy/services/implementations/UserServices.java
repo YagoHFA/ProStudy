@@ -1,7 +1,8 @@
 package com.planbtech.prostudy.services.implementations;
 
-import com.planbtech.prostudy.DTO.ProjectAddDTO;
-import com.planbtech.prostudy.DTO.UserDTO;
+import com.planbtech.prostudy.DTO.ProjectDTO.ProjectAddDTO;
+import com.planbtech.prostudy.DTO.SkillTestDTO.TestCompleteDTO;
+import com.planbtech.prostudy.DTO.UserDTO.UserDTO;
 import com.planbtech.prostudy.config.security.DTO.UserRegisterDTO;
 import com.planbtech.prostudy.config.security.service.TokenService;
 import com.planbtech.prostudy.entities.model.Project;
@@ -40,6 +41,7 @@ public class UserServices implements IUserServices {
     private CategoryReporitory categoryRepository;
 
     @Transactional
+    @Override
     public void createUser(UserRegisterDTO userToRegister) {
         String encodedPassword = new BCryptPasswordEncoder().encode(userToRegister.password());
         User userToSave = User.builder()
@@ -52,25 +54,21 @@ public class UserServices implements IUserServices {
     }
 
     @Override
+    @Transactional
     public Optional<User> findByUserName(String userName) {
         return userRepository.findByUserName(userName);
     }
 
 
     @Transactional
+    @Override
     public UserDTO update(UserDTO user) {
         return userRepository.findById(user.getUserId()).map((x -> new UserDTO(userRepository.save(x)))).orElseThrow(()
         -> new RuntimeException("Usuario não encontrado")
         );
     }
 
-    @Override
-    public void testConclusion(Long userid, String testid) {
-        User userToUpdate = userRepository.findById(userid).orElseThrow();
-        userToUpdate.getSkillTests().add(testRepository.findById(testid).orElseThrow());
-        userRepository.save(userToUpdate);
-    }
-
+    @Transactional
     @Override
     public void createCompany(UserRegisterDTO userToRegister) {
         String encodedPassword = new BCryptPasswordEncoder().encode(userToRegister.password());
@@ -83,6 +81,7 @@ public class UserServices implements IUserServices {
         userRepository.save(userToSave);
     }
 
+    @Transactional
     @Override
     public void addProject(ProjectAddDTO projectDTO) {
         String username = tokenService.validateToken(projectDTO.getProjectOwner());
@@ -110,5 +109,13 @@ public class UserServices implements IUserServices {
                         .permission("Owner")
                         .build()
         );
+    }
+
+    @Transactional
+    @Override
+    public void completeTest(TestCompleteDTO testCompleteDTO) {
+        User userToComplete = userRepository.findByUserName(testCompleteDTO.getUserName()).orElseThrow();
+        userToComplete.getSkillTests().add(testRepository.findById(testCompleteDTO.getTestId()).orElseThrow());
+        userRepository.save(userToComplete);
     }
 }

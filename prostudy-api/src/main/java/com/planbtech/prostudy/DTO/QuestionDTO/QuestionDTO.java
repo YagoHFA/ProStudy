@@ -1,5 +1,6 @@
-package com.planbtech.prostudy.DTO;
+package com.planbtech.prostudy.DTO.QuestionDTO;
 
+import com.planbtech.prostudy.DTO.AnswersDTO.AnswersDTO;
 import com.planbtech.prostudy.entities.model.Question;
 import lombok.*;
 
