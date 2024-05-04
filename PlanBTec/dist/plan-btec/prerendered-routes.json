@@ -1,0 +1,11 @@
+{
+  "routes": [
+    "/homepage",
+    "/landingpage",
+    "/login",
+    "/register",
+    "/testCatalog",
+    "/testpage",
+    "/videopage/watch"
+  ]
+}
