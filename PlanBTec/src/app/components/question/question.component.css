@@ -1,0 +1,18 @@
+.item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+.pergunta {
+    font-size: 18px;
+    white-space: pre-line;
+}
+
+.formulario {
+    text-align: left;
+    margin-top: 10px;
+}

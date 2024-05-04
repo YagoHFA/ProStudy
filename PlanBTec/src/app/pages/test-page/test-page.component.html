@@ -2,10 +2,26 @@
     <app-main-header></app-main-header>
 </header>
 <div class="backgroud">
-    <div>
-        <div class="tests">
-          
+    <div class="container">
+        <div class="centralizado">
+            <div class="img-text-container">
+                <img src="assets/img/html2.png" alt="Imagem">
+                <div>
+                    <h1>Teste HTML Básico</h1>
+                    <p>Questão 2 de 20</p>
+                </div>
+            </div>
+        </div>
+        <div class="questoes">
+            <app-question></app-question>
+            <div class="botao">
+                <button class="botao-menu-transp">Questão anterior</button>
+                <button class="botao-menu-azul" onclick="window.location.href='aprovado.html'">Próxima questão</button>
+            </div>
         </div>
     </div>
 </div>
+<footer>
+    <app-main-footer></app-main-footer>
+</footer>
 
