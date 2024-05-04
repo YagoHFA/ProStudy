@@ -30,6 +30,7 @@ public class CategoryController {
     public ResponseEntity<List<CategoryTestDTO>> listCategoryTests(){
         return ResponseEntity.ok(categoryServices.findAllTest());
     }
+
     @GetMapping("tools/alltools")
     public ResponseEntity<List<CategoryMinDTO>> toolsList(){
         try

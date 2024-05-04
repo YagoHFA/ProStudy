@@ -17,8 +17,6 @@ public interface IUserServices {
 
     UserDTO update(UserDTO user);
 
-    void testConclusion(Long userid, String testid);
-
     void createCompany(UserRegisterDTO userToRegister);
 
     void addProject(ProjectAddDTO projectDTO);

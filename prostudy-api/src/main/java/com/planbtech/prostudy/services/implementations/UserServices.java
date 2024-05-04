@@ -70,14 +70,6 @@ public class UserServices implements IUserServices {
 
     @Transactional
     @Override
-    public void testConclusion(Long userid, String testid) {
-        User userToUpdate = userRepository.findById(userid).orElseThrow();
-        userToUpdate.getSkillTests().add(testRepository.findById(testid).orElseThrow());
-        userRepository.save(userToUpdate);
-    }
-
-    @Transactional
-    @Override
     public void createCompany(UserRegisterDTO userToRegister) {
         String encodedPassword = new BCryptPasswordEncoder().encode(userToRegister.password());
         User userToSave = User.builder()
@@ -119,6 +111,7 @@ public class UserServices implements IUserServices {
         );
     }
 
+    @Transactional
     @Override
     public void completeTest(TestCompleteDTO testCompleteDTO) {
         User userToComplete = userRepository.findByUserName(testCompleteDTO.getUserName()).orElseThrow();
