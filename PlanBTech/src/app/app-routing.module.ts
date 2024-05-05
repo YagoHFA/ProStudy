@@ -15,7 +15,8 @@ const routes: Routes = [{path: "homepage", component: HomepageComponent},
 {path: "videopage/watch", component: VideopageComponent},
 {path: "landingpage", component:LandingpageComponent},
 {path: "testpage", component:TestPageComponent},
-{path: "testCatalog", component:TesthomeComponent}];
+{path: "testCatalog", component:TesthomeComponent},
+{path: "**", redirectTo: "landingpage", pathMatch: 'full'}];
 
 
 @NgModule({
