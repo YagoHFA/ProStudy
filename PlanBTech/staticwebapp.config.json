@@ -5,8 +5,8 @@
 ,
   "routes": [
     {
-      "route": "/",
-      "rewrite": "/index.html"
+      "route": "/*",
+      "rewrite": "/landingpage/index.html"
     }
   ]
 }
