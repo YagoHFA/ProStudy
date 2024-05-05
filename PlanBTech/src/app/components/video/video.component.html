@@ -5,7 +5,9 @@
             <p class="title">{{video.videoTitle}}</p>
           </div>
           <div>
-            <youtube-player [videoId]="video.videoId" [height]="400"[width]="800"></youtube-player>
+            <iframe width="800" height="400"
+            [src]="getVideoURL(video.videoId)"
+             frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
     </div>
