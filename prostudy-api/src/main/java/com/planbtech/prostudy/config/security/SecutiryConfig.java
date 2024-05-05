@@ -30,12 +30,13 @@ public class SecutiryConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http    .authorizeHttpRequests(authorize ->authorize
-                .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
-                .requestMatchers(HttpMethod.POST, "/auth/register/user").permitAll()
-                .requestMatchers(HttpMethod.POST, "/auth/register/company").permitAll()
-                .requestMatchers(HttpMethod.GET, "/category/**").permitAll()
-                .requestMatchers(HttpMethod.GET, "/test/find/**").authenticated()
-                .anyRequest().authenticated())
+                        .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/auth/register/user").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/auth/register/company").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/category/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/test/find/**").authenticated()
+                        .requestMatchers(HttpMethod.GET, "/video/**").permitAll()
+                        .anyRequest().authenticated())
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(securityFilter , UsernamePasswordAuthenticationFilter.class);

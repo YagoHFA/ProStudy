@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, input } from '@angular/core';
 import { Video } from '../../class/video';
+import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-video',
@@ -8,7 +9,12 @@ import { Video } from '../../class/video';
 })
 export class VideoComponent implements OnInit{
 
-  constructor(){
+getVideoURL(videoId: string):SafeResourceUrl  {
+  const videoUrl = `https://www.youtube.com/embed/${videoId}`;
+  return this.sanitizer.bypassSecurityTrustResourceUrl(videoUrl);
+}
+
+  constructor(private sanitizer:DomSanitizer){
 
 
   }

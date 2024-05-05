@@ -14,7 +14,7 @@ public class VideoController {
     @Autowired
     private IVideoServices iVideoServices;
 
-    @GetMapping("/{id}")
+    @GetMapping("/find/{id}")
     public ResponseEntity<VideoDTO> findById(@PathVariable String id){
         return ResponseEntity.ok(iVideoServices.findById(id));
     }

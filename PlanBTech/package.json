@@ -16,17 +16,16 @@
     "@angular/common": "^17.3.0",
     "@angular/compiler": "^17.3.0",
     "@angular/core": "^17.3.0",
-    "@angular/forms": "^17.3.0",
+    "@angular/forms": "^17.3.7",
     "@angular/material": "^17.3.7",
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/platform-server": "^17.3.0",
-    "@angular/router": "^17.3.0",
+    "@angular/router": "^17.3.7",
     "@angular/ssr": "^17.3.0",
     "@angular/youtube-player": "^17.3.1",
     "express": "^4.19.2",
     "ngx-owl-carousel": "^2.0.7",
-    "ngx-youtube-player": "^12.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
@@ -45,5 +44,8 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.4.2"
+  },
+  "engines": {
+    "node": ">18"
   }
 }
