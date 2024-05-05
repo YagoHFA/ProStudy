@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "prerender": "npm run build && node dist/plan-btec/server/server.mjs"
+    "prerender": "npm run build && node dist/plan-btec/server/server.mjs &"
   },
   "private": true,
   "dependencies": {
