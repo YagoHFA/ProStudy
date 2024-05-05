@@ -1,5 +1,5 @@
 # PROCONNECT
-## Versão: 1.0 
+## Versão: 1.1 
 ## Status do Projeto: ⚠️ Em andamento
 
 ## Tópicos
