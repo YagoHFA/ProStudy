@@ -31,7 +31,7 @@ jobs:
           app_location: "/PlanBTech" # App source code path
           api_location: "" # Api source code path - optional
           output_location: "/dist/plan-btec/browser" # Built app content directory - optional
-          app_build_command: "ng build"
+          app_build_command: "npm build"
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
