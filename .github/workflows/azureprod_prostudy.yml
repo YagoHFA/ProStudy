@@ -66,5 +66,5 @@ jobs:
         with:
           app-name: 'prostudy'
           slot-name: 'Production'
-          package: .
+          package: 'PlanBTech/dist/plan-btec'
           
