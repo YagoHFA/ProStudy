@@ -23,9 +23,10 @@ jobs:
       - name: npm install, build, and test
         run: |
           cd PlanBTech 
+          npm install -g @angular/cli
           npm install
           npm run build --if-present
-          ng version
+          
 
       - name: Zip artifact for deployment
         run: |
