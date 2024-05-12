@@ -1,0 +1,50 @@
+.botao-menu-azul {
+    background-color: #00B5FF;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    margin: 5px auto;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.botao-menu-azul:hover {
+    background-color: #555;
+}
+
+.box {
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    max-width: 600px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container p {
+    font-size: 20px;
+    margin: 8px;
+}
+
+.title {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.box ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
