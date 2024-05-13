@@ -15,6 +15,7 @@ public class SkillTestMinDTO {
     private String longDescription;
     private String testId;
     private int   questionNumber;
+    private String badgeURL;
 
     public SkillTestMinDTO(SkillTest entity){
         this.shortDescription = entity.getTestShortDescription();
@@ -22,5 +23,6 @@ public class SkillTestMinDTO {
         this.title = entity.getTestTitle();
         this.testId = entity.getTestId();
         this.questionNumber = entity.getQuestions().size();
+        this.badgeURL = entity.getBadgeURL();
     }
 }

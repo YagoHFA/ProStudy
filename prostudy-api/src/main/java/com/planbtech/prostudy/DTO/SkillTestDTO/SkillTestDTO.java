@@ -16,9 +16,11 @@ public class SkillTestDTO {
 
     private List<QuestionDTO> questionsList;
     private String testTitle;
+    private String badgeURL;
 
     public SkillTestDTO(SkillTest entity){
         this.questionsList = entity.getQuestions().stream().map(QuestionDTO::new).toList();
         this.testTitle = entity.getTestTitle();
+        this.badgeURL = entity.getBadgeURL();
     }
 }
