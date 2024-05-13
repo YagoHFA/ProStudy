@@ -27,5 +27,4 @@ public class Video  {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoryid")
     private Category category;
-
 }

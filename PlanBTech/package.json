@@ -27,6 +27,7 @@
     "@nguniversal/express-engine": "^7.0.2",
     "aws-amplify": "^6.2.0",
     "express": "^4.19.2",
+    "jwt-decode": "^4.0.0",
     "ngx-owl-carousel": "^2.0.7",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

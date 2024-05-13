@@ -29,6 +29,9 @@ import { ResultpageComponent } from './pages/resultpage/resultpage.component';
 import { ContractpageComponent } from './pages/contractpage/contractpage.component';
 import { BoxresultpageComponent } from './components/boxresultpage/boxresultpage.component';
 import { BoxcontractpageComponent } from './components/boxcontractpage/boxcontractpage.component';
+import { MatDialogModule} from '@angular/material/dialog'
+import { RouterModule } from '@angular/router';
+import { TestShowComponent } from './components/test-show/test-show.component';
 
 
 @NgModule({
@@ -54,7 +57,8 @@ import { BoxcontractpageComponent } from './components/boxcontractpage/boxcontra
     ResultpageComponent,
     ContractpageComponent,
     BoxresultpageComponent,
-    BoxcontractpageComponent
+    BoxcontractpageComponent,
+    TestShowComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +66,9 @@ import { BoxcontractpageComponent } from './components/boxcontractpage/boxcontra
     YouTubePlayerModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    RouterModule
   ],
   providers: [
     provideClientHydration(),

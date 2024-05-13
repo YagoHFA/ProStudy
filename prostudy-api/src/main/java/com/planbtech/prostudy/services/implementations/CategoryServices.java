@@ -5,6 +5,9 @@ import com.planbtech.prostudy.DTO.CategoryDTO.CategoryTestDTO;
 import com.planbtech.prostudy.DTO.CategoryDTO.CategoryVideoDTO;
 import com.planbtech.prostudy.repositories.CategoryReporitory;
 import com.planbtech.prostudy.services.interfaces.ICategoryServices;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@Tag(name = "Gerencia os serviços de Categoria", description = "Aplica as regras de negócios que Categoria deve seguir")
 public class CategoryServices implements ICategoryServices {
 
     @Autowired
@@ -19,6 +23,7 @@ public class CategoryServices implements ICategoryServices {
 
     @Transactional
     @Override
+    @Operation(summary = "Busca uma Lista de categorias", description = "Busca uma lista de categoria com seus respectivos videos")
     public List<CategoryVideoDTO> findAllVideo() {
         return categoryRepository.findAll().stream().map(CategoryVideoDTO::new).toList();
     }

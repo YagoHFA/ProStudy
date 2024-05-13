@@ -3,6 +3,7 @@ package com.planbtech.prostudy.services.implementations;
 import com.planbtech.prostudy.DTO.ProjectDTO.ProjectAddDTO;
 import com.planbtech.prostudy.DTO.SkillTestDTO.TestCompleteDTO;
 import com.planbtech.prostudy.DTO.UserDTO.UserDTO;
+import com.planbtech.prostudy.DTO.UserDTO.UserLoadDTO;
 import com.planbtech.prostudy.config.security.DTO.UserRegisterDTO;
 import com.planbtech.prostudy.config.security.service.TokenService;
 import com.planbtech.prostudy.entities.model.Project;
@@ -117,5 +118,20 @@ public class UserServices implements IUserServices {
         User userToComplete = userRepository.findByUserName(testCompleteDTO.getUserName()).orElseThrow();
         userToComplete.getSkillTests().add(testRepository.findById(testCompleteDTO.getTestId()).orElseThrow());
         userRepository.save(userToComplete);
+    }
+
+    @Transactional
+    @Override
+    public UserLoadDTO loadUser(String userName) {
+        System.out.println("UserName: " + userName);
+        User user = userRepository.findByUserName(userName).orElseThrow();
+        System.out.println("Email: " + user.getUserEmail());
+        user.getUserRole().forEach(x-> {
+            System.out.println("Role: " + x.getRoleName());
+        });
+        user.getSkillTests().forEach(x-> {
+            System.out.println("Test: " + x.getTestTitle());
+        });
+        return userRepository.findByUserName(userName).map(UserLoadDTO::new).orElseThrow();
     }
 }
