@@ -19,7 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
-public class SecutiryConfig {
+public class SecurityConfig {
 
     @Autowired
     private AuthorizationService authorizationService;
@@ -36,7 +36,9 @@ public class SecutiryConfig {
                         .requestMatchers(HttpMethod.GET, "/category/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/test/find/**").authenticated()
                         .requestMatchers(HttpMethod.GET, "/video/**").permitAll()
-                        .anyRequest().authenticated())
+                        .requestMatchers(HttpMethod.GET,"/swagger-ui/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/favicon.io").permitAll()
+                        .anyRequest().permitAll())
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(securityFilter , UsernamePasswordAuthenticationFilter.class);

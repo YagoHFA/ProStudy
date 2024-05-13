@@ -1,6 +1,7 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { UserService } from '../../service/controller/user.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent {
   userName: string = '';
   password: string = '';
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder) {
+  constructor(private userService: UserService, private formBuilder: FormBuilder, private router:Router) {
     this.loginForm = this.formBuilder.group({
       userName: new FormControl(this.userName,[Validators.required]),
       password: new FormControl(this.password,[Validators.required])
@@ -24,7 +25,16 @@ export class LoginComponent {
       console.log('passo');
       console.log(this.loginForm.get('userName')?.value);
       console.log(this.loginForm.get('password')?.value);
-      console.log(this.userService.login(this.loginForm.get('userName')?.value, this.loginForm.get('password')?.value));
+      this.userService.login(this.loginForm.get('userName')?.value, this.loginForm.get('password')?.value)
+        .subscribe(
+          (data:string) => {
+            console.log(data);
+            localStorage.setItem('token', data);
+            this.router.navigate(['/homepage']);
+          },
+          (error:string)=>
+            console.error(error)
+        );
     } else {
       // O formulário é inválido, não faz nada
     }

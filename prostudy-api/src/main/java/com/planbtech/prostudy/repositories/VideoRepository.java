@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 public interface VideoRepository extends JpaRepository<Video, String> {
+
     @Query(value = "Select videoid, videotitle, videothumb  from video where category = ?1",nativeQuery = true)
     List<Video> findAllByCategory(String category);
 

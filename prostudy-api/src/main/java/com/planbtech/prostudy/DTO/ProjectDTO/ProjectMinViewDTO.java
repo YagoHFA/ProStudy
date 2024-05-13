@@ -16,11 +16,13 @@ public class ProjectMinViewDTO {
     private String projectName;
     private String projectDescription;
     private List<CategoryMinDTO> tools;
+    private String projectURL;
 
     public ProjectMinViewDTO(Project entity){
         this.projectName = entity.getProjectName();
         this.projectDescription = entity.getProjectDescription();
         this.tools = entity.getTools().stream().map(CategoryMinDTO::new).toList();
+        this.projectURL = entity.getProjectURL();
     }
 
 }

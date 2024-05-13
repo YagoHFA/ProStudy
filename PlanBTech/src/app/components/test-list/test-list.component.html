@@ -1,9 +1,10 @@
-<div class="test-carousel" #testeCarousel>
+<div class="test-carousel" #testCarousel>
     <div class="testList">
       <div *ngFor="let test of testList" class="test-item">
-        <div>
-          <label for="" class="title">{{test.testTitle}}</label>
-          <a routerLink="/videopage/watch" [queryParams]="{t:test.testId}"></a>
+        <div *ngIf="test.questionNumber > 0">
+          <a routerLink="/testpage" [queryParams]="{t:test.testId}">
+            <app-test-show [test]="test"></app-test-show>
+          </a>
         </div>
       </div>
     </div>

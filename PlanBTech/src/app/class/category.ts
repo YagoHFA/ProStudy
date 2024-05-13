@@ -5,5 +5,5 @@ export class Category {
   categoryId:number = 0;
   categoryName:string = "";
   videoList:Video[] = [];
-  testList:Test[] = [];
+  skillTestList:Test[] = [];
 }

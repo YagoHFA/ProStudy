@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-@Entity
+@Entity(name = "Users")
 @Table(name = "users")
 @Getter
 @Setter
@@ -79,5 +79,9 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public List<Project> getProjects(){
+        return userProjects.stream().map(x -> x.getId().getProjectId()).toList();
     }
 }

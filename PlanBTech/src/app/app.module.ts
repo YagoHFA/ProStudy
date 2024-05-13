@@ -25,6 +25,13 @@ import { TesthomeComponent } from './pages/testhome/testhome.component';
 import { MainFooterComponent } from './components/main-footer/main-footer.component';
 import { QuestionComponent } from './components/question/question.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { ResultpageComponent } from './pages/resultpage/resultpage.component';
+import { ContractpageComponent } from './pages/contractpage/contractpage.component';
+import { BoxresultpageComponent } from './components/boxresultpage/boxresultpage.component';
+import { BoxcontractpageComponent } from './components/boxcontractpage/boxcontractpage.component';
+import { MatDialogModule} from '@angular/material/dialog'
+import { RouterModule } from '@angular/router';
+import { TestShowComponent } from './components/test-show/test-show.component';
 
 
 @NgModule({
@@ -46,7 +53,12 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     CategoryTestComponent,
     TesthomeComponent,
     MainFooterComponent,
-    QuestionComponent
+    QuestionComponent,
+    ResultpageComponent,
+    ContractpageComponent,
+    BoxresultpageComponent,
+    BoxcontractpageComponent,
+    TestShowComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +66,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     YouTubePlayerModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    RouterModule
   ],
   providers: [
     provideClientHydration(),
