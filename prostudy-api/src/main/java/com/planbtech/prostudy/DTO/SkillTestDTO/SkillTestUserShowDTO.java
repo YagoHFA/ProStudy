@@ -10,11 +10,11 @@ import lombok.*;
 @AllArgsConstructor
 public class SkillTestUserShowDTO {
 
-    private String title;
+    private String testTitle;
     private String badgeURL;
 
     public SkillTestUserShowDTO(SkillTest entity){
-        this.title = entity.getTestTitle();
+        this.testTitle = entity.getTestTitle();
         this.badgeURL = entity.getBadgeURL();
     }
 }

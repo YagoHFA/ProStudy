@@ -1,12 +1,12 @@
 <div class="videoList">
   <div *ngFor="let category of categoryTest">
-    <div *ngIf="category.videoList.length >0">
+    <div *ngIf="category.skillTestList.length >0">
       <div>
         <div style="margin-bottom: 2%">
           <app-category [category]="category"></app-category>
         </div>
         <div>
-          <app-test-list [testList]="category.testList" ></app-test-list>
+          <app-test-list [testList]="category.skillTestList" ></app-test-list>
         </div>
       </div>
     </div>

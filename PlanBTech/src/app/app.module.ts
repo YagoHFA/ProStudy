@@ -31,6 +31,7 @@ import { BoxresultpageComponent } from './components/boxresultpage/boxresultpage
 import { BoxcontractpageComponent } from './components/boxcontractpage/boxcontractpage.component';
 import { MatDialogModule} from '@angular/material/dialog'
 import { RouterModule } from '@angular/router';
+import { TestShowComponent } from './components/test-show/test-show.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { RouterModule } from '@angular/router';
     ResultpageComponent,
     ContractpageComponent,
     BoxresultpageComponent,
-    BoxcontractpageComponent
+    BoxcontractpageComponent,
+    TestShowComponent
   ],
   imports: [
     BrowserModule,
