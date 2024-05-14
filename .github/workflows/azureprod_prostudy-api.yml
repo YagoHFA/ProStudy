@@ -25,7 +25,7 @@ jobs:
           
       - name: Build with Gradle
         run: |
-              
+              cd prostudy-api
               ./gradlew clean build
 
       - name: Upload artifact for deployment job
