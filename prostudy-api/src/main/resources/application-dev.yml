@@ -18,6 +18,28 @@ spring:
       settings:
         trace: false
         web-allow-others: false
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: planbtechnology59@gmail.com
+    password: 820707HFA3103%
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+        ssl:
+            trust: smtp.gmail.com
+  oauth2:
+    client:
+      registration:
+        gmail:
+          client-id: 997799911577-gmm1n3ghikrf5h0e3m97uv5grh32440m.apps.googleusercontent.com
+          client-secret: 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
+          redirect-uri: http://localhost:8080/login/oauth2/code/gmail
+          scope:
+            - https://mail.google.com/
 api:
   security:
     token:
