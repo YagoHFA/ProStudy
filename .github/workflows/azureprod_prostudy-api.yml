@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '${{ github.workspace }}/prostudy-api/build/libs/*.war'
+          path: '${{ github.workspace }}/prostudy-api/build/libs/prostudy-1.0.1.war'
 
   deploy:
     runs-on: ubuntu-latest
