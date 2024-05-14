@@ -36,7 +36,7 @@ spring:
       registration:
         gmail:
           client-id: 997799911577-gmm1n3ghikrf5h0e3m97uv5grh32440m.apps.googleusercontent.com
-          client-secret: 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
+          client-secret: ${google}
           redirect-uri: http://localhost:8080/login/oauth2/code/gmail
           scope:
             - https://mail.google.com/
