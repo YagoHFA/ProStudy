@@ -72,7 +72,6 @@ public class SecurityConfig {
 
     private ClientRegistration gmailClientRegistration() {
         return ClientRegistration.withRegistrationId("gmail")
-                .clientId("997799911577-gmm1n3ghikrf5h0e3m97uv5grh32440m.apps.googleusercontent.com")
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .redirectUri("{baseUrl}/login/oauth2/code/{registrationId}")
