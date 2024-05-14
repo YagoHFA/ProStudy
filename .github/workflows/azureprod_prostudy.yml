@@ -30,7 +30,7 @@ jobs:
 
       - name: Zip artifact for deployment
         run: |
-              cd PlaBTech
+              
               zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
