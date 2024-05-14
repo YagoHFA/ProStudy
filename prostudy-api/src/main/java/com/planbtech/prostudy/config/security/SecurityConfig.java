@@ -59,27 +59,5 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
-
-    @Bean
-    public ClientRegistrationRepository clientRegistrationRepository() {
-        return new ClientRegistrationRepository() {
-            @Override
-            public ClientRegistration findByRegistrationId(String registrationId) {
-                return gmailClientRegistration();
-            }
-        };
-    }
-
-    private ClientRegistration gmailClientRegistration() {
-        return ClientRegistration.withRegistrationId("gmail")
-                .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
-                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
-                .redirectUri("{baseUrl}/login/oauth2/code/{registrationId}")
-                .scope("https://mail.google.com/")
-                .authorizationUri("https://accounts.google.com/o/oauth2/auth")
-                .tokenUri("https://www.googleapis.com/oauth2/v3/token")
-                .userInfoUri("https://www.googleapis.com/oauth2/v3/userinfo")
-                .userNameAttributeName("email")
-                .build();
-    }
+    
 }
