@@ -20,18 +20,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
+
       - name: npm install, build, and test
         run: |
-          cd PlanBTech 
-          npm install -g @angular/cli
           npm install
           npm run build --if-present
-          
+          npm run test --if-present
 
       - name: Zip artifact for deployment
-        run: |
-              
-              zip release.zip ./* -r
+        run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -60,9 +57,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_4C33C8CCCA4641D9AC948A128B6D4C69 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_3004CA5BDAB2497F8A39441ABE2E85FA }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_247CEFF2880E482693FAACE7813A767A }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_CB18F6C579E147C28487955A8BC2634D }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_532AAC986D3041AE88F6E88A2C4B264A }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_029B548B92AC4CCFAEC68CB9A090A7B7 }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
