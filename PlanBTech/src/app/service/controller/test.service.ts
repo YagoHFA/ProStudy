@@ -13,7 +13,6 @@ export class TestService {
   }
 
   categoryList(): Observable<Category[]> {
-
         const url = 'http://localhost:8080/category/test/allcategory';
         return this.http.get<Category[]>(url);
       }

@@ -17,6 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -37,8 +38,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/test/find/**").authenticated()
                         .requestMatchers(HttpMethod.GET, "/video/**").permitAll()
                         .requestMatchers(HttpMethod.GET,"/swagger-ui/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/favicon.io").permitAll()
-                        .anyRequest().permitAll())
+                        .requestMatchers(HttpMethod.GET, "/v3/**").permitAll()
+                        .anyRequest().authenticated())
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(securityFilter , UsernamePasswordAuthenticationFilter.class);
@@ -55,4 +56,5 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
+
 }
