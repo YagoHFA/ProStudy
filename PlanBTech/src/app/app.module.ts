@@ -32,6 +32,7 @@ import { BoxcontractpageComponent } from './components/boxcontractpage/boxcontra
 import { MatDialogModule} from '@angular/material/dialog'
 import { RouterModule } from '@angular/router';
 import { TestShowComponent } from './components/test-show/test-show.component';
+import { ProfilepageComponent } from './pages/profilepage/profilepage.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { TestShowComponent } from './components/test-show/test-show.component';
     ContractpageComponent,
     BoxresultpageComponent,
     BoxcontractpageComponent,
-    TestShowComponent
+    TestShowComponent,
+    ProfilepageComponent
   ],
   imports: [
     BrowserModule,
