@@ -1,14 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { Category } from '../../class/category';
+import { Test } from '../../class/test';
+import { ActivatedRoute } from '@angular/router';
+import { UserlocalstorageService } from '../localstorage/userlocalstorage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TestService {
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient,  private route:ActivatedRoute, private userStorage:UserlocalstorageService) {
 
   }
 
@@ -17,5 +20,14 @@ export class TestService {
         return this.http.get<Category[]>(url);
       }
     ;
-
+    getTesteById(): Observable<Test> {
+      console.log(this.userStorage.getToken())
+      return this.route.queryParams.pipe(
+        switchMap(params => {
+          const testId = params['t'];
+          const url = `http://localhost:8080/test/find/${testId}`;
+          return this.http.get<Test>(url);
+        })
+      );
+    }
 }

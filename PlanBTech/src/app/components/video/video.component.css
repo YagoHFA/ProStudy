@@ -11,7 +11,7 @@
 
 .items {
     display: flex;
-    margin-left: 100px;
+    margin-right: 50px;
     text-align: center;
     justify-items: center;
 }

@@ -16,3 +16,8 @@
     text-align: left;
     margin-top: 10px;
 }
+
+.formulario label {
+    display: block;
+    margin-bottom: 10px;
+}

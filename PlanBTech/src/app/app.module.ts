@@ -7,7 +7,6 @@ import { MainHeaderComponent } from './components/main-header/main-header.compon
 import { VideoListComponent } from './components/video-list/video-list.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { VideoComponent } from './components/video/video.component';
-import { YouTubePlayerModule } from '@angular/youtube-player';
 import { CategoryComponent } from './components/category/category.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
@@ -32,6 +31,17 @@ import { BoxcontractpageComponent } from './components/boxcontractpage/boxcontra
 import { MatDialogModule} from '@angular/material/dialog'
 import { RouterModule } from '@angular/router';
 import { TestShowComponent } from './components/test-show/test-show.component';
+import { UserlocalstorageService } from './service/localstorage/userlocalstorage.service';
+import { CategorylocalstorageService } from './service/localstorage/categorylocalstorage.service';
+import { TestlocalstorageService } from './service/localstorage/testlocalstorage.service';
+import { VideolocalstorageService } from './service/localstorage/videolocalstorage.service';
+import { EmailService } from './service/controller/email.service';
+import { TestService } from './service/controller/test.service';
+import { HomepageConfigService } from './service/controller/homepageconfig.service';
+import { UserService } from './service/controller/user.service';
+import { VideoService } from './service/controller/video.service';
+import { ProfilepageComponent } from './pages/profilepage/profilepage.component';
+
 
 
 @NgModule({
@@ -58,12 +68,12 @@ import { TestShowComponent } from './components/test-show/test-show.component';
     ContractpageComponent,
     BoxresultpageComponent,
     BoxcontractpageComponent,
-    TestShowComponent
+    TestShowComponent,
+    ProfilepageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    YouTubePlayerModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
@@ -74,6 +84,15 @@ import { TestShowComponent } from './components/test-show/test-show.component';
     provideClientHydration(),
     provideHttpClient(withFetch()),
     provideAnimationsAsync(),
+    UserlocalstorageService,
+    CategorylocalstorageService,
+    TestlocalstorageService,
+    VideolocalstorageService,
+    EmailService,
+    HomepageConfigService,
+    TestService,
+    UserService,
+    VideoService
   ],
   bootstrap: [AppComponent]
 })

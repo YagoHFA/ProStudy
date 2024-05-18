@@ -1,10 +1,39 @@
-<header>
-    <app-main-header></app-main-header>
-</header>
-<div class="backgroud">
-    <div>
-        <div class="video">
-          <app-video [video]="video" ></app-video>
+<header><app-main-header></app-main-header></header>
+<div class="content">
+    <div class="assistir">
+        <div class="video-primeiro-e-retangular">
+            <div class="primeiro-video">
+                <app-video [video]="video"></app-video>
+            </div>   
+            <div class="div-retangular">
+                <h2 class="titulo">Testes</h2>
+                <p><a href="contrato.html">HTML5 Intermediario</a></p> 
+                <p><a href="contrato.html">CSS Avançado</a></p> 
+                <p><a href="contrato.html">JavaScript Básico</a></p> 
+                <p><a href="contrato.html">MySql Avançado</a></p> 
+            </div>
         </div>
+    </div>
+    <div class="section-container">
+        <section>
+            <h2 class="titulo">Desenvolvimento Web</h2>
+            <div class="video-container">
+                <div class="seta"><img src="assets/img/seta_esquerda.png" alt="Seta Esquerda" class="seta-esquerda"></div>
+    
+                <div class="video">
+                    <img src="assets/img/01.png" onclick="window.location.href='video.html'">
+                </div>
+    
+                <div class="video">
+                    <img src="assets/img/01.png" onclick="window.location.href='video.html'">
+                </div>
+    
+                <div class="video">
+                    <img src="assets/img/01.png" onclick="window.location.href='video.html'">
+                </div>
+                
+                <div class="seta"><img src="assets/img/seta_direita.png" alt="Seta Direita" class="seta-direita"></div>
+            </div>
+        </section>
     </div>
 </div>

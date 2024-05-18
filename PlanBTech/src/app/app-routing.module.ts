@@ -9,6 +9,7 @@ import { TestPageComponent } from './pages/test-page/test-page.component';
 import { TesthomeComponent } from './pages/testhome/testhome.component';
 import { ResultpageComponent } from './pages/resultpage/resultpage.component';
 import { ContractpageComponent } from './pages/contractpage/contractpage.component';
+import { ProfilepageComponent } from './pages/profilepage/profilepage.component';
 
 const routes: Routes = [{path: "homepage", component: HomepageComponent},
 {path: "", redirectTo: "landingpage", pathMatch: 'full'},
@@ -20,6 +21,7 @@ const routes: Routes = [{path: "homepage", component: HomepageComponent},
 {path: "testCatalog", component:TesthomeComponent},
 {path: "resultpage", component:ResultpageComponent},
 {path: "contractpage", component:ContractpageComponent},
+{path: "profilepage", component:ProfilepageComponent},
 {path: "**", redirectTo: "landingpage", pathMatch: 'full'}];
 
 
