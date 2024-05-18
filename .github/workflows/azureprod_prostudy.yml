@@ -30,7 +30,7 @@ jobs:
 
       - name: Zip artifact for deployment
         run: |
-              cd PlaBTech && zip release.zip ./ -r
+              cd PlanBTech && zip -r ../release.zip ./*
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
