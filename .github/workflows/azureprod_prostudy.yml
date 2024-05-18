@@ -72,6 +72,3 @@ jobs:
           app-name: 'prostudy'
           slot-name: 'Production'
           package: .
-          
-      - name: List Angular CLI directory contents
-        run: ls -l /home/site/wwwroot/node_modules/@angular/cli/bin/
