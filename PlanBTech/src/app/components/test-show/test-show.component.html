@@ -1,6 +1,10 @@
 <div>
-    <h2>{{test.testTitle}}</h2>
-    <p>Questões: {{test.questionNumber}} no total</p>
-    <p>{{test.testShortDescription}}</p>
-    <img src="../../../assets/img/java.png" alt="">
+  <button class="button-test" routerLink="/testpage" [queryParams]="{t:test.testId}">
+    <h3 class="test-title">{{test.testTitle}}</h3>
+    <br>
+    <p class="text">Questões: {{test.questionNumber}} no total</p>
+    <br>
+    <p class="text">{{test.testLongDescription}}</p>
+    <img src="{{test.badgeURL}}" alt="">
+  </button>
 </div>

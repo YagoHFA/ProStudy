@@ -2,6 +2,7 @@ import { Component, AfterViewInit } from '@angular/core';
 import { UserService } from '../../service/controller/user.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserlocalstorageService } from '../../service/localstorage/userlocalstorage.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent {
   userName: string = '';
   password: string = '';
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder, private router:Router) {
+  constructor(private userService: UserService, private formBuilder: FormBuilder, private router:Router, private userStorage:UserlocalstorageService) {
     this.loginForm = this.formBuilder.group({
       userName: new FormControl(this.userName,[Validators.required]),
       password: new FormControl(this.password,[Validators.required])
@@ -29,7 +30,7 @@ export class LoginComponent {
         .subscribe(
           (data:string) => {
             console.log(data);
-            localStorage.setItem('token', data);
+            this.userStorage.setToken(data);
             this.router.navigate(['/homepage']);
           },
           (error:string)=>
