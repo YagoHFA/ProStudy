@@ -1,0 +1,152 @@
+.content {
+    background: linear-gradient(to bottom right, #0A0010, #36005A);
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.centralizado {
+    text-align: center;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.centralizado img {
+    width: 90px;
+    height: 90px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.centralizado h1 {
+    text-align: left;
+    margin-left: 105px;
+    color: #fff;
+}
+
+.centralizado h2 {
+    text-align: left;
+    margin-left: 2px;
+}
+
+.titulo {
+    color: #fff;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.botao {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.botao button {
+    padding: 10px 20px;
+    margin: 0 10px;
+}
+
+.botao-menu-azul {
+    background-color: #00B5FF;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    margin: 5px;
+    margin-right: 80px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.botao-menu-azul:hover {
+    background-color: #555;
+}
+
+.botao-menu-transp {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    margin: 5px;
+    margin-right: 80px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.botao-menu-transp:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #555;
+}
+
+section {
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+.video {
+    margin-bottom: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+.video img {
+    width: 70px;
+    height: 60px;
+}
+
+.video button {
+    padding: 10px 20px;
+    background-color: #00B5FF;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    margin: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.video button:hover {
+    background-color: #555;
+}
+
+.seta {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.seta-esquerda {
+    width: 40px;
+    height: 40px;
+    margin-left: 70px;
+}
+
+.seta-direita {
+    width: 40px;
+    height: 40px;
+    margin-right: 70px;
+}

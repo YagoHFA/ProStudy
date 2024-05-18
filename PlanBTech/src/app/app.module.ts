@@ -40,6 +40,8 @@ import { TestService } from './service/controller/test.service';
 import { HomepageConfigService } from './service/controller/homepageconfig.service';
 import { UserService } from './service/controller/user.service';
 import { VideoService } from './service/controller/video.service';
+import { ProfilepageComponent } from './pages/profilepage/profilepage.component';
+
 
 
 @NgModule({
@@ -66,7 +68,8 @@ import { VideoService } from './service/controller/video.service';
     ContractpageComponent,
     BoxresultpageComponent,
     BoxcontractpageComponent,
-    TestShowComponent
+    TestShowComponent,
+    ProfilepageComponent
   ],
   imports: [
     BrowserModule,
