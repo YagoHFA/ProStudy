@@ -21,18 +21,18 @@
 .test-carousel {
   overflow: hidden;
   position: relative;
+  width: 87%;
 }
 
 .prev-button,
 .next-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   background-color: #333;
   color: white;
   border: none;
   padding: 10px;
   cursor: pointer;
+  align-self: center;
+  margin-left: 1%;
 }
 
 .prev-button {
@@ -42,3 +42,5 @@
 .next-button {
   right: 10px;
 }
+
+
