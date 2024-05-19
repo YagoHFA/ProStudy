@@ -25,7 +25,7 @@ jobs:
         working-directory: ./PlanBTech
 
       - name: Build the application
-        run: npm run build:ssr
+        run: npm run prod
         working-directory: ./PlanBTech
 
       - name: Zip artifact for deployment
