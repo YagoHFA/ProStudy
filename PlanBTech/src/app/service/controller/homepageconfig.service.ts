@@ -14,6 +14,7 @@ export class HomepageConfigService {
 
   categoryList(): Observable<Category[]> {
 
+        //const url = 'https://prostudy-api.azurewebsites.net/category/video/allcategory';
         const url = 'http://localhost:8080/category/video/allcategory';
         return this.http.get<Category[]>(url);
       }

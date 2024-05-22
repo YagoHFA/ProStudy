@@ -6,12 +6,12 @@ export class Question {
     questionId:Number;
     questionText:String;
     testeId:Test;
-    answers:Answer[];
+    anwersList:Answer[];
 
     constructor(){
         this.questionId     = 0;
-        this.questionText   = '';    
+        this.questionText   = '';
         this.testeId        = new Test();
-        this.answers        = [];
+        this.anwersList        = [];
       }
 }

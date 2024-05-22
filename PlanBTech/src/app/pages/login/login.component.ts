@@ -28,9 +28,8 @@ export class LoginComponent {
       console.log(this.loginForm.get('password')?.value);
       this.userService.login(this.loginForm.get('userName')?.value, this.loginForm.get('password')?.value)
         .subscribe(
-          (data:string) => {
-            console.log(data);
-            this.userStorage.setToken(data);
+          (token:string) => {
+            this.userStorage.setToken(token);
             this.router.navigate(['/homepage']);
           },
           (error:string)=>

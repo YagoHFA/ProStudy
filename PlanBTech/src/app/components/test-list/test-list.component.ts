@@ -14,6 +14,7 @@ export class TestListComponent implements OnInit {
   maxVisibleItems: number = 4; // Defina o número máximo de itens visíveis aqui
 
   ngOnInit(): void {
+
     this.updateCarousel();
   }
   nextSlide(): void {

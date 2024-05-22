@@ -5,14 +5,14 @@ export class Test {
     testTitle:String;
     testShortDescription:String;
     testLongDescription:String;
-    questions:Question[];
+    questionsList:Question[];
     badgeURL:string
     questionNumber:number
 
     constructor(){
         this.testId     = '';
         this.testTitle  = '';
-        this.questions  = [];
+        this.questionsList  = [];
         this.testShortDescription = '';
         this.testLongDescription = '';
         this.badgeURL = ''

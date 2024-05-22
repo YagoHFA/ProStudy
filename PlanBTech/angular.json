@@ -71,7 +71,6 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {"port": 8080},
           "configurations": {
             "production": {
               "buildTarget": "PlanBTec:build:production"

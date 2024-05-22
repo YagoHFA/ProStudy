@@ -12,12 +12,7 @@
     white-space: pre-line;
 }
 
-.formulario {
-    text-align: left;
-    margin-top: 10px;
-}
-
-.formulario label {
+.label {
     display: block;
     margin-bottom: 10px;
 }

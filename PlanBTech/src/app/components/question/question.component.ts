@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
+import { Question } from '../../class/question';
+import { NgForm } from '@angular/forms';
+import test from 'node:test';
 
 @Component({
   selector: 'app-question',
@@ -6,5 +9,19 @@ import { Component } from '@angular/core';
   styleUrl: './question.component.css'
 })
 export class QuestionComponent {
+  @Input() question: Question = new Question();
+  selectedAnswer: number = 0;
+  getSelectedAnswer(): number {
+    const answer = this.selectedAnswer
+    this.resetSelection()
+    return answer;
+  }
 
+  resetSelection() {
+    this.selectedAnswer = 0;
+  }
+
+  changeSelection(answer: number) {
+    this.selectedAnswer = answer;
+  }
 }

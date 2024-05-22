@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, switchMap } from 'rxjs';
 import { Category } from '../../class/category';
@@ -16,17 +16,20 @@ export class TestService {
   }
 
   categoryList(): Observable<Category[]> {
+
         const url = 'http://localhost:8080/category/test/allcategory';
         return this.http.get<Category[]>(url);
       }
     ;
     getTesteById(): Observable<Test> {
-      console.log(this.userStorage.getToken())
+
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${this.userStorage.getToken()}`);
       return this.route.queryParams.pipe(
         switchMap(params => {
           const testId = params['t'];
+          //const url = `https://prostudy-api.azurewebsites.net/test/find/${testId}`;
           const url = `http://localhost:8080/test/find/${testId}`;
-          return this.http.get<Test>(url);
+          return this.http.get<Test>(url, {headers});
         })
       );
     }
