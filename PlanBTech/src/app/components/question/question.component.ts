@@ -11,10 +11,12 @@ import test from 'node:test';
 export class QuestionComponent {
   @Input() question: Question = new Question();
   selectedAnswer: number = 0;
+
   getSelectedAnswer(): number {
     const answer = this.selectedAnswer
+    console.log(answer)
     this.resetSelection()
-    return answer;
+    return answer ;
   }
 
   resetSelection() {
@@ -22,6 +24,6 @@ export class QuestionComponent {
   }
 
   changeSelection(answer: number) {
-    this.selectedAnswer = answer;
+    this.selectedAnswer = answer + 1;
   }
 }
