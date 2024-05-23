@@ -41,6 +41,8 @@ import { HomepageConfigService } from './service/controller/homepageconfig.servi
 import { UserService } from './service/controller/user.service';
 import { VideoService } from './service/controller/video.service';
 import { ProfilepageComponent } from './pages/profilepage/profilepage.component';
+import { MessageModalComponent } from './modals/message-modal/message-modal.component';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -69,7 +71,8 @@ import { ProfilepageComponent } from './pages/profilepage/profilepage.component'
     BoxresultpageComponent,
     BoxcontractpageComponent,
     TestShowComponent,
-    ProfilepageComponent
+    ProfilepageComponent,
+    MessageModalComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +81,8 @@ import { ProfilepageComponent } from './pages/profilepage/profilepage.component'
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    RouterModule
+    RouterModule,
+    MatButtonModule
   ],
   providers: [
     provideClientHydration(),

@@ -1,0 +1,16 @@
+<div class="background">
+  <div class="apresentation">
+    <div>
+      <img src="{{data.icon}}" alt="" class="image" >
+    </div>
+    <div class="Congratulations">
+      <h2 class="message"><b>Congratulations!</b></h2>
+      <p class="message">{{data.message}}</p>
+      <p class="message"><b>{{data.title}}</b></p>
+    </div>
+  </div>
+  <p class="message" >Clique no botão abaixo e confira sua certificação em “perfil”.</p>
+  <div mat-dialog-actions class="button-dialog" >
+    <button mat-button (click)="close()" class="botao-menu-azul" >{{data.button}}</button>
+  </div>
+</div>

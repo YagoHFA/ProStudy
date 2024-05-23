@@ -2,6 +2,9 @@ import { Component, Input, OnInit, QueryList, ViewChildren } from '@angular/core
 import { TestService } from '../../service/controller/test.service';
 import { Test } from '../../class/test';
 import { QuestionComponent } from '../../components/question/question.component';
+import { MatDialog } from '@angular/material/dialog';
+import { MessageModalComponent } from '../../modals/message-modal/message-modal.component';
+import { title } from 'node:process';
 
 @Component({
   selector: 'app-test-page',
@@ -14,7 +17,7 @@ export class TestPageComponent implements OnInit{
 
   @ViewChildren('childComponents') childComponents!: QueryList<QuestionComponent>;
 
-  constructor(private testService:TestService){}
+  constructor(private testService:TestService, public dialog:MatDialog){}
 
   ngOnInit(): void {
     this.testService.getTesteById().subscribe(
@@ -24,16 +27,17 @@ export class TestPageComponent implements OnInit{
       }
     );
   }
-  @Input() test: Test = new Test();
+  test: Test = new Test();
   points:number[] = []
   index:number = 0;
   maxQuestion:number = 0;
 
   nextQuestion(){
+    this.openDialog()
     const selectedAnswers = this.childComponents.map(child => child.getSelectedAnswer());
     if (this.index < this.maxQuestion-1 && selectedAnswers[0] > 0){
     this.index++
-    console.log('Selected answers:', selectedAnswers[0]);
+
     this.points[this.index] = selectedAnswers[0]
     if(this.index == this.maxQuestion-1){
 
@@ -59,6 +63,25 @@ export class TestPageComponent implements OnInit{
     this.points.forEach(element => {
       sum += ( element-1 )
     });
+    console.log('soma final: '+ sum)
+    console.log('soma total: ' + (this.maxQuestion * 5) / 0.75)
+    if(sum >= Math.floor((this.maxQuestion * 5)* 0.75)){
 
+      this.openDialog()
+    }
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(MessageModalComponent, {
+      data: {message:'Parabéns você passou no Teste',
+      icon:this.test.badgeURL,
+      button: 'Pegar Certificação',
+      title: this.test.testTitle
+    }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }

@@ -9,7 +9,7 @@ import test from 'node:test';
   styleUrl: './question.component.css'
 })
 export class QuestionComponent {
-  @Input() question: Question = new Question();
+  @Input() question?: Question = new Question();
   selectedAnswer: number = 0;
 
   getSelectedAnswer(): number {
