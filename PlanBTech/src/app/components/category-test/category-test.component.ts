@@ -12,7 +12,15 @@ export class CategoryTestComponent implements OnInit{
   ngOnInit(): void {
     this.testConfig.categoryList().subscribe(
       (category:Category[]) => {
-        this.categoryTest = category;
+       for(let element of category){
+        for(let test of element.skillTestList){
+          if(test.questionNumber>0){
+            this.categoryTest.push(element)
+            break
+          }
+        }
+       }
+
       })
   }
 

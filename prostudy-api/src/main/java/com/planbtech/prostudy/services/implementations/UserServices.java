@@ -6,13 +6,11 @@ import com.planbtech.prostudy.DTO.UserDTO.UserDTO;
 import com.planbtech.prostudy.DTO.UserDTO.UserLoadDTO;
 import com.planbtech.prostudy.config.security.DTO.UserRegisterDTO;
 import com.planbtech.prostudy.config.security.service.TokenService;
-import com.planbtech.prostudy.entities.model.Project;
-import com.planbtech.prostudy.entities.model.User;
-import com.planbtech.prostudy.entities.model.User_Project;
-import com.planbtech.prostudy.entities.model.User_ProjectId;
+import com.planbtech.prostudy.entities.model.*;
 import com.planbtech.prostudy.repositories.*;
 import com.planbtech.prostudy.services.interfaces.IUserServices;
 import jakarta.transaction.Transactional;
+import org.aspectj.weaver.ast.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -116,7 +114,14 @@ public class UserServices implements IUserServices {
     @Override
     public void completeTest(TestCompleteDTO testCompleteDTO) {
         User userToComplete = userRepository.findByUserName(testCompleteDTO.getUserName()).orElseThrow();
+        System.out.println("pass: " + testCompleteDTO.getTestId());
+        SkillTest test =testRepository.findById(testCompleteDTO.getTestId()).orElseThrow();
+        System.out.println("i still pass");
+        System.out.println(test.getTestTitle());
         userToComplete.getSkillTests().add(testRepository.findById(testCompleteDTO.getTestId()).orElseThrow());
+        userToComplete.getSkillTests().forEach(x-> {
+            System.out.println(x.getTestTitle());
+        });
         userRepository.save(userToComplete);
     }
 

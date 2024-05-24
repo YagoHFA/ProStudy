@@ -23,14 +23,10 @@ export class LoginComponent {
 
   login(): void {
     if (this.loginForm.valid) {
-      console.log('passo');
-      console.log(this.loginForm.get('userName')?.value);
-      console.log(this.loginForm.get('password')?.value);
       this.userService.login(this.loginForm.get('userName')?.value, this.loginForm.get('password')?.value)
         .subscribe(
-          (data:string) => {
-            console.log(data);
-            this.userStorage.setToken(data);
+          (token:string) => {
+            this.userStorage.setToken(token);
             this.router.navigate(['/homepage']);
           },
           (error:string)=>

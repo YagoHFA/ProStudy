@@ -1,13 +1,13 @@
 export class Answer {
 
-    idAnswer:Number;
-    answer:String;
-    points:Number;
-    questionId:Number;
+    idAnswer:number;
+    answers:String;
+    points:number;
+    questionId:number;
 
     constructor(){
         this.idAnswer   = 0;
-        this.answer     = '';    
+        this.answers     = '';
         this.points     = 0;
         this.questionId = 0;
       }

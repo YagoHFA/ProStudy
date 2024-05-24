@@ -1,10 +1,6 @@
 <div class="item">
-    <p class="pergunta">Ao desenvolver uma página da web responsiva, quais são os princípios fundamentais que um desenvolvedor deve considerar para garantir uma experiência consistente e eficaz em diferentes dispositivos?</p>
-    <form class="formulario">
-        <label><input type="radio" name="opcao"> Utilização de tabelas para organização de conteúdo, garantindo estruturação consistente em todos os dispositivos.</label><br>
-        <label><input type="radio" name="opcao"> Implementação de uma abordagem "mobile-first", priorizando o design e a funcionalidade para dispositivos móveis e expandindo para telas maiores.</label><br>
-        <label><input type="radio" name="opcao"> Uso exclusivo de unidades de medida absolutas, como pixels, para garantir que o layout permaneça inalterado em diferentes resoluções de tela.</label><br>
-        <label><input type="radio" name="opcao"> Incorporação de imagens de alta resolução em todos os dispositivos para garantir uma qualidade visual consistente, independentemente do tamanho da tela.</label><br>
-        <label><input type="radio" name="opcao"> Adoção de técnicas de CSS, como media queries e flexbox, para ajustar dinamicamente o layout e o estilo com base no tamanho da tela e na orientação do dispositivo.</label><br>
-    </form>
+    <p class="pergunta">{{question?.questionText}}</p>
+      <div *ngFor="let answer of question?.anwersList;let i = index">
+        <label><input type="radio" name="opcao" [value]="i" (click)="changeSelection(answer.points)" > {{answer.answers}}</label>
+      </div>
 </div>
