@@ -1,8 +1,9 @@
 .content {
     background: linear-gradient(to bottom right, #0A0010, #36005A);
-    min-height: 100vh;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -93,7 +94,6 @@
 
 section {
     padding: 20px;
-    margin-bottom: 20px;
     margin-left: 80px;
     margin-right: 80px;
 }
@@ -106,7 +106,6 @@ section {
 }
 
 .video {
-    margin-bottom: 20px;
     width: 300px;
     text-align: center;
 }

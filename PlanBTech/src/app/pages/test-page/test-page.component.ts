@@ -89,7 +89,7 @@ export class TestPageComponent implements OnInit{
 
   openFailedDialog(): void {
     const dialogRef = this.dialog.open(TestFailedComponent, {
-      data: { url: this.test.badgeURL }
+      data:  this.test.badgeURL
     });
 
     dialogRef.afterClosed().subscribe(result => {
