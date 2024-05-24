@@ -20,7 +20,7 @@ export class UserlocalstorageService {
 
    getToken():string{
     if(isPlatformBrowser(this.plataformId)){
-      const token = localStorage.getItem('token')
+      const token =  localStorage.getItem('token')
       return token ? token : '';
     }
     return '';

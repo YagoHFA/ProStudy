@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './profilepage.component.css'
 })
 export class ProfilepageComponent {
+  project:boolean = false;
 
+  chageStatus(){
+    this.project = !this.project;
+  }
 }

@@ -35,6 +35,7 @@ public class UserController {
     @Operation(summary = "Vincula usuário com teste", description = "Vincula um usuário ao um teste que foi realizado com sucesso")
     @PutMapping("/test/complete")
     public ResponseEntity<String> compleTest(@RequestBody TestCompleteDTO testCompleteDTO){
+        System.out.println("Pass");
         try {
             iUserServices.completeTest(testCompleteDTO);
             return ResponseEntity.ok().build();

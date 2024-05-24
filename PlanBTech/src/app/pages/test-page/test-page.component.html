@@ -3,18 +3,19 @@
     <div class="container">
         <div class="centralizado">
             <div class="img-text-container">
-                <img src="assets/img/html2.png" alt="Imagem">
+                <img src="{{test.badgeURL}}" alt="Imagem">
                 <div>
-                    <h1>Teste HTML Básico</h1>
-                    <p>Questão 2 de 20</p>
+                    <h1>{{test.testTitle}}</h1>
+                    <p>Questão {{index + 1}} de {{maxQuestion}} </p>
                 </div>
             </div>
         </div>
         <div class="questoes">
-            <app-question></app-question>
+            <app-question [question]="test.questionsList[index]" #childComponents ></app-question>
             <div class="botao">
-                <button class="botao-menu-transp">Questão anterior</button>
-                <button class="botao-menu-azul" onclick="window.location.href='aprovado.html'">Próxima questão</button>
+                <button class="botao-menu-transp" (click)="prevQuestion()" >Questão anterior</button>
+                <button class="botao-menu-azul" (click)="nextQuestion()"*ngIf="!finish" >Próxima Questão</button>
+                <button class="botao-menu-azul" (click)="calcResult()"  *ngIf="finish" >Finalizar</button>
             </div>
         </div>
     </div>

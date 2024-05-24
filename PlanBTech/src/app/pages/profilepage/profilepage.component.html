@@ -8,11 +8,11 @@
             </div>
         </div>
         <div class="botao">
-            <button class="botao-menu-azul" onclick="window.location.href='perfil.html'">Conquistas</button>
-            <button class="botao-menu-transp" onclick="window.location.href='projetos.html'">Projetos</button>
+            <button class="botao-menu-azul" (click)="chageStatus()" [ngClass]="{'botao-menu-azul':!project, 'botao-menu-transp':project}">Conquistas</button>
+            <button class="botao-menu-transp" (click)="chageStatus()" [ngClass]="{'botao-menu-azul':project, 'botao-menu-transp':!project}" >Projetos</button>
         </div>
     </div>
-    <section>
+    <section *ngIf="!project">
         <div class="video-container">
             <div class="video">
                 <img src="assets/img/html2.png">
@@ -35,79 +35,7 @@
             </div>
         </div>
     </section>
-
-    <section>
-        <div class="video-container">
-
-            <div class="video">
-                <img src="assets/img/html2.png">
-                <p class="subtitulo">HTML Básico</p>
-            </div>
-
-            <div class="video">
-                <img src="assets/img/html2.png">
-                <p class="subtitulo">HTML Básico</p>
-            </div>
-
-            <div class="video">
-                <img src="assets/img/html2.png">
-                <p class="subtitulo">HTML Básico</p>
-            </div>
-
-            <div class="video">
-                <img src="assets/img/html2.png">
-                <p class="subtitulo">HTML Básico</p>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="video-container">
-
-            <div class="video">
-                <img src="assets/img/html2.png">
-                <p class="subtitulo">HTML Básico</p>
-            </div>
-
-            <div class="video">
-                <img src="assets/img/html2.png">
-                <p class="subtitulo">HTML Básico</p>
-            </div>
-
-            <div class="video">
-                <img src="assets/img/html2.png">
-                <p class="subtitulo">HTML Básico</p>
-            </div>
-
-            <div class="video">
-                <img src="assets/img/html2.png">
-                <p class="subtitulo">HTML Básico</p>
-            </div>
-        </div>
-    </section>
-
-        <section>
-        <div class="video-container">
-
-            <div class="video">
-                <img src="assets/img/html2.png">
-                <p class="subtitulo">HTML Básico</p>
-            </div>
-
-            <div class="video">
-                <img src="assets/img/html2.png">
-                <p class="subtitulo">HTML Básico</p>
-            </div>
-
-            <div class="video">
-                <img src="assets/img/html2.png">
-                <p class="subtitulo">HTML Básico</p>
-            </div>
-
-            <div class="video">
-                <img src="assets/img/html2.png">
-                <p class="subtitulo">HTML Básico</p>
-            </div>
-        </div>
+    <section *ngIf="project" >
+      <app-project-item></app-project-item>
     </section>
 </div>

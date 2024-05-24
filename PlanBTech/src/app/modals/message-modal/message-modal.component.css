@@ -1,0 +1,52 @@
+.background {
+  width: 500px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+  color: #000;
+  text-align: center;
+}
+
+.botao-menu-azul {
+  background-color: #00B5FF;
+  border: none;
+  border-radius: 15px;
+  padding: 10px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.apresentation {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.image {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.Congratulations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-dialog {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

@@ -41,6 +41,12 @@ import { HomepageConfigService } from './service/controller/homepageconfig.servi
 import { UserService } from './service/controller/user.service';
 import { VideoService } from './service/controller/video.service';
 import { ProfilepageComponent } from './pages/profilepage/profilepage.component';
+import { MessageModalComponent } from './modals/message-modal/message-modal.component';
+import { MatButtonModule } from '@angular/material/button';
+import { TestFailedComponent } from './modals/test-failed/test-failed.component';
+import { ProjectItemComponent } from './components/project-item/project-item.component';
+import { TestItemComponent } from './components/test-item/test-item.component';
+import { TestCardListComponent } from './components/test-card-list/test-card-list.component';
 
 
 
@@ -69,7 +75,12 @@ import { ProfilepageComponent } from './pages/profilepage/profilepage.component'
     BoxresultpageComponent,
     BoxcontractpageComponent,
     TestShowComponent,
-    ProfilepageComponent
+    ProfilepageComponent,
+    MessageModalComponent,
+    TestFailedComponent,
+    ProjectItemComponent,
+    TestItemComponent,
+    TestCardListComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +89,8 @@ import { ProfilepageComponent } from './pages/profilepage/profilepage.component'
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    RouterModule
+    RouterModule,
+    MatButtonModule
   ],
   providers: [
     provideClientHydration(),

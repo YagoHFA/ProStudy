@@ -46,8 +46,8 @@ public class AuthenticationController {
     @Operation(summary = "Cria um usuário", description = "Cria um usuário com permissões de usuário no banco de dados")
     @PostMapping("/register/user")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<UserLoginResponseDTO> registerUser(@RequestBody UserRegisterDTO userToRegister){
-        if(this.userServices.findByUserName(userToRegister.userName()).isPresent()) return ResponseEntity.badRequest().build();
+    public ResponseEntity<HttpStatus> registerUser(@RequestBody UserRegisterDTO userToRegister){
+        if(this.userServices.findByUserName(userToRegister.userName()).isPresent()) return ResponseEntity.status(401).build();
         this.userServices.createUser(userToRegister);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
