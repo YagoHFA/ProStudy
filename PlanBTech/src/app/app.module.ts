@@ -43,6 +43,7 @@ import { VideoService } from './service/controller/video.service';
 import { ProfilepageComponent } from './pages/profilepage/profilepage.component';
 import { MessageModalComponent } from './modals/message-modal/message-modal.component';
 import {MatButtonModule} from '@angular/material/button';
+import { TestFailedComponent } from './modals/test-failed/test-failed.component';
 
 
 
@@ -72,7 +73,8 @@ import {MatButtonModule} from '@angular/material/button';
     BoxcontractpageComponent,
     TestShowComponent,
     ProfilepageComponent,
-    MessageModalComponent
+    MessageModalComponent,
+    TestFailedComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { QuestionComponent } from '../../components/question/question.component'
 import { MatDialog } from '@angular/material/dialog';
 import { MessageModalComponent } from '../../modals/message-modal/message-modal.component';
 import { title } from 'node:process';
+import { TestFailedComponent } from '../../modals/test-failed/test-failed.component';
 
 @Component({
   selector: 'app-test-page',
@@ -62,11 +63,12 @@ export class TestPageComponent implements OnInit{
     this.points.forEach(element => {
       sum += ( element-1 )
     });
-    console.log('soma final: '+ sum)
-    console.log('soma total: ' + (this.maxQuestion * 5) / 0.75)
-    if(sum >= Math.floor((this.maxQuestion * 5)* 0.75)){
 
+    if(sum >= Math.floor((this.maxQuestion * 5)* 0.75)){
       this.openDialog()
+    }
+    else{
+      this.openFailedDialog()
     }
   }
 
@@ -78,6 +80,16 @@ export class TestPageComponent implements OnInit{
       title: this.test.testTitle,
       testId: this.test.testId
     }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  openFailedDialog(): void {
+    const dialogRef = this.dialog.open(TestFailedComponent, {
+      data: { url: this.test.badgeURL }
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -18,9 +18,6 @@ export class RegisterComponent {
   confirmPassword: string= '';
   email: string='';
   register() {
-    console.log(this.password)
-    console.log(this.confirmPassword)
-    console.log(this.userName)
     // Verificar se as senhas coincidem
     if (this.password !== this.confirmPassword) {
       window.alert('As senhas não coincidem.');
