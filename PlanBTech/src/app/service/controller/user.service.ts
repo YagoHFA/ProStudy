@@ -34,7 +34,29 @@ export class UserService {
       map((token: any) => token.token) // Mapeando a resposta para retornar apenas a string
     );
   }
+  register(userName: string, password: string, email: string): Observable<string> {
+    const user = { userName, password, email };
+    const url = `http://localhost:8080/auth/register/user`;
+    return this.http.post<any>(url, user).pipe(
+      catchError(this.handleError), // Supondo que a resposta tenha uma mensagem
+    );
+  }
 
+  private handleError(error: HttpErrorResponse) {
+    let errorMessage = 'Ocorreu um erro desconhecido.';
+
+    if (error.error instanceof ErrorEvent) {
+      // Erro no cliente
+      errorMessage = `Erro: ${error.error.message}`;
+    } else {
+      // Erro no servidor
+      errorMessage = `Erro: ${error.status}, Mensagem: ${error.message}`;
+    }
+
+    console.error(errorMessage);
+    window.alert(errorMessage);
+    return throwError(() => new Error(errorMessage));
+  }
 
 }
 

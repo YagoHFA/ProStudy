@@ -1,16 +1,14 @@
 <div class="background">
   <div class="apresentation">
-    <div>
-      <img src="{{data.icon}}" alt="" class="image" >
-    </div>
+    <img src="{{data.icon}}" alt="" class="image">
     <div class="Congratulations">
-      <h2 class="message"><b>Congratulations!</b></h2>
-      <p class="message">{{data.message}}</p>
-      <p class="message"><b>{{data.title}}</b></p>
+      <h2 class="message"><b>CONGRATULATIONS!</b></h2>
+      <p class="message">Você finalizou o curso</p>
+      <p class="message"><b>HTML Básico</b></p>
     </div>
   </div>
-  <p class="message" >Clique no botão abaixo e confira sua certificação em “perfil”.</p>
-  <div mat-dialog-actions class="button-dialog" >
-    <button mat-button (click)="close()" class="botao-menu-azul" >{{data.button}}</button>
+  <p class="message">Clique no botão abaixo e confira sua certificação em “perfil”.</p>
+  <div mat-dialog-actions class="button-dialog">
+    <button mat-button (click)="close()" class="botao-menu-azul">Pegar certificação</button>
   </div>
 </div>

@@ -23,7 +23,6 @@ export class LoginComponent {
 
   login(): void {
     if (this.loginForm.valid) {
-      console.log('passo');
       this.userService.login(this.loginForm.get('userName')?.value, this.loginForm.get('password')?.value)
         .subscribe(
           (token:string) => {

@@ -3,4 +3,5 @@ export class ModalTest {
   icon:string = ''
   button:string = ''
   title:string = ''
+  testId:string = ''
 }

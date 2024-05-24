@@ -33,7 +33,6 @@ export class TestPageComponent implements OnInit{
   maxQuestion:number = 0;
 
   nextQuestion(){
-    this.openDialog()
     const selectedAnswers = this.childComponents.map(child => child.getSelectedAnswer());
     if (this.index < this.maxQuestion-1 && selectedAnswers[0] > 0){
     this.index++
@@ -76,7 +75,8 @@ export class TestPageComponent implements OnInit{
       data: {message:'Parabéns você passou no Teste',
       icon:this.test.badgeURL,
       button: 'Pegar Certificação',
-      title: this.test.testTitle
+      title: this.test.testTitle,
+      testId: this.test.testId
     }
     });
 

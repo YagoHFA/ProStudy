@@ -14,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class SkillTestDTO {
 
+    private String testId;
     private List<QuestionDTO> questionsList;
     private String testTitle;
     private String badgeURL;
@@ -22,5 +23,6 @@ public class SkillTestDTO {
         this.questionsList = entity.getQuestions().stream().map(QuestionDTO::new).toList();
         this.testTitle = entity.getTestTitle();
         this.badgeURL = entity.getBadgeURL();
+        this.testId = entity.getTestId();
     }
 }
