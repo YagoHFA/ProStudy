@@ -27,6 +27,7 @@ export class LoginComponent {
         .subscribe(
           (token:string) => {
             this.userStorage.setToken(token);
+            this.userStorage.setUserName(this.loginForm.get('userName')?.value);
             this.router.navigate(['/homepage']);
           },
           (error:string)=>

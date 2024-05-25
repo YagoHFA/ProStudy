@@ -1,10 +1,8 @@
 <div>
   <button class="button-test" routerLink="/testpage" [queryParams]="{t:test.testId}">
     <h3 class="test-title">{{test.testTitle}}</h3>
-    <br>
     <p class="text">Questões: {{test.questionNumber}} no total</p>
-    <br>
     <p class="text">{{test.testLongDescription}}</p>
-    <img src="{{test.badgeURL}}" alt="" style="width: 100%; height: 100%;">
+        <img src="{{test.badgeURL}}" alt="Badge Image" class="badge-img">
   </button>
 </div>

@@ -83,40 +83,25 @@ public class UserServices implements IUserServices {
     @Transactional
     @Override
     public void addProject(ProjectAddDTO projectDTO) {
-        String username = tokenService.validateToken(projectDTO.getProjectOwner());
-        User user = userRepository.findByUserName(username).orElseThrow();
-        user.getUserProjects().add(
-                User_Project.builder()
-                        .id(
-                                User_ProjectId
-                                        .builder()
-                                        .userId(user)
-                                        .projectId(Project
-                                                .builder()
-                                                .projectName(projectDTO.getProjectName())
-                                                .projectDescription(projectDTO.getShortdescription())
-                                                .tools(projectDTO
-                                                        .getTools()
-                                                        .stream()
-                                                        .map(categoryRepository::findByCategoryName)
-                                                        .toList())
-                                                .projectURL(projectDTO.getProjectURL())
-                                                .build())
-                                        .build()
+        User user = userRepository.findByUserName(projectDTO.getProjectOwner()).orElseThrow();
+        Project project = Project.builder()
+                .projectName(projectDTO.getProjectName())
+                .projectURL(projectDTO.getProjectURL())
+                .projectDescription(projectDTO.getShortdescription())
+                .build();
 
-        )
-                        .permission("Owner")
-                        .build()
-        );
+        user.getUserProjects().add(project);
+        userRepository.save(user);
+        System.out.println('b');
     }
 
     @Transactional
     @Override
     public void completeTest(TestCompleteDTO testCompleteDTO) {
         User userToComplete = userRepository.findByUserName(testCompleteDTO.getUserName()).orElseThrow();
-        System.out.println("pass: " + testCompleteDTO.getTestId());
+
         SkillTest test =testRepository.findById(testCompleteDTO.getTestId()).orElseThrow();
-        System.out.println("i still pass");
+
         System.out.println(test.getTestTitle());
         userToComplete.getSkillTests().add(testRepository.findById(testCompleteDTO.getTestId()).orElseThrow());
         userToComplete.getSkillTests().forEach(x-> {
@@ -128,15 +113,9 @@ public class UserServices implements IUserServices {
     @Transactional
     @Override
     public UserLoadDTO loadUser(String userName) {
-        System.out.println("UserName: " + userName);
+
         User user = userRepository.findByUserName(userName).orElseThrow();
-        System.out.println("Email: " + user.getUserEmail());
-        user.getUserRole().forEach(x-> {
-            System.out.println("Role: " + x.getRoleName());
-        });
-        user.getSkillTests().forEach(x-> {
-            System.out.println("Test: " + x.getTestTitle());
-        });
+
         return userRepository.findByUserName(userName).map(UserLoadDTO::new).orElseThrow();
     }
 }

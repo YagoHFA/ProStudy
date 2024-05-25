@@ -46,6 +46,6 @@ public class ProjectServices implements IProjectService {
 
     @Override
     public List<ProjectMinViewDTO> findAllByUserOwner(String userName) {
-        return projectRepository.findByProjectsUser_Id_UserId_UserName(userName).stream().map(ProjectMinViewDTO::new).toList();
+        return projectRepository.findByOwner(userName).stream().map(ProjectMinViewDTO::new).toList();
     }
 }

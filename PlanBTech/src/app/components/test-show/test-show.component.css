@@ -1,11 +1,44 @@
-.test-title{
+.button-test {
+  background-color: #2c2c2c;
+  border: 2px solid #00f;
+  border-radius: 8px;
+  color: white;
+  padding: 16px;
+  text-align: left;
+  width: 300px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+.button-test:hover {
+  background-color: #444;
+}
+
+.test-title {
+  margin: 0;
+  font-size: 1.5em;
+  color: white;
   text-decoration: none;
 }
 
-.text{
+.text {
+  margin: 8px 0;
+  color: #bbb;
   text-decoration: none;
 }
 
-.button-test{
-  cursor:pointer;
+.details-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #bbb;
+  margin: 8px 0;
+}
+
+.badge-img {
+  align-self: center;
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 16px;
 }

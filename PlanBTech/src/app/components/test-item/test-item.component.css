@@ -2,18 +2,20 @@
   border: 1px solid #888;
   border-radius: 8px;
   padding: 16px;
-  background-color: #2c2c2c;
   color: #fff;
   text-align: center;
   margin-bottom: 16px;
+  height: 150px;
+  width: 150px;
+  margin-left: 20px;
 }
 
 .card-item img {
-  max-width: 100%;
+  max-width: 40%;
   border-radius: 8px;
 }
 
 .card-item h2 {
   margin-top: 16px;
-  font-size: 1.5em;
+  font-size: 1em;
 }

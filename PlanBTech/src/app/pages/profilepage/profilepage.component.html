@@ -4,38 +4,19 @@
         <div class="img-text-container">
             <img src="assets/img/perfil.png" alt="Imagem">
             <div>
-                <h1 class="titulo">Jonathan Smith</h1>
+                <h1 class="titulo">{{userName}}</h1>
             </div>
         </div>
         <div class="botao">
             <button class="botao-menu-azul" (click)="chageStatus()" [ngClass]="{'botao-menu-azul':!project, 'botao-menu-transp':project}">Conquistas</button>
             <button class="botao-menu-transp" (click)="chageStatus()" [ngClass]="{'botao-menu-azul':project, 'botao-menu-transp':!project}" >Projetos</button>
+            <button class="botao-menu-azul" *ngIf="permission && project" mat-button (click)="addProject()">Adicionar</button>
         </div>
     </div>
     <section *ngIf="!project">
-        <div class="video-container">
-            <div class="video">
-                <img src="assets/img/html2.png">
-                <p class="subtitulo">HTML Básico</p>
-            </div>
-
-            <div class="video">
-                <img src="assets/img/html2.png">
-                <p class="subtitulo">HTML Básico</p>
-            </div>
-
-            <div class="video">
-                <img src="assets/img/html2.png">
-                <p class="subtitulo">HTML Básico</p>
-            </div>
-
-            <div class="video">
-                <img src="assets/img/html2.png">
-                <p class="subtitulo">HTML Básico</p>
-            </div>
-        </div>
+        <app-test-card-list [tests]="user.skillTests" ></app-test-card-list>
     </section>
-    <section *ngIf="project" >
-      <app-project-item></app-project-item>
+    <section *ngIf="project" class="project-menu">
+      <app-project-lists [projects]="user.projects" ></app-project-lists>
     </section>
 </div>

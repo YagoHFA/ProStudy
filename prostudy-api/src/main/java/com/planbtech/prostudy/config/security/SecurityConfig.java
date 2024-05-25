@@ -39,6 +39,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/category/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/test/find/**").authenticated()
                         .requestMatchers(HttpMethod.GET, "/video/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/user/load/**").permitAll()
                         .requestMatchers(HttpMethod.GET,"/swagger-ui/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/v3/**").permitAll()
                         .anyRequest().authenticated())

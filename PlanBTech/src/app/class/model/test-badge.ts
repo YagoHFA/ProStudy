@@ -1,6 +1,6 @@
 export class TestBadge {
-  title:string  = '';
-  icon:string = '';
+  testTitle:string  = '';
+  badgeURL:string = '';
 }
 
 

@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>Postar Projeto</h2>
+<mat-dialog-content>
+  <form>
+    <mat-form-field class="full-width">
+      <mat-label>Titulo</mat-label>
+      <input matInput [(ngModel)]="project.title" name="title" required>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput [(ngModel)]="project.description" name="description" required></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Ferramentas</mat-label>
+      <mat-select [(ngModel)]="project.tools" name="tools" required>
+        <mat-option value="Spring Boot">Spring Boot</mat-option>
+        <mat-option value="Java 17">Java 17</mat-option>
+        <mat-option value="Railway">Railway</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Link GitHub</mat-label>
+      <input matInput [(ngModel)]="project.githubLink" name="githubLink" required>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button color="primary" (click)="onSubmit()">Postar</button>
+</mat-dialog-actions>
+

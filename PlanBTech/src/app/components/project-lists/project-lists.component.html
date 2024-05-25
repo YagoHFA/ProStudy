@@ -1,0 +1,9 @@
+<div class="card-list">
+  <app-project-item
+    *ngFor="let card of projects"
+    [title]="card.projectTitle"
+    [description]="card.projectDescription"
+    [url]="card.projectLink">
+  </app-project-item>
+</div>
+

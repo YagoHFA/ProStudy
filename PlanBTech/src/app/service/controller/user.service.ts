@@ -1,13 +1,17 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, throwError, map } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { catchError, Observable, throwError, map, switchMap } from 'rxjs';
+import { UserFull } from '../../class/model/user-full';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,
+              private route:ActivatedRoute
+  ) { }
 
   login(userName: string, password: string): Observable<string> {
     const user = { userName, password }; // Usando shorthand property notation
@@ -36,6 +40,7 @@ export class UserService {
   }
   register(userName: string, password: string, email: string): Observable<string> {
     const user = { userName, password, email };
+    //const url = `https://prostudy-api.azurewebsites.net/auth/register/user`;
     const url = `http://localhost:8080/auth/register/user`;
     return this.http.post<any>(url, user).pipe(
       catchError(this.handleError), // Supondo que a resposta tenha uma mensagem
@@ -58,5 +63,15 @@ export class UserService {
     return throwError(() => new Error(errorMessage));
   }
 
+  userLoadInfo():Observable<UserFull>{
+    return this.route.queryParams.pipe(
+      switchMap(params => {
+        const userName = params['u'];
+       //const url = `https://prostudy-api.azurewebsites.net/user/load/${userName}`;
+        const url = `http://localhost:8080/user/load/${userName}`;
+        return this.http.get<UserFull>(url);
+      })
+    );
+  }
 }
 

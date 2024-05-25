@@ -27,8 +27,8 @@ public class Project {
     @Column(name = "projectURL")
     private String projectURL;
 
-    @OneToMany(mappedBy = "id.projectId")
-    private List<User_Project> projectsUser;
+    @ManyToMany(mappedBy = "userProjects")
+    private List<User> projectsUser;
 
     @ManyToMany
     @JoinTable(name = "project_tools",
