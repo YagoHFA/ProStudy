@@ -2,6 +2,7 @@ import { AfterContentChecked, AfterViewInit, Component, DoCheck, Input, OnChange
 import { Video } from '../../class/video';
 import { ActivatedRoute } from '@angular/router';
 import { VideoService } from '../../service/controller/video.service';
+import { VideolocalstorageService } from '../../service/localstorage/videolocalstorage.service';
 
 @Component({
   selector: 'app-videopage',
@@ -17,11 +18,15 @@ export class VideopageComponent implements OnInit{
           this.video = video;
         }
        )
+      this.recomendation = this.videoLocalStorage.getRecomendation();
   }
-  constructor(private route:ActivatedRoute, private videoService:VideoService){
+  constructor(private route:ActivatedRoute,
+              private videoService:VideoService,
+              private videoLocalStorage:VideolocalstorageService){
 
   }
 
 
     video:Video = new Video();
+    recomendation:Video[] = [];
 }

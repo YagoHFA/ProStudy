@@ -92,7 +92,7 @@ public class UserServices implements IUserServices {
 
         user.getUserProjects().add(project);
         userRepository.save(user);
-        System.out.println('b');
+
     }
 
     @Transactional

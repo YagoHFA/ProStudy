@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/c5c20f60-0538-444d-9425-05c6f134538a/resourceGroups/TesteHFA/providers/Microsoft.Web/sites/prostudy",
+    "appService.deploySubpath": "dist\\plan-btec"
+}

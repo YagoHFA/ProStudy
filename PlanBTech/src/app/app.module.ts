@@ -24,10 +24,6 @@ import { TesthomeComponent } from './pages/testhome/testhome.component';
 import { MainFooterComponent } from './components/main-footer/main-footer.component';
 import { QuestionComponent } from './components/question/question.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { ResultpageComponent } from './pages/resultpage/resultpage.component';
-import { ContractpageComponent } from './pages/contractpage/contractpage.component';
-import { BoxresultpageComponent } from './components/boxresultpage/boxresultpage.component';
-import { BoxcontractpageComponent } from './components/boxcontractpage/boxcontractpage.component';
 import { MatDialogModule} from '@angular/material/dialog'
 import { RouterModule } from '@angular/router';
 import { TestShowComponent } from './components/test-show/test-show.component';
@@ -74,10 +70,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TesthomeComponent,
     MainFooterComponent,
     QuestionComponent,
-    ResultpageComponent,
-    ContractpageComponent,
-    BoxresultpageComponent,
-    BoxcontractpageComponent,
     TestShowComponent,
     ProfilepageComponent,
     MessageModalComponent,

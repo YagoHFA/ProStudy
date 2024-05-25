@@ -22,7 +22,7 @@ export class TestService {
   }
 
   categoryList(): Observable<Category[]> {
-
+        //const url = 'https://prostudy-api.azurewebsites.net/category/test/allcategory';
         const url = 'http://localhost:8080/category/test/allcategory';
         return this.http.get<Category[]>(url);
       }
@@ -51,7 +51,7 @@ export class TestService {
         testId,
         userName
       };
-
+      //const url = `https://prostudy-api.azurewebsites.net/user/test/complete`
       const url = `http://localhost:8080/user/test/complete`;
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       console.log(headers)
@@ -80,7 +80,4 @@ export class TestService {
         }
       );
     }
-
-    // Função para decodificar o JWT
-
 }

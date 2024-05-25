@@ -41,6 +41,7 @@
     align-self: center;
     margin-left: 5px;
     height: 45px;
+    cursor: pointer;
 }
 
 .menu{

@@ -22,11 +22,12 @@ export class ProfilepageComponent implements OnInit{
    this.userService.userLoadInfo()
    .subscribe((response:UserFull) =>{
     this.user = response;
-   });
-   this.userName = this.userLocalStorage.getUserName()
+    this.userName = this.userLocalStorage.getUserName()
    if(this.user.userName == this.userName){
     this.permission = true;
    }
+   });
+
   }
   project:boolean = false;
   userName:string = ''

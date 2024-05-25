@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Video } from '../../class/video';
+import { VideolocalstorageService } from '../../service/localstorage/videolocalstorage.service';
 
 @Component({
   selector: 'app-video-list',
@@ -10,6 +11,9 @@ export class VideoListComponent implements OnInit {
   @Input() videoList: Video[] = [];
   @ViewChild('videoCarousel', { static: true }) videoCarousel!: ElementRef;
 
+  constructor(private videoLocalStorage:VideolocalstorageService){
+
+  }
   currentIndex: number = 0;
   maxVisibleItems: number = 4; // Defina o número máximo de itens visíveis aqui
 
@@ -37,5 +41,9 @@ export class VideoListComponent implements OnInit {
   updateCarousel(): void {
     const containerWidth = this.videoCarousel.nativeElement.offsetWidth;
     this.videoCarousel.nativeElement.querySelector('.videoList').style.transform = `translateX(-${this.currentIndex * containerWidth}px)`;
+  }
+
+  addRecomendation(videoList:Video[]){
+    this.videoLocalStorage.setRecomendation(videoList);
   }
 }

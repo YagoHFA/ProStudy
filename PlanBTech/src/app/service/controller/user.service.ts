@@ -67,7 +67,7 @@ export class UserService {
     return this.route.queryParams.pipe(
       switchMap(params => {
         const userName = params['u'];
-       //const url = `https://prostudy-api.azurewebsites.net/user/load/${userName}`;
+        //const url = `https://prostudy-api.azurewebsites.net/user/load/${userName}`;
         const url = `http://localhost:8080/user/load/${userName}`;
         return this.http.get<UserFull>(url);
       })

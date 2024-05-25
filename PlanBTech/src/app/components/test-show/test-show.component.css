@@ -16,7 +16,6 @@
 }
 
 .test-title {
-  margin: 0;
   font-size: 1.5em;
   color: white;
   text-decoration: none;
@@ -28,17 +27,13 @@
   text-decoration: none;
 }
 
-.details-list {
-  list-style-type: disc;
-  padding-left: 20px;
-  color: #bbb;
-  margin: 8px 0;
-}
-
 .badge-img {
   align-self: center;
   width: 50%;
-  height: auto;
-  border-radius: 8px;
-  margin-top: 16px;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
