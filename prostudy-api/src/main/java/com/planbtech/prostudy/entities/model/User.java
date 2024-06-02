@@ -37,7 +37,7 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "roleid"))
     private List<Role> userRole;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(name = "user_project",
             joinColumns = @JoinColumn(name = "userid"),
             inverseJoinColumns = @JoinColumn(name = "projectid"))

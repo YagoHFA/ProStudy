@@ -2,7 +2,6 @@ package com.planbtech.prostudy.entities.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.ManyToAny;
 
 import java.util.List;
 
@@ -35,4 +34,10 @@ public class Project {
             joinColumns = @JoinColumn(name = "projectid"),
             inverseJoinColumns = @JoinColumn(name = "toolsid"))
     private List<Category> tools;
+
+    public void generateProjectId(String projectName, String projectOwner, Long userId) {
+        String projectNamePart = projectName.length() >= 3 ? projectName.substring(0, 3) : projectName;
+        String projectOwnerPart = projectOwner.length() >= 2 ? projectOwner.substring(0, 2) : projectOwner;
+        this.projectId  = projectNamePart.toLowerCase() + "#" + projectOwnerPart.toLowerCase() + userId;
+    }
 }

@@ -8,8 +8,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 
-
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 @Tag(name = "Gerencia ações de usuário", description = "Gerencia as ações que um usuário pode realizar")
@@ -26,6 +26,9 @@ public class UserController {
         try {
             iUserServices.addProject(projectDTO);
             return ResponseEntity.ok().build();
+        }
+        catch (UsernameNotFoundException e){
+            return ResponseEntity.notFound().build();
         }
         catch (Exception e){
             return ResponseEntity.badRequest().build();

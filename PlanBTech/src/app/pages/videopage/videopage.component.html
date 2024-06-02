@@ -1,15 +1,18 @@
-<header><app-main-header></app-main-header></header>
+<header>
+  <app-main-header></app-main-header>
+</header>
 <div class="content">
-    <div class="assistir">
-        <div class="video-primeiro-e-retangular">
-            <div class="primeiro-video">
-                <app-video [video]="video"></app-video>
-            </div>
-        </div>
-    </div>
-    <div class="section-container">
-        <section>
-            <app-video-list [videoList]="recomendation" ></app-video-list>
-        </section>
-    </div>
+  <div class="assistir">
+      <div class="primeiro-video">
+        <app-video [video]="video"></app-video>
+      </div>
+      <div>
+        teste-recomendation
+      </div>
+  </div>
+  <div class="section-container">
+    <section>
+      <app-video-list [videoList]="recomendation"></app-video-list>
+    </section>
+  </div>
 </div>

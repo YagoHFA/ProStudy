@@ -1,14 +1,14 @@
 <div class="video-carousel" #videoCarousel>
+  <button class="prev-button" (click)="prevSlide()"><img src="https://dl.dropboxusercontent.com/scl/fi/4tjwwo1q7woce8xuqksuo/seta_esquerda.png.png?rlkey=r297fkkygno9n60tr8sa2v9u3&st=5h8v9eje" alt=""></button>
   <div class="videoList">
-    <div *ngFor="let video of videoList" class="video-item">
-      <div>
+    <div *ngFor="let video of videoList; let i = index" [class.visible]="isVisible(i)" class="video-item">
+      <div class="video">
         <label for="" class="title">{{video.videoTitle}}</label>
         <a routerLink="/videopage/watch" [queryParams]="{v:video.videoId}" (click)="addRecomendation(videoList)">
-          <img src="{{video.thumb}}" alt="" width="300px" height="150px">
+          <img src="{{video.thumb}}" alt="" width="100%" height="150px">
         </a>
       </div>
     </div>
   </div>
-  <button class="prev-button" (click)="prevSlide()">Anterior</button>
-  <button class="next-button" (click)="nextSlide()">Próximo</button>
+  <button class="next-button" (click)="nextSlide()"><img src="https://dl.dropboxusercontent.com/scl/fi/psmy5spefswxdbqc7i0gm/seta_direita.png.png?rlkey=sakzgjtbaf8c8mg6cq7teatni&st=f2gmbxg2" alt=""></button>
 </div>

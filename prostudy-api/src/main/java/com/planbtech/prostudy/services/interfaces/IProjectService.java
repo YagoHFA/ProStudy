@@ -10,7 +10,7 @@ import java.util.List;
 public interface IProjectService {
     void updateProject(ProjectUpdateDTO projectUpdateDTO);
 
-    void deleteProject(String projectId);
+    void deleteProject(String username,String projectId);
 
     ProjectMinViewDTO findById(String projectId);
 

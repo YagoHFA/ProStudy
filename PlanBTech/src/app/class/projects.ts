@@ -1,13 +1,13 @@
 export class Projects {
     projectId:number;
-    projectTitle:string;
+    projectName:string;
     projectDescription:string;
-    projectLink:string;
+    projectURL:string;
 
     constructor(){
         this.projectId          = 0;
-        this.projectTitle       = '';
+        this.projectName       = '';
         this.projectDescription = '';
-        this.projectLink        = '';
+        this.projectURL        = '';
       }
 }

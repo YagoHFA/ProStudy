@@ -2,7 +2,6 @@
     font-size: 1.5em;
     font-weight: bolder;
     color: #D7F9FF;
-    white-space: nowrap;
     font-family: "Chakra Petch", sans-serif;
     -webkit-font-smoothing: antialiased;
     text-align: center;
@@ -11,7 +10,18 @@
 
 .items {
     display: flex;
-    margin-right: 50px;
-    text-align: center;
-    justify-items: center;
+    width: 100%;
+    flex-direction: column;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.2em;
+  }
+
+  .items {
+    padding: 10px;
+    width: 100%;
+  }
 }

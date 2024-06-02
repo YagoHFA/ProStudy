@@ -12,9 +12,11 @@ import com.planbtech.prostudy.services.interfaces.IUserServices;
 import jakarta.transaction.Transactional;
 import org.aspectj.weaver.ast.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Optional;
 
@@ -55,7 +57,14 @@ public class UserServices implements IUserServices {
     @Override
     @Transactional
     public Optional<User> findByUserName(String userName) {
-        return userRepository.findByUserName(userName);
+        if (userRepository.findByUserName(userName).isPresent()){
+            return userRepository.findByUserName(userName);
+        } else if (userRepository.findByUserEmail(userName).isPresent()) {
+            return userRepository.findByUserEmail(userName);
+        }
+        else {
+            return userRepository.findByUserName(userName);
+        }
     }
 
 
@@ -83,30 +92,36 @@ public class UserServices implements IUserServices {
     @Transactional
     @Override
     public void addProject(ProjectAddDTO projectDTO) {
-        User user = userRepository.findByUserName(projectDTO.getProjectOwner()).orElseThrow();
+        User user = userRepository
+                .findByUserName(projectDTO.getProjectOwner())
+                .orElseThrow();
+
         Project project = Project.builder()
                 .projectName(projectDTO.getProjectName())
                 .projectURL(projectDTO.getProjectURL())
                 .projectDescription(projectDTO.getShortdescription())
                 .build();
-
+        project.generateProjectId(project.getProjectName(),user.getUsername(),user.getUserId());
         user.getUserProjects().add(project);
-        userRepository.save(user);
 
+        try {
+            userRepository.save(user);
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     @Transactional
     @Override
     public void completeTest(TestCompleteDTO testCompleteDTO) {
-        User userToComplete = userRepository.findByUserName(testCompleteDTO.getUserName()).orElseThrow();
+        User userToComplete = userRepository
+                .findByUserName(testCompleteDTO.getUserName())
+                .orElseThrow();
 
         SkillTest test =testRepository.findById(testCompleteDTO.getTestId()).orElseThrow();
 
-        System.out.println(test.getTestTitle());
         userToComplete.getSkillTests().add(testRepository.findById(testCompleteDTO.getTestId()).orElseThrow());
-        userToComplete.getSkillTests().forEach(x-> {
-            System.out.println(x.getTestTitle());
-        });
         userRepository.save(userToComplete);
     }
 
@@ -116,6 +131,6 @@ public class UserServices implements IUserServices {
 
         User user = userRepository.findByUserName(userName).orElseThrow();
 
-        return userRepository.findByUserName(userName).map(UserLoadDTO::new).orElseThrow();
+        return new UserLoadDTO(user);
     }
 }

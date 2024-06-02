@@ -3,13 +3,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 
 .login-box {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     padding: 35px;
-    height: 100%;
     margin-top: 2%;
     margin-bottom: 3%;
     border-radius: 5px;
@@ -92,4 +92,10 @@
 
 .bold:hover{
     background-color: #555;
+}
+
+@media (min-width > 749) {
+  .content {
+    justify-content: none;
+  }
 }

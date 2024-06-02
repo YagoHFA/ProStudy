@@ -1,13 +1,11 @@
 <div style="display: flex;">
-<button class="prev-button" (click)="prevSlide()">Anterior</button>
-<div class="test-carousel" #testCarousel>
+  <button class="prev-button" (click)="prevSlide()"><img src="https://dl.dropboxusercontent.com/scl/fi/4tjwwo1q7woce8xuqksuo/seta_esquerda.png.png?rlkey=r297fkkygno9n60tr8sa2v9u3&st=5h8v9eje" alt=""></button>
+  <div class="test-carousel" #testCarousel>
     <div class="testList">
-      <div *ngFor="let test of testList" class="test-item">
-        <div *ngIf="test.questionNumber > 0">
-            <app-test-show [test]="test"></app-test-show>
-        </div>
+      <div *ngFor="let test of filteredTestList; let i = index" class="test-item" [ngClass]="{'visible-item': isVisible(i)}">
+        <app-test-show [test]="test"></app-test-show>
       </div>
     </div>
   </div>
-  <button class="next-button" (click)="nextSlide()">Próximo</button>
+  <button class="next-button" (click)="nextSlide()"><img src="https://dl.dropboxusercontent.com/scl/fi/psmy5spefswxdbqc7i0gm/seta_direita.png.png?rlkey=sakzgjtbaf8c8mg6cq7teatni&st=f2gmbxg2" alt=""></button>
 </div>

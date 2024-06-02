@@ -30,8 +30,8 @@ export class UserService {
         }
 
         // Aqui você pode implementar uma lógica mais sofisticada para lidar com erros, como redirecionar o usuário para uma página de erro
-        console.error(errorMessage);
-        window.alert(errorMessage);
+        ///console.error(errorMessage);
+        //window.alert(errorMessage);
         return throwError(() => new Error(errorMessage));
       }),
 

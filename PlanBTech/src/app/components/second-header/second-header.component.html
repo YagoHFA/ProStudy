@@ -1,7 +1,8 @@
-<div class="top-bar">
-    <img routerLink="/landingpage" src="https://dl.dropboxusercontent.com/scl/fi/w89cu9ygeeb07d5j06fx0/logo.png?rlkey=t97afsi2bxe6epbxnjsstqwwp&st=0jvuwizf" alt="Logo">
-    <div>
-        <button class="botao-menu" routerLink="/login">Login</button>
-        <button class="botao-menu-ultimo-azul" routerLink="/register">Matricule-se</button>
-    </div>
-</div>
+<mat-toolbar class="top-bar" color="primary">
+  <img mat-button routerLink="/landingpage" src="https://dl.dropboxusercontent.com/scl/fi/w89cu9ygeeb07d5j06fx0/logo.png?rlkey=t97afsi2bxe6epbxnjsstqwwp&st=0jvuwizf" alt="Logo">
+  <span class="spacer"></span>
+  <div>
+    <button mat-button class="botao-menu" routerLink="/login">Login</button>
+    <button mat-button class="botao-menu-ultimo-azul" routerLink="/register">Matricule-se</button>
+  </div>
+</mat-toolbar>

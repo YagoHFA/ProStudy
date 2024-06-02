@@ -49,6 +49,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { LoginFailedComponent } from './modals/login-failed/login-failed.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +82,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TestItemComponent,
     TestCardListComponent,
     ProjectListsComponent,
-    AddProjectComponent
+    AddProjectComponent,
+    LoginFailedComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +97,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [
     provideClientHydration(),
