@@ -12,9 +12,11 @@ import com.planbtech.prostudy.services.interfaces.IUserServices;
 import jakarta.transaction.Transactional;
 import org.aspectj.weaver.ast.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Optional;
 
@@ -55,7 +57,14 @@ public class UserServices implements IUserServices {
     @Override
     @Transactional
     public Optional<User> findByUserName(String userName) {
-        return userRepository.findByUserName(userName);
+        if (userRepository.findByUserName(userName).isPresent()){
+            return userRepository.findByUserName(userName);
+        } else if (userRepository.findByUserEmail(userName).isPresent()) {
+            return userRepository.findByUserEmail(userName);
+        }
+        else {
+            return userRepository.findByUserName(userName);
+        }
     }
 
 
@@ -83,60 +92,45 @@ public class UserServices implements IUserServices {
     @Transactional
     @Override
     public void addProject(ProjectAddDTO projectDTO) {
-        String username = tokenService.validateToken(projectDTO.getProjectOwner());
-        User user = userRepository.findByUserName(username).orElseThrow();
-        user.getUserProjects().add(
-                User_Project.builder()
-                        .id(
-                                User_ProjectId
-                                        .builder()
-                                        .userId(user)
-                                        .projectId(Project
-                                                .builder()
-                                                .projectName(projectDTO.getProjectName())
-                                                .projectDescription(projectDTO.getShortdescription())
-                                                .tools(projectDTO
-                                                        .getTools()
-                                                        .stream()
-                                                        .map(categoryRepository::findByCategoryName)
-                                                        .toList())
-                                                .projectURL(projectDTO.getProjectURL())
-                                                .build())
-                                        .build()
+        User user = userRepository
+                .findByUserName(projectDTO.getProjectOwner())
+                .orElseThrow();
 
-        )
-                        .permission("Owner")
-                        .build()
-        );
+        Project project = Project.builder()
+                .projectName(projectDTO.getProjectName())
+                .projectURL(projectDTO.getProjectURL())
+                .projectDescription(projectDTO.getShortdescription())
+                .build();
+        project.generateProjectId(project.getProjectName(),user.getUsername(),user.getUserId());
+        user.getUserProjects().add(project);
+
+        try {
+            userRepository.save(user);
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     @Transactional
     @Override
     public void completeTest(TestCompleteDTO testCompleteDTO) {
-        User userToComplete = userRepository.findByUserName(testCompleteDTO.getUserName()).orElseThrow();
-        System.out.println("pass: " + testCompleteDTO.getTestId());
+        User userToComplete = userRepository
+                .findByUserName(testCompleteDTO.getUserName())
+                .orElseThrow();
+
         SkillTest test =testRepository.findById(testCompleteDTO.getTestId()).orElseThrow();
-        System.out.println("i still pass");
-        System.out.println(test.getTestTitle());
+
         userToComplete.getSkillTests().add(testRepository.findById(testCompleteDTO.getTestId()).orElseThrow());
-        userToComplete.getSkillTests().forEach(x-> {
-            System.out.println(x.getTestTitle());
-        });
         userRepository.save(userToComplete);
     }
 
     @Transactional
     @Override
     public UserLoadDTO loadUser(String userName) {
-        System.out.println("UserName: " + userName);
+
         User user = userRepository.findByUserName(userName).orElseThrow();
-        System.out.println("Email: " + user.getUserEmail());
-        user.getUserRole().forEach(x-> {
-            System.out.println("Role: " + x.getRoleName());
-        });
-        user.getSkillTests().forEach(x-> {
-            System.out.println("Test: " + x.getTestTitle());
-        });
-        return userRepository.findByUserName(userName).map(UserLoadDTO::new).orElseThrow();
+
+        return new UserLoadDTO(user);
     }
 }

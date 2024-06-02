@@ -8,7 +8,5 @@ import { Component, Input } from '@angular/core';
 export class ProjectItemComponent {
   @Input() title: string = '';
   @Input() description: string = '';
-  @Input() details: string = '';
-  @Input() buttons: { label: string, link: string }[] = [];
-  @Input() footer: string = '';
+  @Input() url: string = '';
 }

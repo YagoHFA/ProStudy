@@ -25,4 +25,18 @@ export class UserlocalstorageService {
     }
     return '';
    }
+
+   setUserName(userName:string){
+    if(isPlatformBrowser(this.plataformId)){
+      localStorage.setItem('userName', userName)
+    }
+   }
+
+   getUserName():string{
+    if(isPlatformBrowser(this.plataformId)){
+      const userName =  localStorage.getItem('userName')
+      return userName ? userName : '';
+    }
+    return '';
+   }
 }

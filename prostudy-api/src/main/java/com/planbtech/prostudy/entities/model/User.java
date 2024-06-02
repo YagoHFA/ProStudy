@@ -37,8 +37,11 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "roleid"))
     private List<Role> userRole;
 
-    @OneToMany(mappedBy = "id.userId")
-    private List<User_Project> userProjects;
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(name = "user_project",
+            joinColumns = @JoinColumn(name = "userid"),
+            inverseJoinColumns = @JoinColumn(name = "projectid"))
+    private List<Project> userProjects;
 
     @ManyToMany
     @JoinTable(name = "user_skilltest",
@@ -81,7 +84,4 @@ public class User implements UserDetails {
         return true;
     }
 
-    public List<Project> getProjects(){
-        return userProjects.stream().map(x -> x.getId().getProjectId()).toList();
-    }
 }

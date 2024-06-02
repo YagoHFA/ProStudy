@@ -17,18 +17,12 @@ export function app(): express.Express {
   server.set('view engine', 'html');
   server.set('views', browserDistFolder);
 
-  server.get('/favicon.ico', (req, res) => {
-    console.log('favicon.ico');
-    res.sendFile(join(browserDistFolder, 'favicon.ico'));
-  });
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
   server.get('*.*', express.static(browserDistFolder, {
     maxAge: '1y'
   }));
-
-
 
   // All regular routes use the Angular engine
   server.get('*', (req, res, next) => {
