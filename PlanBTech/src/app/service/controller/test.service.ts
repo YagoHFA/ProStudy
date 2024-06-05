@@ -54,8 +54,6 @@ export class TestService {
       //const url = `https://prostudy-api.azurewebsites.net/user/test/complete`
       const url = `http://localhost:8080/user/test/complete`;
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      console.log(headers)
-      console.log(payload)
 
       // Realizar a solicitação HTTP e adicionar tratamento de erros
        this.http.put<any>(url, payload, { headers }).pipe(

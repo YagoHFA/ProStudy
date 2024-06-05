@@ -99,7 +99,7 @@ public class UserServices implements IUserServices {
         Project project = Project.builder()
                 .projectName(projectDTO.getProjectName())
                 .projectURL(projectDTO.getProjectURL())
-                .projectDescription(projectDTO.getShortdescription())
+                .projectDescription(projectDTO.getShortDescription())
                 .build();
         project.generateProjectId(project.getProjectName(),user.getUsername(),user.getUserId());
         user.getUserProjects().add(project);

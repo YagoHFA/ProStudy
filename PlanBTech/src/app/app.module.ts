@@ -53,6 +53,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginFailedComponent } from './modals/login-failed/login-failed.component';
+import { LoginPermissionComponent } from './modals/login-permission/login-permission.component';
+import { ContractTestComponent } from './modals/contract-test/contract-test.component';
+import { PermissionNeededComponent } from './modals/permission-needed/permission-needed.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +86,10 @@ import { LoginFailedComponent } from './modals/login-failed/login-failed.compone
     TestCardListComponent,
     ProjectListsComponent,
     AddProjectComponent,
-    LoginFailedComponent
+    LoginFailedComponent,
+    LoginPermissionComponent,
+    ContractTestComponent,
+    PermissionNeededComponent
   ],
   imports: [
     BrowserModule,
