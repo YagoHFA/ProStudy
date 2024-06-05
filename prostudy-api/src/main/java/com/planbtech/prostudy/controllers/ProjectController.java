@@ -36,9 +36,9 @@ public class ProjectController {
 
     @Operation(summary = "Deleta um projeto",description = "Deleta um projeto com base no id recebido na requisição")
     @DeleteMapping("/delete")
-    public ResponseEntity<Boolean> deleteProject(@RequestParam String projectId){
+    public ResponseEntity<Boolean> deleteProject(@RequestParam String projectId, @RequestParam String userName){
         try {
-            projectService.deleteProject(projectId);
+            projectService.deleteProject(userName,projectId);
             return ResponseEntity.ok(true);
         }
         catch (Exception e){

@@ -24,10 +24,6 @@ import { TesthomeComponent } from './pages/testhome/testhome.component';
 import { MainFooterComponent } from './components/main-footer/main-footer.component';
 import { QuestionComponent } from './components/question/question.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { ResultpageComponent } from './pages/resultpage/resultpage.component';
-import { ContractpageComponent } from './pages/contractpage/contractpage.component';
-import { BoxresultpageComponent } from './components/boxresultpage/boxresultpage.component';
-import { BoxcontractpageComponent } from './components/boxcontractpage/boxcontractpage.component';
 import { MatDialogModule} from '@angular/material/dialog'
 import { RouterModule } from '@angular/router';
 import { TestShowComponent } from './components/test-show/test-show.component';
@@ -47,8 +43,16 @@ import { TestFailedComponent } from './modals/test-failed/test-failed.component'
 import { ProjectItemComponent } from './components/project-item/project-item.component';
 import { TestItemComponent } from './components/test-item/test-item.component';
 import { TestCardListComponent } from './components/test-card-list/test-card-list.component';
-
-
+import { ProjectListsComponent } from './components/project-lists/project-lists.component';
+import { AddProjectComponent } from './modals/add-project/add-project.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { LoginFailedComponent } from './modals/login-failed/login-failed.component';
 
 @NgModule({
   declarations: [
@@ -70,17 +74,16 @@ import { TestCardListComponent } from './components/test-card-list/test-card-lis
     TesthomeComponent,
     MainFooterComponent,
     QuestionComponent,
-    ResultpageComponent,
-    ContractpageComponent,
-    BoxresultpageComponent,
-    BoxcontractpageComponent,
     TestShowComponent,
     ProfilepageComponent,
     MessageModalComponent,
     TestFailedComponent,
     ProjectItemComponent,
     TestItemComponent,
-    TestCardListComponent
+    TestCardListComponent,
+    ProjectListsComponent,
+    AddProjectComponent,
+    LoginFailedComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +93,14 @@ import { TestCardListComponent } from './components/test-card-list/test-card-lis
     ReactiveFormsModule,
     MatDialogModule,
     RouterModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [
     provideClientHydration(),

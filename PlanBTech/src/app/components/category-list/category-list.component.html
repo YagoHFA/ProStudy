@@ -1,11 +1,11 @@
 <div class="videoList">
   <div *ngFor="let category of categoryTest">
-    <div *ngIf="category.videoList.length >0">
-      <div>
-        <div style="margin-bottom: 2%">
+    <div *ngIf="category.videoList.length > 0">
+      <div class="category-container">
+        <div class="category-header">
           <app-category [category]="category"></app-category>
         </div>
-        <div>
+        <div class="video-list-container">
           <app-video-list [videoList]="category.videoList"></app-video-list>
         </div>
       </div>

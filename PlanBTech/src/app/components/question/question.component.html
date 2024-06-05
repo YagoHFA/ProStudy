@@ -1,6 +1,6 @@
 <div class="item">
     <p class="pergunta">{{question?.questionText}}</p>
       <div *ngFor="let answer of question?.anwersList;let i = index">
-        <label><input type="radio" name="opcao" [value]="i" (click)="changeSelection(answer.points)" > {{answer.answers}}</label>
+        <label><input class="answers" type="radio" name="opcao" [value]="i" (click)="changeSelection(answer.points)" > {{answer.answers}}</label>
       </div>
 </div>

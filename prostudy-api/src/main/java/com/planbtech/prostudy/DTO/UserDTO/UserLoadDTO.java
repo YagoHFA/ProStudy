@@ -16,16 +16,18 @@ import java.util.List;
 @AllArgsConstructor
 public class UserLoadDTO {
 
+        private String userName;
         private String email;
         private List<RoleDTO> roles;
         private List<SkillTestUserShowDTO> skillTests;
         private List<ProjectMinViewDTO> projects;
 
         public UserLoadDTO(User entity){
+                this.userName = entity.getUsername();
                 this.email = entity.getUserEmail();
                 this.roles = entity.getUserRole().stream().map(RoleDTO::new).toList();
                 this.skillTests = entity.getSkillTests().stream().map(SkillTestUserShowDTO::new).toList();
-                this.projects = entity.getProjects().stream().map(ProjectMinViewDTO::new).toList();
+                this.projects = entity.getUserProjects().stream().map(ProjectMinViewDTO::new).toList();
         }
 }
 

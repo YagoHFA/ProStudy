@@ -7,18 +7,22 @@ import { ActivatedRoute } from '@angular/router';
 import { UserlocalstorageService } from '../localstorage/userlocalstorage.service';
 import { error } from 'console';
 import { userInfo } from 'os';
+import { JwtService } from './jwt.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TestService {
 
-  constructor(private http:HttpClient,  private route:ActivatedRoute, private userStorage:UserlocalstorageService) {
+  constructor(private http:HttpClient,
+    private route:ActivatedRoute,
+    private userStorage:UserlocalstorageService,
+    private jwt:JwtService) {
 
   }
 
   categoryList(): Observable<Category[]> {
-
+        //const url = 'https://prostudy-api.azurewebsites.net/category/test/allcategory';
         const url = 'http://localhost:8080/category/test/allcategory';
         return this.http.get<Category[]>(url);
       }
@@ -33,9 +37,6 @@ export class TestService {
           //const url = `https://prostudy-api.azurewebsites.net/test/find/${testId}`;
           const url = `http://localhost:8080/test/find/${testId}`;
           return this.http.get<Test>(url, {headers});
-        }),catchError((error) => {
-          console.error('erro'+ error);
-          throw new Error('Error retrieving test');
         })
       );
     }
@@ -43,14 +44,14 @@ export class TestService {
     concluirTest(testId: string) {
       // Extrair informações do token
       const token = this.userStorage.getToken();
-      const userInfo = this.parseJwt(token);
+      const userInfo = this.jwt.parseJwt(token);
       const userName:string = userInfo.sub
       // Criar o payload da requisição
       const payload = {
         testId,
         userName
       };
-
+      //const url = `https://prostudy-api.azurewebsites.net/user/test/complete`
       const url = `http://localhost:8080/user/test/complete`;
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       console.log(headers)
@@ -78,16 +79,5 @@ export class TestService {
           console.log('Requisição completa.');
         }
       );
-    }
-
-    // Função para decodificar o JWT
-    parseJwt(token: string) {
-      const base64Url = token.split('.')[1];
-      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-      const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-      }).join(''));
-
-      return JSON.parse(jsonPayload);
     }
 }
