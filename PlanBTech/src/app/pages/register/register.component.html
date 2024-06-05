@@ -6,13 +6,13 @@
         <p>Realize o cadastro preenchendo as informações abaixo</p>
         <form>
             <label for="email">E-mail:</label><br>
-            <input type="text" id="email" name="email" [(ngModel)]="userName" ><br>
+            <input type="text" id="email" name="email" [(ngModel)]="email" ><br>
             <label for="password">Senha:</label><br>
             <input type="password" id="password" name="password" [(ngModel)]="password" ><br>
-            <label for="password">Confirme a senha:</label><br>
+            <label for="passwordConfirm">Confirme a senha:</label><br>
             <input type="password" id="passwordConfirm" name="password" [(ngModel)]="confirmPassword" ><br>
             <input class="bold" type="submit" value="Cadastrar" (click)="register()">
-        </form>
+          </form>
         <div class="retangulo">
             <div class="signup-box">
                 <h2>Já possui uma conta?</h2>
