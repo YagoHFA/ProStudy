@@ -1,9 +1,5 @@
 <div>
-  <button
-    class="button-test"
-    routerLink="/testpage"
-    [queryParams]="{ t: test.testId }"
-  >
+  <button class="button-test" (click)="openContractDialog()">
     <div class="content">
       <h3 class="test-title">{{ test.testTitle }}</h3>
       <p class="text">Questões: {{ test.questionNumber }} no total</p>

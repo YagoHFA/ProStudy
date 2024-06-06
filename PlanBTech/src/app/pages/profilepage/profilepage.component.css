@@ -85,3 +85,10 @@ section {
     width: 77%;
     margin-left: 5%;
 }
+
+@media (max-width: 410px) {
+  .centralizado{
+    width: auto;
+  }
+
+}

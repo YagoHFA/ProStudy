@@ -1,13 +1,11 @@
 .background {
   width: 500px;
-  height: 300px;
   background: rgba(255, 255, 255, 0.9);
-  display: flex;
-  flex-direction: column;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .message {
+  margin-top: 10%;
   color: #000;
   text-align: center;
 }
@@ -22,24 +20,6 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
-.apresentation {
-  display: flex;
-  margin-bottom: 20px;
-  flex-direction: column;
-}
-
-.image {
-  width: 100px;
-  height: 100px;
-  margin-right: 20px;
-}
-
-.Congratulations {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .button-dialog {
   display: flex;
   justify-content: center;
@@ -48,4 +28,9 @@
 
 .title{
   justify-self: self-start;
+  margin-left: 3%;
+}
+
+p{
+  max-width: 500px;
 }

@@ -59,6 +59,10 @@
 
 @media (max-width: 480px) {
   .botao-menu, .botao-menu-ultimo-azul {
-    font-size: 14px;
+    font-size: 12px;
+  }
+
+  .top-bar img{
+    margin-left: 20px;
   }
 }

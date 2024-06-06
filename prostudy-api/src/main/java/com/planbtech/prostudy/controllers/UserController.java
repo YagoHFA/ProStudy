@@ -23,6 +23,11 @@ public class UserController {
     @Operation(summary = "Adiciona um projeto novo", description = "Adiciona um projeto novo ao mesmo tempo que o vincula ao usuário que o criou como 'Owner'")
     @PutMapping("/project/add")
     public ResponseEntity<Boolean> addProject(@RequestBody ProjectAddDTO projectDTO){
+        System.out.println("Teste");
+        System.out.println(projectDTO.getProjectName());
+        System.out.println(projectDTO.getProjectOwner());
+        System.out.println(projectDTO.getProjectURL());
+        System.out.println(projectDTO.getShortDescription());
         try {
             iUserServices.addProject(projectDTO);
             return ResponseEntity.ok().build();

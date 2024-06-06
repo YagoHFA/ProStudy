@@ -13,7 +13,6 @@
     margin-top: 2%;
     margin-bottom: 3%;
     border-radius: 5px;
-    width: 500px;
 }
 
 .login-box h2 {
@@ -21,7 +20,9 @@
 }
 
 .login-box input[type="text"],
-.login-box input[type="password"] {
+.login-box input[type="password"],
+.login-box input[type="email"]
+ {
     width: 95%;
     padding: 10px;
     margin-bottom: 10px;

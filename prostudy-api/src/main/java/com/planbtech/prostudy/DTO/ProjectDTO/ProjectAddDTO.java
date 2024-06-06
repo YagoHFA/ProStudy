@@ -14,7 +14,7 @@ public class ProjectAddDTO {
     private String projectOwner;
     private String projectName;
     private List<String> tools;
-    private String Shortdescription;
+    private String shortDescription;
     private String projectURL;
 
 }

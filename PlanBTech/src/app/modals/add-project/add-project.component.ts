@@ -1,24 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { ProjectService } from '../../service/controller/project.service';
 
 @Component({
   selector: 'app-add-project',
   templateUrl: './add-project.component.html',
-  styleUrl: './add-project.component.css'
+  styleUrls: ['./add-project.component.css']
 })
-export class AddProjectComponent {
-  project = {
-    title: '',
-    description: '',
-    tools: '',
-    githubLink: ''
-  };
+export class AddProjectComponent implements OnInit {
+  projectForm: FormGroup = this.fb.group({
+    title: ['', Validators.required],
+    description: ['', Validators.required],
+    tools: ['', Validators.required],
+    githubLink: ['', Validators.required]
+  });
 
-  constructor(public dialogRef: MatDialogRef<AddProjectComponent>) {}
+  constructor(
+    private fb: FormBuilder,
+    public dialogRef: MatDialogRef<AddProjectComponent>,
+    private projectService: ProjectService
+  ) {}
+
+  ngOnInit(): void {
+    // O código aqui pode ser removido se você inicializar `projectForm` na declaração
+  }
 
   onSubmit(): void {
-    console.log('Project data:', this.project);
-    this.dialogRef.close();
+    if (this.projectForm.valid) {
+      this.projectService.createProject(this.projectForm.value["title"],this.projectForm.value["description"], this.projectForm.value["githubLink"]);
+    } else {
+      this.projectForm.markAllAsTouched(); // Mark all fields as touched to show validation errors
+    }
   }
 
   onCancel(): void {
