@@ -15,8 +15,8 @@ export class UserService {
 
   login(userName: string, password: string): Observable<string> {
     const user = { userName, password }; // Usando shorthand property notation
-    //const url = `https://prostudy-api.azurewebsites.net/auth/login`;
-    const url = `http://localhost:8080/auth/login`;
+    const url = `https://prostudy-api.azurewebsites.net/auth/login`;
+    //const url = `http://localhost:8080/auth/login`;
     return this.http.post<any>(url, user).pipe(
       catchError((error: HttpErrorResponse) => {
         let errorMessage = 'Ocorreu um erro desconhecido.';
@@ -38,10 +38,11 @@ export class UserService {
       map((token: any) => token.token) // Mapeando a resposta para retornar apenas a string
     );
   }
+
   register(userName: string, password: string, email: string): Observable<string> {
     const user = { userName, password, email };
-    //const url = `https://prostudy-api.azurewebsites.net/auth/register/user`;
-    const url = `http://localhost:8080/auth/register/user`;
+    const url = `https://prostudy-api.azurewebsites.net/auth/register/user`;
+    //const url = `http://localhost:8080/auth/register/user`;
     return this.http.post<any>(url, user).pipe(
       catchError(this.handleError), // Supondo que a resposta tenha uma mensagem
     );
@@ -59,7 +60,6 @@ export class UserService {
     }
 
     console.error(errorMessage);
-    window.alert(errorMessage);
     return throwError(() => new Error(errorMessage));
   }
 
@@ -67,8 +67,8 @@ export class UserService {
     return this.route.queryParams.pipe(
       switchMap(params => {
         const userName = params['u'];
-        //const url = `https://prostudy-api.azurewebsites.net/user/load/${userName}`;
-        const url = `http://localhost:8080/user/load/${userName}`;
+        const url = `https://prostudy-api.azurewebsites.net/user/load/${userName}`;
+        //const url = `http://localhost:8080/user/load/${userName}`;
         return this.http.get<UserFull>(url);
       })
     );

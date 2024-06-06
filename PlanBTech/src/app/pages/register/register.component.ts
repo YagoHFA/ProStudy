@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { UserService } from '../../service/controller/user.service';
 import { Router } from '@angular/router';
 import { UserlocalstorageService } from '../../service/localstorage/userlocalstorage.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +14,8 @@ export class RegisterComponent {
   constructor(
     private userService: UserService,
     private userStorage: UserlocalstorageService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {}
 
   userName: string = '';
@@ -23,50 +26,51 @@ export class RegisterComponent {
   register() {
     // Verificar se as senhas coincidem
     if (this.password !== this.confirmPassword) {
-      window.alert('As senhas não coincidem.');
+      this.snackBar.open('As senhas não coincidem.', 'Fechar', { duration: 3000 });
       return;
     }
 
     // Regex para validar o e-mail
     const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     if (!emailRegex.test(this.email)) {
-      window.alert('Por favor, insira um endereço de e-mail válido.');
+      this.snackBar.open('Por favor, insira um endereço de e-mail válido.', 'Fechar', { duration: 3000 });
       return;
     }
 
     // Regex para validar a senha
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/;
     if (!passwordRegex.test(this.password)) {
-      window.alert('A senha deve ter pelo menos 8 caracteres, incluindo pelo menos uma letra maiúscula, um número e um caractere especial.');
+      this.snackBar.open('A senha deve ter pelo menos 8 caracteres, incluindo pelo menos uma letra maiúscula, um número e um caractere especial.', 'Fechar', { duration: 3000 });
       return;
     }
 
     // Verifica se a senha é maior que 8 caracteres
     if (this.password.length < 8) {
-      window.alert('A senha deve ter pelo menos 8 caracteres.');
+      this.snackBar.open('A senha deve ter pelo menos 8 caracteres.', 'Fechar', { duration: 3000 });
       return;
     }
 
     // Verifica se a senha é menor que 16 caracteres
     if (this.password.length > 16) {
-      window.alert('A senha deve ter no máximo 16 caracteres.');
+      this.snackBar.open('A senha deve ter no máximo 16 caracteres.', 'Fechar', { duration: 3000 });
       return;
     }
-
+    console.log('Usuario:', this.userName, 'Senha:', this.password, 'E-mail:', this.email)
     this.userService.register(this.userName, this.password, this.email).subscribe(
       response => {
         console.log('Registro bem-sucedido:', response);
-        window.alert('Registro bem-sucedido!');
+        this.snackBar.open('Registro bem-sucedido!', 'Fechar', { duration: 3000 });
         this.userService.login(this.userName, this.password).subscribe(
           (token: string) => {
             this.userStorage.setToken(token);
+            this.userStorage.setUserName(this.userName);
             this.router.navigate(['/homepage']);
-          },
-          (error: string) => console.error(error)
+          }
         );
       },
-      error => {
+      (error:any) => {
         console.error('Erro ao registrar:', error);
+        this.snackBar.open("Não foi possível realizar o cadastro", 'Fechar', { duration: 3000 });
       }
     );
   }

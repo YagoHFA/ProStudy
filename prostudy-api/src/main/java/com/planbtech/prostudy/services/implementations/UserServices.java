@@ -44,6 +44,9 @@ public class UserServices implements IUserServices {
     @Transactional
     @Override
     public void createUser(UserRegisterDTO userToRegister) {
+        System.out.println(userToRegister.userName());
+        System.out.println(userToRegister.password());
+        System.out.println(userToRegister.email());
         String encodedPassword = new BCryptPasswordEncoder().encode(userToRegister.password());
         User userToSave = User.builder()
                 .userName(userToRegister.userName())
@@ -57,14 +60,7 @@ public class UserServices implements IUserServices {
     @Override
     @Transactional
     public Optional<User> findByUserName(String userName) {
-        if (userRepository.findByUserName(userName).isPresent()){
             return userRepository.findByUserName(userName);
-        } else if (userRepository.findByUserEmail(userName).isPresent()) {
-            return userRepository.findByUserEmail(userName);
-        }
-        else {
-            return userRepository.findByUserName(userName);
-        }
     }
 
 

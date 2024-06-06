@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { ProjectService } from '../../service/controller/project.service';
 
 @Component({
   selector: 'app-add-project',
@@ -17,7 +18,8 @@ export class AddProjectComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    public dialogRef: MatDialogRef<AddProjectComponent>
+    public dialogRef: MatDialogRef<AddProjectComponent>,
+    private projectService: ProjectService
   ) {}
 
   ngOnInit(): void {
@@ -26,7 +28,7 @@ export class AddProjectComponent implements OnInit {
 
   onSubmit(): void {
     if (this.projectForm.valid) {
-      this.dialogRef.close();
+      this.projectService.createProject(this.projectForm.value["title"],this.projectForm.value["description"], this.projectForm.value["githubLink"]);
     } else {
       this.projectForm.markAllAsTouched(); // Mark all fields as touched to show validation errors
     }

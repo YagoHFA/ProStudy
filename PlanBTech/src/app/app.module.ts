@@ -56,6 +56,7 @@ import { LoginFailedComponent } from './modals/login-failed/login-failed.compone
 import { LoginPermissionComponent } from './modals/login-permission/login-permission.component';
 import { ContractTestComponent } from './modals/contract-test/contract-test.component';
 import { PermissionNeededComponent } from './modals/permission-needed/permission-needed.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -106,7 +107,8 @@ import { PermissionNeededComponent } from './modals/permission-needed/permission
     BrowserAnimationsModule,
     MatCardModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule
   ],
   providers: [
     provideClientHydration(),

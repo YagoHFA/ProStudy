@@ -5,8 +5,6 @@ import { Category } from '../../class/category';
 import { Test } from '../../class/test';
 import { ActivatedRoute } from '@angular/router';
 import { UserlocalstorageService } from '../localstorage/userlocalstorage.service';
-import { error } from 'console';
-import { userInfo } from 'os';
 import { JwtService } from './jwt.service';
 
 @Injectable({
@@ -22,8 +20,8 @@ export class TestService {
   }
 
   categoryList(): Observable<Category[]> {
-        //const url = 'https://prostudy-api.azurewebsites.net/category/test/allcategory';
-        const url = 'http://localhost:8080/category/test/allcategory';
+        const url = 'https://prostudy-api.azurewebsites.net/category/test/allcategory';
+        //const url = 'http://localhost:8080/category/test/allcategory';
         return this.http.get<Category[]>(url);
       }
     ;
@@ -34,8 +32,8 @@ export class TestService {
         switchMap(params => {
           const testId = params['t'];
           if(testId != undefined){}
-          //const url = `https://prostudy-api.azurewebsites.net/test/find/${testId}`;
-          const url = `http://localhost:8080/test/find/${testId}`;
+          const url = `https://prostudy-api.azurewebsites.net/test/find/${testId}`;
+          //const url = `http://localhost:8080/test/find/${testId}`;
           return this.http.get<Test>(url, {headers});
         })
       );
@@ -51,8 +49,8 @@ export class TestService {
         testId,
         userName
       };
-      //const url = `https://prostudy-api.azurewebsites.net/user/test/complete`
-      const url = `http://localhost:8080/user/test/complete`;
+      const url = `https://prostudy-api.azurewebsites.net/user/test/complete`
+      //const url = `http://localhost:8080/user/test/complete`;
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
       // Realizar a solicitação HTTP e adicionar tratamento de erros
