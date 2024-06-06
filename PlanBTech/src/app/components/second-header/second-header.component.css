@@ -7,8 +7,8 @@
 }
 
 .top-bar img {
-  height: 60px;
-  margin-left: 80px;
+  height: 40px;
+  margin-left: 10px;
 }
 
 .spacer {
@@ -43,6 +43,21 @@
   background-color: #555;
 }
 
+.logo,
+.logo-blue{
+  font-size: 20px;
+  height: 20px;
+}
+
+.logo-blue{
+  color: #00B5FF;
+}
+
+.pro-logo{
+  display: flex;
+  align-items: center;
+}
+
 @media (max-width: 768px) {
   .top-bar {
     align-items: flex-start;
@@ -63,6 +78,6 @@
   }
 
   .top-bar img{
-    margin-left: 20px;
+    margin-left: 10px;
   }
 }
