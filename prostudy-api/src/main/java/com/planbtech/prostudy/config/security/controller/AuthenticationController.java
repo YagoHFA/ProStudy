@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 @Tag(name = "Gerenciamento de autenticação", description = "Gerencia as autenticações de usuários")
@@ -35,13 +36,18 @@ public class AuthenticationController {
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<UserLoginResponseDTO> login(@RequestBody UserLoginDTO userToLogIn){
-        UsernamePasswordAuthenticationToken usernamePassword = new UsernamePasswordAuthenticationToken(userToLogIn.userName(), userToLogIn.password());
+        try {
+            UsernamePasswordAuthenticationToken usernamePassword = new UsernamePasswordAuthenticationToken(userToLogIn.userName(), userToLogIn.password());
 
-        Authentication auth = this.authenticationManager.authenticate(usernamePassword);
+            Authentication auth = this.authenticationManager.authenticate(usernamePassword);
 
-        String token = tokenService.generateToken(((User) auth.getPrincipal()));
-        return ResponseEntity.ok( new UserLoginResponseDTO(token));
-    }
+            String token = tokenService.generateToken(((User) auth.getPrincipal()));
+            return ResponseEntity.ok(new UserLoginResponseDTO(token));
+        }
+        catch (UsernameNotFoundException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        }
 
     @Operation(summary = "Cria um usuário", description = "Cria um usuário com permissões de usuário no banco de dados")
     @PostMapping("/register/user")
