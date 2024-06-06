@@ -55,12 +55,11 @@ export class RegisterComponent {
       this.snackBar.open('A senha deve ter no máximo 16 caracteres.', 'Fechar', { duration: 3000 });
       return;
     }
-    console.log('Usuario:', this.userName, 'Senha:', this.password, 'E-mail:', this.email)
     this.userService.register(this.userName, this.password, this.email).subscribe(
       response => {
         console.log('Registro bem-sucedido:', response);
         this.snackBar.open('Registro bem-sucedido!', 'Fechar', { duration: 3000 });
-        this.userService.login(this.userName, this.password).subscribe(
+        this.userService.login(this.email, this.password).subscribe(
           (token: string) => {
             this.userStorage.setToken(token);
             this.userStorage.setUserName(this.userName);

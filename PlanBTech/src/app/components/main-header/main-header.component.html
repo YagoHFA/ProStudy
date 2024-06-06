@@ -1,11 +1,30 @@
 <mat-toolbar class="top-bar" color="primary">
-  <img mat-button routerLink="/homepage" src="https://dl.dropboxusercontent.com/scl/fi/w89cu9ygeeb07d5j06fx0/logo.png?rlkey=t97afsi2bxe6epbxnjsstqwwp&st=0jvuwizf" alt="Logo">
+  <div class="pro-logo">
+    <img
+      mat-button
+      routerLink="/landingpage"
+      src="https://dl.dropboxusercontent.com/scl/fi/o2a8ds0ephje5tmz2lq1v/prostudy.png?rlkey=lv0wgz8hppls1s4raeuu4r9xh&st=p4834lur"
+      alt="Logo"
+    />
+    <div>
+      <p class="logo-blue">PRO</p>
+      <p class="logo">STUDY</p>
+    </div>
+  </div>
   <span class="spacer"></span>
   <div class="menu">
     <button mat-button routerLink="/homepage">Cursos</button>
     <button mat-button routerLink="/testCatalog">Testes</button>
-    <button class="icon" routerLink="/profilepage" [queryParams]="{u:userName}">
-      <img class="perfil" src="https://dl.dropboxusercontent.com/scl/fi/l3k1cqg3xubukf16584c7/perfil.png?rlkey=w5q4ovy666eojd35q0k433tdy&st=hxgjluly&" alt="perfil">
+    <button
+      class="icon"
+      routerLink="/profilepage"
+      [queryParams]="{ u: userName }"
+    >
+      <img
+        class="perfil"
+        src="https://dl.dropboxusercontent.com/scl/fi/l3k1cqg3xubukf16584c7/perfil.png?rlkey=w5q4ovy666eojd35q0k433tdy&st=hxgjluly&"
+        alt="perfil"
+      />
     </button>
   </div>
 </mat-toolbar>
