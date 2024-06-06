@@ -26,7 +26,7 @@ public class SkillTest {
     @Column(name = "testdescriptionshort" , length = 100)
     private String testShortDescription;
 
-    @Column(name = "badgeurl", length = 500, unique = true)
+    @Column(name = "badgeurl", length = 500)
     private String badgeURL;
 
     @OneToMany(mappedBy = "testId", cascade = CascadeType.ALL)
