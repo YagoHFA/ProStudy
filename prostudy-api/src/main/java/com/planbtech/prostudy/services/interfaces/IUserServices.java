@@ -1,6 +1,7 @@
 package com.planbtech.prostudy.services.interfaces;
 
 import com.planbtech.prostudy.DTO.ProjectDTO.ProjectAddDTO;
+import com.planbtech.prostudy.DTO.ProjectDTO.ProjectToSendDTO;
 import com.planbtech.prostudy.DTO.SkillTestDTO.TestCompleteDTO;
 import com.planbtech.prostudy.DTO.UserDTO.UserDTO;
 import com.planbtech.prostudy.DTO.UserDTO.UserLoadDTO;
@@ -25,4 +26,6 @@ public interface IUserServices {
     void completeTest(TestCompleteDTO testCompleteDTO);
 
     UserLoadDTO loadUser(String userName);
+
+    void sendProject(ProjectToSendDTO projectToSendDTO);
 }

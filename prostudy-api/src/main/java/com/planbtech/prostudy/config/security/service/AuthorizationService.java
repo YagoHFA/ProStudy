@@ -15,10 +15,12 @@ public class AuthorizationService  implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        System.out.println("Loaduser: " + username);
+
         return userRepository
                 .findByUserName(username)
                 .orElse(userRepository.findByUserEmail(username)
-                        .orElseThrow(()-> new UsernameNotFoundException("Usuario não encontrado")))
-                ;
+                        .orElseThrow(()-> new UsernameNotFoundException("Usuario não encontrado")));
+
     }
 }
