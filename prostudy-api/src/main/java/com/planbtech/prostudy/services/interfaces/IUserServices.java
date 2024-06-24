@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @Service
 public interface IUserServices {
+
     void createUser(UserRegisterDTO userToCreate);
 
     Optional<User> findByUserName(String userName);

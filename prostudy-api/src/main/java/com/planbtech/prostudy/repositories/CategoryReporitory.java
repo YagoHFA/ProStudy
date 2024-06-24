@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface CategoryReporitory extends JpaRepository<Category, Long> {
@@ -16,7 +17,7 @@ public interface CategoryReporitory extends JpaRepository<Category, Long> {
     @Query(value = "Select cc from Category cc left join fetch cc.skillTestList")
     List<Category> findAllCategoryWithTest();
 
-    Category findByCategoryName(String categoryName);
+    Optional<Category> findByCategoryName(String categoryName);
 
     @Query(value = "select categoryname from category", nativeQuery = true)
     List<Category> findAllCategorName();

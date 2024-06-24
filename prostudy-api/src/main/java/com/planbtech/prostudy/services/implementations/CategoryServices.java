@@ -3,6 +3,7 @@ package com.planbtech.prostudy.services.implementations;
 import com.planbtech.prostudy.DTO.CategoryDTO.CategoryMinDTO;
 import com.planbtech.prostudy.DTO.CategoryDTO.CategoryTestDTO;
 import com.planbtech.prostudy.DTO.CategoryDTO.CategoryVideoDTO;
+import com.planbtech.prostudy.entities.model.Category;
 import com.planbtech.prostudy.repositories.CategoryReporitory;
 import com.planbtech.prostudy.services.interfaces.ICategoryServices;
 import io.swagger.v3.oas.annotations.Operation;
@@ -45,4 +46,15 @@ public class CategoryServices implements ICategoryServices {
     public List<CategoryMinDTO> findAllCategoryName() {
         return categoryRepository.findAllCategorName().stream().map(CategoryMinDTO::new).toList();
     }
+
+    @Override
+    public void createCategory(CategoryMinDTO categoryMinDTO) {
+        if (categoryRepository.findByCategoryName(categoryMinDTO.getName()).isPresent())
+            throw new RuntimeException("Category already exists");
+        Category category = Category.builder()
+                .categoryName(categoryMinDTO.getName()).build();
+        categoryRepository.save(category);
+    }
+
+
 }

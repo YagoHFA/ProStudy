@@ -19,4 +19,6 @@ public interface ICategoryServices {
     List<CategoryTestDTO> findAllTest();
 
     List<CategoryMinDTO> findAllCategoryName();
+
+    void createCategory(CategoryMinDTO categoryMinDTO);
 }
