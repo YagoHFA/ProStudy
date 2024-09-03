@@ -9,10 +9,9 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Schema(description = "As informações minímas de categoria")
 public class CategoryMinDTO {
 
-    @Schema(description = "O nome da categoria")
+
     private String name;
 
     public CategoryMinDTO(Category entity) {

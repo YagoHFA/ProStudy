@@ -4,7 +4,6 @@ import { Test } from '../../class/test';
 import { QuestionComponent } from '../../components/question/question.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MessageModalComponent } from '../../modals/message-modal/message-modal.component';
-import { title } from 'node:process';
 import { TestFailedComponent } from '../../modals/test-failed/test-failed.component';
 
 @Component({

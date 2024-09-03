@@ -21,4 +21,6 @@ public interface ICategoryServices {
     List<CategoryMinDTO> findAllCategoryName();
 
     void createCategory(CategoryMinDTO categoryMinDTO);
+
+    void deleteCategory(CategoryMinDTO categoryMinDTO);
 }

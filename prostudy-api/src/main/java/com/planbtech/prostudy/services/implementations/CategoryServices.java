@@ -7,7 +7,6 @@ import com.planbtech.prostudy.entities.model.Category;
 import com.planbtech.prostudy.repositories.CategoryReporitory;
 import com.planbtech.prostudy.services.interfaces.ICategoryServices;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +53,11 @@ public class CategoryServices implements ICategoryServices {
         Category category = Category.builder()
                 .categoryName(categoryMinDTO.getName()).build();
         categoryRepository.save(category);
+    }
+
+    @Override
+    public void deleteCategory(CategoryMinDTO categoryMinDTO) {
+        categoryRepository.delete(categoryRepository.findByCategoryName(categoryMinDTO.getName()).orElseThrow());
     }
 
 

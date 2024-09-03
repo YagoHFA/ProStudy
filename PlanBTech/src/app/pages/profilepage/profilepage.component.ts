@@ -19,7 +19,26 @@ export class ProfilepageComponent implements OnInit{
               public dialogRef:MatDialog){}
   permission:boolean = false;
   ngOnInit(): void {
-   this.userService.userLoadInfo()
+   this.load();
+  }
+  project:boolean = false;
+  userName:string = ''
+
+  user:UserFull = new UserFull();
+  chageStatus(state:boolean ){
+    this.project = state;
+  }
+
+  addProject(){
+    const dialogRef = this.dialogRef.open(AddProjectComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      this.load();
+    });
+  }
+
+  load(){
+    this.userService.userLoadInfo()
    .subscribe((response:UserFull) =>{
     this.user = response;
     this.userName = this.userLocalStorage.getUserName()
@@ -28,16 +47,5 @@ export class ProfilepageComponent implements OnInit{
    }
    });
 
-  }
-  project:boolean = false;
-  userName:string = ''
-
-  user:UserFull = new UserFull();
-  chageStatus(){
-    this.project = !this.project;
-  }
-
-  addProject(){
-    this.dialogRef.open(AddProjectComponent);
   }
 }

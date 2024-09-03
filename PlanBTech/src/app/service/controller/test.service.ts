@@ -32,8 +32,8 @@ export class TestService {
         switchMap(params => {
           const testId = params['t'];
           if(testId != undefined){}
-          const url = `https://prostudy-api.azurewebsites.net/test/find/${testId}`;
-          //const url = `http://localhost:8080/test/find/${testId}`;
+          //const url = `https://prostudy-api.azurewebsites.net/test/find/${testId}`;
+          const url = `http://localhost:8080/test/find/${testId}`;
           return this.http.get<Test>(url, {headers});
         })
       );

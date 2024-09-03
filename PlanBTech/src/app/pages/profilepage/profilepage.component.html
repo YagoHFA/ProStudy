@@ -8,8 +8,8 @@
             </div>
         </div>
         <div class="botao">
-            <button class="botao-menu-azul" (click)="chageStatus()" [ngClass]="{'botao-menu-azul':!project, 'botao-menu-transp':project}">Conquistas</button>
-            <button class="botao-menu-transp" (click)="chageStatus()" [ngClass]="{'botao-menu-azul':project, 'botao-menu-transp':!project}" >Projetos</button>
+            <button class="botao-menu-azul" (click)="chageStatus(false)" [ngClass]="{'botao-menu-azul':!project, 'botao-menu-transp':project}">Conquistas</button>
+            <button class="botao-menu-transp" (click)="chageStatus(true)" [ngClass]="{'botao-menu-azul':project, 'botao-menu-transp':!project}" >Projetos</button>
             <button class="botao-menu-azul" *ngIf="permission && project" mat-button (click)="addProject()">Adicionar</button>
         </div>
     </div>

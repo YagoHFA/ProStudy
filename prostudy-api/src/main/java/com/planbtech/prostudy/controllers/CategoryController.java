@@ -55,4 +55,15 @@ public class CategoryController {
             return ResponseEntity.badRequest().build();
         }
     }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<Boolean> deleteCategory(@RequestBody CategoryMinDTO categoryMinDTO){
+        try {
+            categoryServices.deleteCategory(categoryMinDTO);
+            return ResponseEntity.ok().build();
+        }
+        catch (Exception e){
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }

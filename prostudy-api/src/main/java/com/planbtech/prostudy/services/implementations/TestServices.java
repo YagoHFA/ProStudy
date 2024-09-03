@@ -26,7 +26,6 @@ public class TestServices implements ITesteServices {
     @Override
     public SkillTestDTO findExam(String testId) {
         SkillTestDTO dto = testRepository.findById(testId).map(SkillTestDTO::new).orElseThrow();
-        dto.shuffleQuestions();
         return dto;
     }
 }
