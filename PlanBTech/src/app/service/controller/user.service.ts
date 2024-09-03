@@ -41,8 +41,8 @@ export class UserService {
 
   register(userName: string, password: string, email: string): Observable<string> {
     const user = { userName, password, email };
-    //const url = `https://prostudy-api.azurewebsites.net/auth/register/user`;
-    const url = `http://localhost:8080/auth/register/user`;
+    const url = `https://prostudy-api.azurewebsites.net/auth/register/user`;
+    //const url = `http://localhost:8080/auth/register/user`;
     return this.http.post<any>(url, user).pipe(
       catchError(this.handleError), // Supondo que a resposta tenha uma mensagem
     );
