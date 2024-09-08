@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --configuration development",
     "test": "ng test",
-    "prod":"ng build --configuration production",
+    "prod": "ng build --configuration production",
     "prerender": "npm run build && node dist/plan-btec/server/server.mjs &"
   },
   "private": true,
@@ -26,6 +26,7 @@
     "@angular/ssr": "^17.3.0",
     "express": "^4.19.2",
     "jwt-decode": "^4.0.0",
+    "plan-btec": "file:",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

@@ -37,7 +37,6 @@ public class AuthenticationController {
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<UserLoginResponseDTO> login(@RequestBody UserLoginDTO userToLogIn){
         try {
-            System.out.println(userToLogIn.userName()+'-'+userToLogIn.password() );
             UsernamePasswordAuthenticationToken usernamePassword = new UsernamePasswordAuthenticationToken(userToLogIn.userName(), userToLogIn.password());
 
             Authentication auth = this.authenticationManager.authenticate(usernamePassword);

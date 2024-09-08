@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LoginFailedComponent } from '../../modals/login-failed/login-failed.component';
 import { JwtService } from '../../service/controller/jwt.service';
 import { jwtDecode } from 'jwt-decode';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,8 @@ export class LoginComponent {
   loginForm: FormGroup;
   userName: string = '';
   password: string = '';
+
+  isLoading: boolean = false;
 
   constructor(private userService: UserService, private formBuilder: FormBuilder,
      private router:Router, private userStorage:UserlocalstorageService,
@@ -29,6 +32,7 @@ export class LoginComponent {
   }
 
   login(): void {
+    this.isLoading = true;
     if (this.loginForm.valid) {
       this.userService.login(this.loginForm.get('userName')?.value, this.loginForm.get('password')?.value)
         .subscribe(
@@ -37,12 +41,17 @@ export class LoginComponent {
             this.userStorage.setUserName(this.jwtDecode.parseJwt(token).sub);
             this.router.navigate(['/homepage']);
           },
-          (error:string)=>
-            this.openErrorDialog()
+          (error:string)=>{
+          this.openErrorDialog()
+          this.isLoading = false;
+          }
         );
     } else {
       // O formulário é inválido, não faz nada
     }
+    setTimeout(()=>{
+      this.isLoading = false;
+    },2000)
   }
 
   openErrorDialog(){
