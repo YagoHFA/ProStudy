@@ -1,12 +1,10 @@
 .background {
-  width: 500px;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 2%;
 }
 
 .message {
-  margin-top: 10%;
-  color: #000;
+  margin-top: 7%;
+  color: #FFF;
   text-align: center;
 }
 
@@ -29,8 +27,20 @@
 .title{
   justify-self: self-start;
   margin-left: 3%;
+  color: #FFF;
+  margin-top: 5%;
 }
 
 p{
   max-width: 500px;
+}
+
+
+::ng-deep .mat-mdc-dialog-container .mdc-dialog__surface{
+  background: linear-gradient(to bottom right, #36005a, #220135) !important;
+  border: black solid 2px !important;
+  border-radius: 5% !important;
+  -webkit-box-shadow: 10px 9px 12px 10px rgb(24, 0, 19) !important;
+  -moz-box-shadow: 10px 9px 12px 10px rgb(24, 0, 19) !important;
+  box-shadow: 10px 9px 12px 10px rgb(24, 0, 19) !important;
 }

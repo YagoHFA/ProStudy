@@ -4,8 +4,8 @@ import { Test } from '../../class/test';
 import { QuestionComponent } from '../../components/question/question.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MessageModalComponent } from '../../modals/message-modal/message-modal.component';
-import { title } from 'node:process';
 import { TestFailedComponent } from '../../modals/test-failed/test-failed.component';
+import { Question } from '../../class/question';
 
 @Component({
   selector: 'app-test-page',
@@ -24,7 +24,15 @@ export class TestPageComponent implements OnInit{
     this.testService.getTesteById().subscribe(
       (test:Test)=>{
         this.test = test;
-        this.maxQuestion = this.test.questionsList.length
+
+        this.test.questionsList = shuffleArray(this.test.questionsList);
+
+        this.test.questionsList.forEach((question:Question)=>
+        {
+          question.anwersList = shuffleArray(question.anwersList)
+        })
+
+        this.maxQuestion = this.test.questionsList.length;
       }
     );
   }
@@ -96,4 +104,12 @@ export class TestPageComponent implements OnInit{
       console.log('The dialog was closed');
     });
   }
+}
+
+function shuffleArray<T>(array: T[]): T[] {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }

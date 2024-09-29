@@ -19,7 +19,13 @@ public interface UserRepository extends JpaRepository<User, Long> {
             " where uu.userName = :userName")
     Optional<User> findAllInfo(@Param("userName") String userName);
 
+    @Query(value = "select u from Users u " +
+            " left join fetch u.userRole " +
+            " where u.userName = :userName")
     Optional<User> findByUserName(String userName);
 
+    @Query(value = "select u from Users u " +
+            " left join fetch u.userRole " +
+            " where u.userName = :userEmail")
     Optional<User> findByUserEmail(String userEmail);
 }

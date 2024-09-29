@@ -57,6 +57,7 @@ import { LoginPermissionComponent } from './modals/login-permission/login-permis
 import { ContractTestComponent } from './modals/contract-test/contract-test.component';
 import { PermissionNeededComponent } from './modals/permission-needed/permission-needed.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { LoadingPlaceholderComponent } from './components/loading-placeholder/loading-placeholder.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     LoginFailedComponent,
     LoginPermissionComponent,
     ContractTestComponent,
-    PermissionNeededComponent
+    PermissionNeededComponent,
+    LoadingPlaceholderComponent
   ],
   imports: [
     BrowserModule,

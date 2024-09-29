@@ -8,6 +8,8 @@ import { TestService } from '../../service/controller/test.service';
   styleUrl: './category-test.component.css'
 })
 export class CategoryTestComponent implements OnInit{
+  isLoading:boolean = true;
+  categoryTest:Category[] = [];
 
   ngOnInit(): void {
     this.testConfig.categoryList().subscribe(
@@ -20,12 +22,12 @@ export class CategoryTestComponent implements OnInit{
           }
         }
        }
-
+        this.isLoading = false;
       })
   }
 
   constructor(private testConfig:TestService) {
 
   }
-  categoryTest:Category[] = [];
+
 }
