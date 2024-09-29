@@ -29,6 +29,7 @@ export class AddProjectComponent implements OnInit {
   onSubmit(): void {
     if (this.projectForm.valid) {
       this.projectService.createProject(this.projectForm.value["title"],this.projectForm.value["description"], this.projectForm.value["githubLink"]);
+      this.dialogRef.close();
     } else {
       this.projectForm.markAllAsTouched(); // Mark all fields as touched to show validation errors
     }

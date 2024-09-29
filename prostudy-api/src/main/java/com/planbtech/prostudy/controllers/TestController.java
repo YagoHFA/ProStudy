@@ -38,4 +38,17 @@ public class TestController {
             return ResponseEntity.notFound().build();
         }
     }
+
+
+    @PostMapping("/create")
+    public ResponseEntity<HttpStatus> createTest(){
+        try{
+            System.out.println("To be done...");
+            return ResponseEntity.ok().build();
+        }
+        catch (Exception e){
+            System.out.println("To be done...");
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }

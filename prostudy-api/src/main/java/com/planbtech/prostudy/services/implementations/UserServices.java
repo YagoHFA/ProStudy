@@ -1,6 +1,7 @@
 package com.planbtech.prostudy.services.implementations;
 
 import com.planbtech.prostudy.DTO.ProjectDTO.ProjectAddDTO;
+import com.planbtech.prostudy.DTO.ProjectDTO.ProjectToSendDTO;
 import com.planbtech.prostudy.DTO.SkillTestDTO.TestCompleteDTO;
 import com.planbtech.prostudy.DTO.UserDTO.UserDTO;
 import com.planbtech.prostudy.DTO.UserDTO.UserLoadDTO;
@@ -128,5 +129,10 @@ public class UserServices implements IUserServices {
         User user = userRepository.findByUserName(userName).orElseThrow();
 
         return new UserLoadDTO(user);
+    }
+
+    @Override
+    public void sendProject(ProjectToSendDTO projectToSendDTO) {
+        throw new RuntimeException("Method to be implemented");
     }
 }

@@ -1,4 +1,4 @@
-<div class="videoList">
+<div  *ngIf="!isLoading" class="videoList">
   <div *ngFor="let category of categoryTest">
     <div *ngIf="category.skillTestList.length >0">
       <div>
@@ -11,4 +11,7 @@
       </div>
     </div>
   </div>
+</div>
+<div *ngIf="isLoading" class="videoList">
+  <app-loading-placeholder></app-loading-placeholder>
 </div>

@@ -58,3 +58,12 @@
 .start-button:hover {
   background-color: #0056b3;
 }
+
+::ng-deep .mat-mdc-dialog-container .mdc-dialog__surface{
+  background: linear-gradient(to bottom right, #36005a, #220135) !important;
+  border: black solid 2px !important;
+  border-radius: 5% !important;
+  -webkit-box-shadow: 10px 9px 12px 10px rgb(24, 0, 19) !important;
+  -moz-box-shadow: 10px 9px 12px 10px rgb(24, 0, 19) !important;
+  box-shadow: 10px 9px 12px 10px rgb(24, 0, 19) !important;
+}

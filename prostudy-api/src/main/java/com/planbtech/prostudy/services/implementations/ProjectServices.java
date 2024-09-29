@@ -8,6 +8,7 @@ import com.planbtech.prostudy.repositories.CategoryReporitory;
 import com.planbtech.prostudy.repositories.ProjectRepository;
 import com.planbtech.prostudy.repositories.UserRepository;
 import com.planbtech.prostudy.services.interfaces.IProjectService;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -31,10 +32,10 @@ public class ProjectServices implements IProjectService {
     @Override
     public void updateProject(ProjectUpdateDTO projectUpdateDTO){
         Project projectToUpdate = projectRepository.findById(projectUpdateDTO.getId())
-                .orElseThrow();
+                .orElseThrow(()-> new EntityNotFoundException("Project not found"));
         projectToUpdate.setProjectName(projectUpdateDTO.getTitle());
         projectToUpdate.setProjectDescription(projectUpdateDTO.getDescription());
-        projectToUpdate.setTools(projectUpdateDTO.getTools().stream().map(categoryReporitory::findByCategoryName).toList());
+        projectToUpdate.setTools(projectUpdateDTO.getTools().stream().map(categoryReporitory::findCategory).toList());
         projectRepository.save(projectToUpdate);
     }
 
@@ -42,12 +43,12 @@ public class ProjectServices implements IProjectService {
     @Override
     public void deleteProject(String username,String projectId) {
         User user = userRepository.findByUserName(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Usuario não encontrado"));
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
         Project projectToRemove = user.getUserProjects().stream()
                 .filter(project -> project.getProjectId().equals(projectId))
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("Project not found"));
+                .orElseThrow(() -> new EntityNotFoundException("Project not found"));
 
         user.getUserProjects().remove(projectToRemove);
         userRepository.save(user);
@@ -58,7 +59,7 @@ public class ProjectServices implements IProjectService {
     @Transactional
     @Override
     public ProjectMinViewDTO findById(String projectId) {
-        return projectRepository.findById(projectId).map(ProjectMinViewDTO::new).orElseThrow();
+        return projectRepository.findById(projectId).map(ProjectMinViewDTO::new).orElseThrow(()-> new EntityNotFoundException("Project not found"));
     }
 
     @Override

@@ -4,6 +4,7 @@ import com.planbtech.prostudy.DTO.AnswersDTO.AnswersDTO;
 import com.planbtech.prostudy.entities.model.Question;
 import lombok.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @Getter
@@ -21,5 +22,9 @@ public class QuestionDTO {
         this.anwersList = entity.getAnswerList().stream().map(AnswersDTO::new).toList();
         this.questionImage = entity.getQuesyionImage();
         this.questionText = entity.getQuestionText();
+    }
+
+    public void shuffleAnswers() {
+        Collections.shuffle(this.anwersList);
     }
 }
