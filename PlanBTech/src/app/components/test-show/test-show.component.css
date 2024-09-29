@@ -6,6 +6,7 @@
   padding: 16px;
   text-align: left;
   width: 300px;
+  height: 230px;
   cursor: pointer;
   display: block;
   margin: 0 auto;
@@ -29,7 +30,8 @@
 
 .badge-img {
   align-self: center;
-  width: 50%;
+  width: 70px;
+  height: 70px;
 }
 
 .content {

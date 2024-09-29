@@ -49,12 +49,12 @@ export class LoginComponent {
     } else {
       // O formulário é inválido, não faz nada
     }
-    setTimeout(()=>{
-      this.isLoading = false;
-    },2000)
   }
 
   openErrorDialog(){
-    const dialogRef =this.dialog.open(LoginFailedComponent)
+    this.dialog.open(LoginFailedComponent,{
+      width: '500px',
+      height: '200px'
+    })
   }
 }

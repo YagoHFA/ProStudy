@@ -45,26 +45,26 @@ export class RegisterComponent {
       // Regex para validar a senha
       const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/;
       if (!passwordRegex.test(this.password)) {
-        this.snackBar.open('A senha deve ter pelo menos 8 caracteres, incluindo pelo menos uma letra maiúscula, um número e um caractere especial.', 'Fechar', { duration: 3000 });
-        throw new Error('A senha deve ter pelo menos 8 caracteres, incluindo pelo menos uma letra maiúscula, um número e um caractere especial.');
+        //this.snackBar.open('A senha deve ter pelo menos 8 caracteres, incluindo pelo menos uma letra maiúscula, um número e um caractere especial.', 'Fechar', { duration: 3000 });
+        throw new Error('A senha deve ter pelo menos 8 caracteres, \n incluindo pelo menos uma letra maiúscula, um número e um caractere especial.');
       }
 
       // Verifica se a senha é maior que 8 caracteres
       if (this.password.length < 8) {
-        this.snackBar.open('A senha deve ter pelo menos 8 caracteres.', 'Fechar', { duration: 3000 });
+        //this.snackBar.open('A senha deve ter pelo menos 8 caracteres.', 'Fechar', { duration: 3000 });
         throw new Error('A senha deve ter pelo menos 8 caracteres.');
       }
 
       // Verifica se a senha é menor que 16 caracteres
       if (this.password.length > 16) {
-        this.snackBar.open('A senha deve ter no máximo 16 caracteres.', 'Fechar', { duration: 3000 });
+        //this.snackBar.open('A senha deve ter no máximo 16 caracteres.', 'Fechar', { duration: 3000 });
         throw new Error('A senha deve ter no máximo 16 caracteres.');
       }
       this.userService.register(this.userName, this.password, this.email).subscribe(
         response => {
-          this.snackBar.open('Registro bem-sucedido!', 'Fechar', { duration: 3000 });
-          this.userService.login(this.email, this.password).subscribe(
+          this.userService.login(this.userName, this.password).subscribe(
             (token: string) => {
+              this.snackBar.open('Registro bem-sucedido!', 'Fechar', { duration: 3000 });
               this.userStorage.setToken(token);
               this.userStorage.setUserName(this.userName);
               this.router.navigate(['/homepage']);
