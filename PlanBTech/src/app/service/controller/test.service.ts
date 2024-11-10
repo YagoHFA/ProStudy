@@ -6,12 +6,14 @@ import { Test } from '../../class/test';
 import { ActivatedRoute } from '@angular/router';
 import { UserlocalstorageService } from '../localstorage/userlocalstorage.service';
 import { JwtService } from './jwt.service';
+import { enviroment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TestService {
 
+  apiUrl:string = enviroment.apiUrl;
   constructor(private http:HttpClient,
     private route:ActivatedRoute,
     private userStorage:UserlocalstorageService,
@@ -20,8 +22,7 @@ export class TestService {
   }
 
   categoryList(): Observable<Category[]> {
-        const url = 'https://prostudy-api.azurewebsites.net/category/test/allcategory';
-        //const url = 'http://localhost:8080/category/test/allcategory';
+        const url = `${this.apiUrl}/category/test/allcategory`;
         return this.http.get<Category[]>(url);
       }
     ;
@@ -32,8 +33,7 @@ export class TestService {
         switchMap(params => {
           const testId = params['t'];
           if(testId != undefined){}
-          const url = `https://prostudy-api.azurewebsites.net/test/find/${testId}`;
-          //const url = `http://localhost:8080/test/find/${testId}`;
+          const url = `${this.apiUrl}/test/find/${testId}`;
           return this.http.get<Test>(url, {headers});
         })
       );
@@ -49,17 +49,14 @@ export class TestService {
         testId,
         userName
       };
-      const url = `https://prostudy-api.azurewebsites.net/user/test/complete`
-      //const url = `http://localhost:8080/user/test/complete`;
+      const url = `${this.apiUrl}/user/test/complete`
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-      // Realizar a solicitação HTTP e adicionar tratamento de erros
        this.http.put<any>(url, payload, { headers }).pipe(
 
         catchError(error => {
-          // Tratar o erro aqui
           console.error('Erro ao concluir teste:', error);
-          return error(error); // Reenviar o erro para que o componente que chamou saiba sobre ele
+          return error(error);
         })
       ).subscribe(
         response => {
@@ -69,10 +66,6 @@ export class TestService {
         error => {
           // Lógica de erro
           console.error('Erro ao concluir teste:', error);
-        },
-        () => {
-          // Lógica de conclusão (opcional)
-          console.log('Requisição completa.');
         }
       );
     }

@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @Tag(name = "Gerencia ações de usuário", description = "Gerencia as ações que um usuário pode realizar")
 @RestController
@@ -56,7 +57,8 @@ public class UserController {
             return ResponseEntity.ok(iUserServices.loadUser(userName));
         }
         catch (Exception e){
-            return ResponseEntity.notFound().build();
+            String errorMessage = "User not found: " + userName;
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, errorMessage);
         }
     }
 
@@ -70,5 +72,4 @@ public class UserController {
             return ResponseEntity.badRequest().build();
         }
     }
-
 }

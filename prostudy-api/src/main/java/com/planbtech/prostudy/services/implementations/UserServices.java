@@ -11,7 +11,6 @@ import com.planbtech.prostudy.entities.model.*;
 import com.planbtech.prostudy.repositories.*;
 import com.planbtech.prostudy.services.interfaces.IUserServices;
 import jakarta.transaction.Transactional;
-import org.aspectj.weaver.ast.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -126,7 +125,8 @@ public class UserServices implements IUserServices {
     @Override
     public UserLoadDTO loadUser(String userName) {
 
-        User user = userRepository.findByUserName(userName).orElseThrow();
+        User user = userRepository.findByUserName(userName)
+                .orElseThrow(()-> new UsernameNotFoundException("User Not Found"));
 
         return new UserLoadDTO(user);
     }
