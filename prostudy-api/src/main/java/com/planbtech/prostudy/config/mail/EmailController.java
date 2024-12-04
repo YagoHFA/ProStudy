@@ -1,4 +1,4 @@
-package com.planbtech.prostudy.component;
+package com.planbtech.prostudy.config.mail;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
