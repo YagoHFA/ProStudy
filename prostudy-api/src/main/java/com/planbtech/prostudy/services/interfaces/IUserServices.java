@@ -16,7 +16,7 @@ public interface IUserServices {
 
     void createUser(UserRegisterDTO userToCreate);
 
-    Optional<User> findByUserName(String userName);
+    User findByUserName(String userName);
 
     UserDTO update(UserDTO user);
 

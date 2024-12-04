@@ -5,6 +5,8 @@ import com.planbtech.prostudy.DTO.ProjectDTO.ProjectToSendDTO;
 import com.planbtech.prostudy.DTO.SkillTestDTO.TestCompleteDTO;
 import com.planbtech.prostudy.DTO.UserDTO.UserDTO;
 import com.planbtech.prostudy.DTO.UserDTO.UserLoadDTO;
+import com.planbtech.prostudy.component.Exception.ClassException.UserException.UserCreateError;
+import com.planbtech.prostudy.component.Exception.ClassException.UserException.UserNotFound;
 import com.planbtech.prostudy.config.security.DTO.UserRegisterDTO;
 import com.planbtech.prostudy.config.security.service.TokenService;
 import com.planbtech.prostudy.entities.model.*;
@@ -16,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -60,8 +63,8 @@ public class UserServices implements IUserServices {
 
     @Override
     @Transactional
-    public Optional<User> findByUserName(String userName) {
-            return userRepository.findByUserName(userName);
+    public User findByUserName(String userName) {
+            return userRepository.findByUserName(userName).orElseThrow(() -> new UserNotFound("User Not Found"));
     }
 
 
@@ -69,7 +72,7 @@ public class UserServices implements IUserServices {
     @Override
     public UserDTO update(UserDTO user) {
         return userRepository.findById(user.getUserId()).map((x -> new UserDTO(userRepository.save(x)))).orElseThrow(()
-        -> new RuntimeException("Usuario não encontrado")
+        -> new UsernameNotFoundException("Usuario não encontrado")
         );
     }
 
@@ -134,5 +137,11 @@ public class UserServices implements IUserServices {
     @Override
     public void sendProject(ProjectToSendDTO projectToSendDTO) {
         throw new RuntimeException("Method to be implemented");
+    }
+
+    public void CheckUserCreate  (String userName) throws UserCreateError {
+         if (userRepository.findByUserName(userName).isPresent()){
+             throw new UserCreateError("User already exists");
+        };
     }
 }
