@@ -1,4 +1,4 @@
-package com.planbtech.prostudy.config.documentation.swagger;
+package com.planbtech.prostudy.component.documentation.swagger;
 
 import io.swagger.v3.oas.models.Components;
 import org.springframework.context.annotation.Bean;

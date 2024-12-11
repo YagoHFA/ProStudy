@@ -11,13 +11,13 @@ import java.math.BigDecimal;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Schema(description = "Modelo de reposta a ser enviada na lista que perguntas contém")
+@Schema(description = "Model of answer that appears in question selection", name = "Question option model")
 public class AnswersDTO {
 
-    @Schema(description = "O texto da reposta")
+    @Schema(description = "Answer text")
     private String answers;
 
-    @Schema(description = "A quantidade de pontos que a reposta vale")
+    @Schema(description = "Answer points")
     private BigDecimal points;
 
     public AnswersDTO(Answer entity){

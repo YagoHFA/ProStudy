@@ -5,11 +5,9 @@ import com.planbtech.prostudy.DTO.ProjectDTO.ProjectToSendDTO;
 import com.planbtech.prostudy.DTO.SkillTestDTO.TestCompleteDTO;
 import com.planbtech.prostudy.DTO.UserDTO.UserDTO;
 import com.planbtech.prostudy.DTO.UserDTO.UserLoadDTO;
-import com.planbtech.prostudy.config.security.DTO.UserRegisterDTO;
+import com.planbtech.prostudy.component.security.DTO.UserRegisterDTO;
 import com.planbtech.prostudy.entities.model.User;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public interface IUserServices {
@@ -29,4 +27,6 @@ public interface IUserServices {
     UserLoadDTO loadUser(String userName);
 
     void sendProject(ProjectToSendDTO projectToSendDTO);
+
+    void CheckUserCreate  (String userName);
 }

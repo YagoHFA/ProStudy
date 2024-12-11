@@ -1,4 +1,4 @@
-    package com.planbtech.prostudy.config.security.service;
+    package com.planbtech.prostudy.component.security.service;
 
 
     import com.auth0.jwt.JWT;

@@ -1,9 +1,9 @@
-package com.planbtech.prostudy.config.security.controller;
+package com.planbtech.prostudy.component.security.controller;
 
-import com.planbtech.prostudy.config.security.DTO.UserLoginDTO;
-import com.planbtech.prostudy.config.security.DTO.UserLoginResponseDTO;
-import com.planbtech.prostudy.config.security.DTO.UserRegisterDTO;
-import com.planbtech.prostudy.config.security.service.TokenService;
+import com.planbtech.prostudy.component.security.DTO.UserLoginDTO;
+import com.planbtech.prostudy.component.security.DTO.UserLoginResponseDTO;
+import com.planbtech.prostudy.component.security.DTO.UserRegisterDTO;
+import com.planbtech.prostudy.component.security.service.TokenService;
 import com.planbtech.prostudy.entities.model.User;
 import com.planbtech.prostudy.services.implementations.UserServices;
 import io.swagger.v3.oas.annotations.Operation;
@@ -14,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 @Tag(name = "Gerenciamento de autenticação", description = "Gerencia as autenticações de usuários")

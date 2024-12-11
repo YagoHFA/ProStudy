@@ -2,6 +2,7 @@ package com.planbtech.prostudy.services.implementations;
 
 import com.planbtech.prostudy.DTO.ProjectDTO.ProjectMinViewDTO;
 import com.planbtech.prostudy.DTO.ProjectDTO.ProjectUpdateDTO;
+import com.planbtech.prostudy.component.Exception.ClassException.CategoryException.CategoryNotFound;
 import com.planbtech.prostudy.entities.model.Project;
 import com.planbtech.prostudy.entities.model.User;
 import com.planbtech.prostudy.repositories.CategoryReporitory;
@@ -35,7 +36,8 @@ public class ProjectServices implements IProjectService {
                 .orElseThrow(()-> new EntityNotFoundException("Project not found"));
         projectToUpdate.setProjectName(projectUpdateDTO.getTitle());
         projectToUpdate.setProjectDescription(projectUpdateDTO.getDescription());
-        projectToUpdate.setTools(projectUpdateDTO.getTools().stream().map(categoryReporitory::findCategory).toList());
+        projectToUpdate.setTools(projectUpdateDTO.getTools().stream().map((x)-> categoryReporitory
+                .findCategory(x).orElseThrow(() -> new CategoryNotFound("Category not found"))).toList());
         projectRepository.save(projectToUpdate);
     }
 
@@ -62,6 +64,7 @@ public class ProjectServices implements IProjectService {
         return projectRepository.findById(projectId).map(ProjectMinViewDTO::new).orElseThrow(()-> new EntityNotFoundException("Project not found"));
     }
 
+    @Transactional
     @Override
     public List<ProjectMinViewDTO> findAllByUserOwner(String userName) {
         return projectRepository.findByOwner(userName).stream().map(ProjectMinViewDTO::new).toList();

@@ -1,4 +1,4 @@
-package com.planbtech.prostudy.config.security.DTO;
+package com.planbtech.prostudy.component.security.DTO;
 
 import lombok.Builder;
 

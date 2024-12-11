@@ -1,6 +1,6 @@
-package com.planbtech.prostudy.config.security.component;
+package com.planbtech.prostudy.component.security.component;
 
-import com.planbtech.prostudy.config.security.service.TokenService;
+import com.planbtech.prostudy.component.security.service.TokenService;
 import com.planbtech.prostudy.repositories.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -8,9 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;

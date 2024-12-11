@@ -5,10 +5,12 @@ import com.planbtech.prostudy.DTO.ProjectDTO.ProjectToSendDTO;
 import com.planbtech.prostudy.DTO.SkillTestDTO.TestCompleteDTO;
 import com.planbtech.prostudy.DTO.UserDTO.UserDTO;
 import com.planbtech.prostudy.DTO.UserDTO.UserLoadDTO;
+import com.planbtech.prostudy.component.Exception.ClassException.SecurityException.RoleNotFound;
+import com.planbtech.prostudy.component.Exception.ClassException.UserException.UserAddProjectError;
 import com.planbtech.prostudy.component.Exception.ClassException.UserException.UserCreateError;
 import com.planbtech.prostudy.component.Exception.ClassException.UserException.UserNotFound;
-import com.planbtech.prostudy.config.security.DTO.UserRegisterDTO;
-import com.planbtech.prostudy.config.security.service.TokenService;
+import com.planbtech.prostudy.component.security.DTO.UserRegisterDTO;
+import com.planbtech.prostudy.component.security.service.TokenService;
 import com.planbtech.prostudy.entities.model.*;
 import com.planbtech.prostudy.repositories.*;
 import com.planbtech.prostudy.services.interfaces.IUserServices;
@@ -17,11 +19,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Optional;
 
 @Service
 public class UserServices implements IUserServices {
@@ -47,15 +46,12 @@ public class UserServices implements IUserServices {
     @Transactional
     @Override
     public void createUser(UserRegisterDTO userToRegister) {
-        System.out.println(userToRegister.userName());
-        System.out.println(userToRegister.password());
-        System.out.println(userToRegister.email());
         String encodedPassword = new BCryptPasswordEncoder().encode(userToRegister.password());
         User userToSave = User.builder()
                 .userName(userToRegister.userName())
                 .userPassword(encodedPassword)
                 .userEmail(userToRegister.email())
-                .userRole(Collections.singletonList(roleRepository.findByRoleName("USER")))
+                .userRole(Collections.singletonList(roleRepository.findByRoleName("USER").orElseThrow(()-> new RoleNotFound("Role not found in creating user"))))
                 .build();
         userRepository.save(userToSave);
     }
@@ -71,7 +67,7 @@ public class UserServices implements IUserServices {
     @Override
     public UserDTO update(UserDTO user) {
         return userRepository.findById(user.getUserId()).map((x -> new UserDTO(userRepository.save(x)))).orElseThrow(()
-        -> new UsernameNotFoundException("Usuario não encontrado")
+        -> new UserNotFound("User to update not found")
         );
     }
 
@@ -83,7 +79,7 @@ public class UserServices implements IUserServices {
                 .userName(userToRegister.userName())
                 .userPassword(encodedPassword)
                 .userEmail(userToRegister.email())
-                .userRole(Collections.singletonList(roleRepository.findByRoleName("Company")))
+                .userRole(Collections.singletonList(roleRepository.findByRoleName("Company").orElseThrow(()->new RoleNotFound("Role not found in creating company"))))
                 .build();
         userRepository.save(userToSave);
     }
@@ -93,7 +89,7 @@ public class UserServices implements IUserServices {
     public void addProject(ProjectAddDTO projectDTO) {
         User user = userRepository
                 .findByUserName(projectDTO.getProjectOwner())
-                .orElseThrow();
+                .orElseThrow(() -> new UserNotFound("User not found in add project"));
 
         Project project = Project.builder()
                 .projectName(projectDTO.getProjectName())
@@ -107,7 +103,7 @@ public class UserServices implements IUserServices {
             userRepository.save(user);
         }
         catch (Exception e){
-            System.out.println(e.getMessage());
+            throw new UserAddProjectError("Error on associate a project to a user");
         }
     }
 
@@ -116,11 +112,10 @@ public class UserServices implements IUserServices {
     public void completeTest(TestCompleteDTO testCompleteDTO) {
         User userToComplete = userRepository
                 .findByUserName(testCompleteDTO.getUserName())
-                .orElseThrow();
+                .orElseThrow(() -> new UserNotFound("User not found in complete test"));
 
-        SkillTest test =testRepository.findById(testCompleteDTO.getTestId()).orElseThrow();
-
-        userToComplete.getSkillTests().add(testRepository.findById(testCompleteDTO.getTestId()).orElseThrow());
+        userToComplete.getSkillTests().add(testRepository.findById(testCompleteDTO
+                .getTestId()).orElseThrow());
         userRepository.save(userToComplete);
     }
 
@@ -134,11 +129,14 @@ public class UserServices implements IUserServices {
         return new UserLoadDTO(user);
     }
 
+    @Transactional
     @Override
     public void sendProject(ProjectToSendDTO projectToSendDTO) {
         throw new RuntimeException("Method to be implemented");
     }
 
+    @Transactional
+    @Override
     public void CheckUserCreate  (String userName) throws UserCreateError {
          if (userRepository.findByUserName(userName).isPresent()){
              throw new UserCreateError("User already exists");
