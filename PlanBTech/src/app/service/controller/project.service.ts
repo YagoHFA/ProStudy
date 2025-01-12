@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { UserlocalstorageService } from '../localstorage/userlocalstorage.service';
 import { error } from 'console';
 import { catchError } from 'rxjs';
-import { enviroment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,23 +10,15 @@ import { enviroment } from '../../../environments/environment';
 export class ProjectService {
 
   constructor(private http:HttpClient,private userStorage:UserlocalstorageService) { }
-  //Creates api url with enviroments mode
-  apiUrl:string = enviroment.apiUrl;
+
   createProject(projectName:string, shortDescription:string,projectURL:string){
-
-
-    //Take logged user to make action
-    let projectOwner = this.userStorage.getUserName()
-
-    //Populate object project that gona be crate
-    const project = {projectOwner,projectName, shortDescription, projectURL}
-
-    //Headers for token authorization
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.userStorage.getToken()}`);
-    //Url for API
-    const url = `${this.apiUrl}/user/project/add`
-
-    //Create a new project with logged user has owner
+    const url = `https://prostudy-api.azurewebsites.net/user/project/add`
+    //const url = `http://localhost:8080/user/project/add`
+    let projectOwner = this.userStorage.getUserName()
+    const project = {projectOwner,projectName, shortDescription, projectURL}
+    console.log(project)
+    console.log(headers)
     this.http.put<any>(url,project,{headers}).pipe(
       catchError(error => {
         console.error('Erro ao criar projeto',error);

@@ -4,8 +4,6 @@ import com.planbtech.prostudy.DTO.SkillTestDTO.SkillTestDTO;
 import com.planbtech.prostudy.DTO.SkillTestDTO.SkillTestMinDTO;
 import com.planbtech.prostudy.services.interfaces.ITesteServices;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -43,8 +41,6 @@ public class TestController {
 
 
     @PostMapping("/create")
-    @Operation(summary = "Permite criar teste personalizados (em desenvolvimento)", description = "Permite que usuário com permissão de empresa, possam criar seus próprios testes para demais usuários da plataforma")
-    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "OK")})
     public ResponseEntity<HttpStatus> createTest(){
         try{
             System.out.println("To be done...");

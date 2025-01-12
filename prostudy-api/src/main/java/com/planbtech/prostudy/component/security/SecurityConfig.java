@@ -43,7 +43,6 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET,"/swagger-ui/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/v3/**").permitAll()
                         .anyRequest().authenticated())
-                .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(securityFilter , UsernamePasswordAuthenticationFilter.class);
 

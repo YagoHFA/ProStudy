@@ -35,6 +35,7 @@ public class AuthenticationController {
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<UserLoginResponseDTO> login(@RequestBody UserLoginDTO userToLogIn){
+        try {
             UsernamePasswordAuthenticationToken usernamePassword = new UsernamePasswordAuthenticationToken(userToLogIn.userName(), userToLogIn.password());
 
             Authentication auth = this.authenticationManager.authenticate(usernamePassword);
@@ -42,12 +43,16 @@ public class AuthenticationController {
             String token = tokenService.generateToken(((User) auth.getPrincipal()));
             return ResponseEntity.ok(new UserLoginResponseDTO(token));
         }
+        catch (UsernameNotFoundException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        }
 
     @Operation(summary = "Cria um usuário", description = "Cria um usuário com permissões de usuário no banco de dados")
     @PostMapping("/register/user")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<HttpStatus> registerUser(@RequestBody UserRegisterDTO userToRegister){
-        this.userServices.CheckUserCreate(userToRegister.userName());
+        if(this.userServices.findByUserName(userToRegister.userName()).isPresent()) return ResponseEntity.status(401).build();
         this.userServices.createUser(userToRegister);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
@@ -56,7 +61,7 @@ public class AuthenticationController {
     @PostMapping("/register/company")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<UserLoginResponseDTO> registerCompany(@RequestBody UserRegisterDTO userToRegister){
-        this.userServices.CheckUserCreate(userToRegister.userName());
+        if(this.userServices.findByUserName(userToRegister.userName()).isPresent()) return ResponseEntity.badRequest().build();
         this.userServices.createCompany(userToRegister);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
