@@ -3,18 +3,21 @@
 <div class="content">
     <div class="login-box">
         <h2 class="titulos">Login</h2>
-        <p>Entre na sua conta com os dados que realizou ao se registrar</p>
+        <p style="height:35px">Entre na sua conta com os dados que realizou ao se registrar</p>
         <form [formGroup]="loginForm" (ngSubmit)="login()" >
-            <label for="email">E-mail:</label><br>
-            <input type="text" formControlName="userName"  id="email" name="email" required ><br>
+            <label for="email">Login:</label><br>
+            <input type="text" placeholder="Email ou Usuario" formControlName="userName"  id="email" name="email" required ><br>
             <label for="password">Senha:</label><br>
-            <input type="password" id="password" name="password" formControlName="password" required><br>
-            <input class="bold" type="submit" value="Entrar" >
+            <input type="password" placeholder="Senha" id="password" name="password" formControlName="password" required><br>
+            <button class="bold" type="submit" [disabled]="isLoading">
+              <span *ngIf="!isLoading">Login</span>
+              <span *ngIf="isLoading" class="spinner"></span>
+            </button>
         </form>
         <div class="retangulo">
             <div class="signup-box">
                 <h2>Não possui uma conta?</h2>
-                <button class="button-cadastro">Criar uma conta</button>
+                <button class="button-cadastro" routerLink="/register">Criar uma conta</button>
             </div>
         </div>
     </div>

@@ -1,0 +1,44 @@
+<h2 mat-dialog-title>Postar Projeto</h2>
+<mat-dialog-content>
+  <form [formGroup]="projectForm">
+    <mat-form-field class="full-width" [ngClass]="{'has-error': projectForm.get('title')!.invalid && projectForm.get('title')!.touched}">
+      <mat-label>Titulo</mat-label>
+      <input matInput formControlName="title" required>
+      <mat-error *ngIf="projectForm.get('title')!.invalid && projectForm.get('title')!.touched">
+        Título é obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" [ngClass]="{'has-error': projectForm.get('description')!.invalid && projectForm.get('description')!.touched}">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput formControlName="description" required></textarea>
+      <mat-error *ngIf="projectForm.get('description')!.invalid && projectForm.get('description')!.touched">
+        Descrição é obrigatória
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" [ngClass]="{'has-error': projectForm.get('tools')!.invalid && projectForm.get('tools')!.touched}">
+      <mat-label>Ferramentas</mat-label>
+      <mat-select formControlName="tools" required>
+        <mat-option value="Spring Boot">Spring Boot</mat-option>
+        <mat-option value="Java 17">Java 17</mat-option>
+        <mat-option value="Railway">Railway</mat-option>
+      </mat-select>
+      <mat-error *ngIf="projectForm.get('tools')!.invalid && projectForm.get('tools')!.touched">
+        Ferramentas são obrigatórias
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" [ngClass]="{'has-error': projectForm.get('githubLink')!.invalid && projectForm.get('githubLink')!.touched}">
+      <mat-label>Link GitHub</mat-label>
+      <input matInput formControlName="githubLink" required>
+      <mat-error *ngIf="projectForm.get('githubLink')!.invalid && projectForm.get('githubLink')!.touched">
+        Link GitHub é obrigatório
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button color="primary" (click)="onSubmit()">Postar</button>
+</mat-dialog-actions>

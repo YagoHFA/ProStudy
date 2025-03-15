@@ -1,7 +1,21 @@
-<div class="top-bar">
-    <img routerLink="/landingpage" src="assets/img/logo.png" alt="Logo">
+<mat-toolbar class="top-bar" color="primary">
+  <div class="pro-logo">
+    <img
+      mat-button
+      routerLink="/landingpage"
+      src="https://dl.dropboxusercontent.com/scl/fi/o2a8ds0ephje5tmz2lq1v/prostudy.png?rlkey=lv0wgz8hppls1s4raeuu4r9xh&st=p4834lur"
+      alt="Logo"
+    />
     <div>
-        <button class="botao-menu" routerLink="/login">Login</button>
-        <button class="botao-menu-ultimo-azul" routerLink="/register">Matricule-se</button>
+      <p class="logo-blue">PRO</p>
+      <p class="logo">STUDY</p>
     </div>
-</div>
+  </div>
+  <span class="spacer"></span>
+  <div>
+    <button mat-button class="botao-menu" routerLink="/login">Login</button>
+    <button mat-button class="botao-menu-ultimo-azul" routerLink="/register">
+      Matricule-se
+    </button>
+  </div>
+</mat-toolbar>

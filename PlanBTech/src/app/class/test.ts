@@ -1,18 +1,21 @@
 import { Question } from "./question";
 
 export class Test {
-    testId:number;
+    testId:String;
     testTitle:String;
     testShortDescription:String;
     testLongDescription:String;
-    questions:Question[];
-
+    questionsList:Question[];
+    badgeURL:string
+    questionNumber:number
 
     constructor(){
-        this.testId     = 0;
+        this.testId     = '';
         this.testTitle  = '';
-        this.questions  = [];
+        this.questionsList  = [];
         this.testShortDescription = '';
         this.testLongDescription = '';
+        this.badgeURL = ''
+        this.questionNumber = 0
       }
 }

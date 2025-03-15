@@ -1,0 +1,24 @@
+# Ignorar pastas de compilação do Gradle
+/build
+/.gradle
+
+# Ignorar pastas de compilação do Maven
+/target
+/.mvn
+
+# Ignorar configurações do IntelliJ IDEA
+/.idea
+*.iml
+
+# Ignorar pastas e arquivos comuns do Git
+/.git
+/.gitignore
+
+# Ignorar logs e arquivos temporários
+*.log
+*.tmp
+*.swp
+
+# Ignorar arquivos temporários do sistema operacional
+.DS_Store
+Thumbs.db

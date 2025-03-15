@@ -8,10 +8,16 @@ import { HomepageConfigService } from '../../service/controller/homepageconfig.s
   styleUrl: './category-list.component.css'
 })
 export class CategoryListComponent implements OnInit{
+
+  categoryVideo:Category[] = [];
+  isLoading:boolean = true;
+
   ngOnInit(): void {
+    this.isLoading = true;
     this.homePageConf.categoryList().subscribe(
       (categoryList:Category[]) =>{
-        this.categoryTest = categoryList
+        this.categoryVideo = categoryList
+        this.isLoading = false;
       }
     )
   }
@@ -19,6 +25,4 @@ export class CategoryListComponent implements OnInit{
   constructor(private homePageConf:HomepageConfigService){
 
   }
-
-  categoryTest:Category[] = [];
 }

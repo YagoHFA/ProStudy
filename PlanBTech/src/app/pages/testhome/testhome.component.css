@@ -1,0 +1,46 @@
+.backgroud {
+  background: linear-gradient(to bottom right, #0A0010, #36005A);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Add padding for smaller screens */
+}
+.titulo h1 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding-bottom: 13px;
+  color: #D7F9FF;
+  font-family: "Chakra Petch", sans-serif;
+  text-align: center; /* Center text on smaller screens */
+}
+.titulo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow title to wrap on smaller screens */
+}
+.titulo span {
+  color: #2BDEFD;
+  text-transform: uppercase;
+}
+.centro {
+  width: 100%;
+  padding-bottom: 2%;
+}
+@media (max-width: 768px) {
+  .titulo h1 {
+    font-size: 24px; /* Adjust font size for smaller screens */
+  }
+  .centro {
+    padding-bottom: 5%;
+  }
+}
+@media (max-width: 480px) {
+  .titulo h1 {
+    font-size: 20px; /* Further adjust font size for very small screens */
+  }
+  .backgroud {
+    padding: 10px; /* Increase padding for very small screens */
+  }
+}

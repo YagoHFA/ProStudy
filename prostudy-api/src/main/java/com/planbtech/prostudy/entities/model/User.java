@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-@Entity
+@Entity(name = "Users")
 @Table(name = "users")
 @Getter
 @Setter
@@ -37,8 +37,11 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "roleid"))
     private List<Role> userRole;
 
-    @OneToMany(mappedBy = "id.userId")
-    private List<User_Project> userProjects;
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(name = "user_project",
+            joinColumns = @JoinColumn(name = "userid"),
+            inverseJoinColumns = @JoinColumn(name = "projectid"))
+    private List<Project> userProjects;
 
     @ManyToMany
     @JoinTable(name = "user_skilltest",
@@ -48,7 +51,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        return this.getUserRole();
     }
 
     @Override
@@ -80,4 +83,5 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }

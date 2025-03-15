@@ -1,10 +1,15 @@
 <header>
-    <app-main-header></app-main-header>
+  <app-main-header></app-main-header>
 </header>
-<div class="backgroud">
-    <div>
-        <div class="video">
-          <app-video [video]="video" ></app-video>
-        </div>
-    </div>
+<div class="content">
+  <div class="assistir">
+      <div class="primeiro-video">
+        <app-video [video]="video"></app-video>
+      </div>
+  </div>
+  <div class="section-container">
+    <section>
+      <app-video-list [videoList]="recomendation"></app-video-list>
+    </section>
+  </div>
 </div>

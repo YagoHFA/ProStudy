@@ -1,133 +1,84 @@
 .top-bar {
-    background-color: black;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .top-bar img {
-    height: 60px;
-    margin-left: 80px;
+  height: 40px;
+  margin-left: 10px;
 }
 
-.login-box {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 35px;
-    height: 590px;
-    border-radius: 5px;
-    width: 500px;
+.spacer {
+  flex: 1 1 auto;
 }
 
-.login-box h2 {
-    margin-bottom: 10px;
+.botao-menu {
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin-right: 4%;
 }
 
-.login-box input[type="text"],
-.login-box input[type="password"] {
-    width: 95%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 3px;
-}
-
-.login-box input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
-    background-color: #00B5FF;
-    color: white;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.alinhamento-esquerda {
-    text-align: left;
-}
-
-.botao-menu-azul {
-    background-color: #00B5FF;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 10px;
-    font-size: 15px;
-    cursor: pointer;
-    margin: 5px;
-    transition: background-color 0.3s, color 0.3s;
+.botao-menu:hover {
+  background-color: #555;
 }
 
 .botao-menu-ultimo-azul {
-    background-color: #00B5FF;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 10px;
-    font-size: 15px;
-    cursor: pointer;
-    margin: 5px;
-    margin-right: 80px;
-    transition: background-color 0.3s, color 0.3s;
+  background-color: #00B5FF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.botao-menu-azul:hover {
-    background-color: #555;
+.botao-menu-ultimo-azul:hover {
+  background-color: #555;
 }
 
-.botao-menu{
-    background-color: black;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 10px;
-    font-size: 15px;
-    cursor: pointer;
-    margin: 5px;
+.logo,
+.logo-blue{
+  font-size: 20px;
+  height: 20px;
 }
 
-.button-cadastro{
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
-    background-color: #00B5FF;
-    color: white;
-    cursor: pointer;
-    margin-top: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+.logo-blue{
+  color: #00B5FF;
 }
 
-.button-cadastro:hover{
-    background-color: #555;
+.pro-logo{
+  display: flex;
+  align-items: center;
 }
 
-.retangulo {
-    background-color: rgba(153, 0, 255, 0.6);
-    color: white;
-    padding: 20px;
-    border-radius: 5px;
-    margin-top: 60px;
+@media (max-width: 768px) {
+  .top-bar {
+    align-items: flex-start;
+  }
+
+  .spacer {
+    display: none;
+  }
+
+  .botao-menu, .botao-menu-ultimo-azul {
     text-align: left;
-    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .botao-menu, .botao-menu-ultimo-azul {
     font-size: 12px;
-}
+  }
 
-.titulos{
-    font-size: 50px ;
-}
-
-.bold{
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.bold:hover{
-    background-color: #555;
+  .top-bar img{
+    margin-left: 10px;
+  }
 }

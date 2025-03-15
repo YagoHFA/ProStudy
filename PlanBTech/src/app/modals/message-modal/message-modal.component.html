@@ -1,0 +1,14 @@
+<div class="background">
+  <div class="apresentation">
+    <img src="{{data.icon}}" alt="" class="image">
+    <div class="Congratulations">
+      <h2 class="message"><b>CONGRATULATIONS!</b></h2>
+      <p class="message">Você finalizou o curso</p>
+      <p class="message"><b>{{data.title}}</b></p>
+    </div>
+  </div>
+  <p class="message">Clique no botão abaixo e confira sua certificação em “perfil”.</p>
+  <div mat-dialog-actions class="button-dialog">
+    <button mat-button (click)="close()" class="botao-menu-azul">Pegar certificação</button>
+  </div>
+</div>

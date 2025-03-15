@@ -1,23 +1,28 @@
 <app-second-header></app-second-header>
 
 <div class="content">
-    <div class="login-box">
-        <h2 class="titulos">Matricule-se</h2>
-        <p>Realize o cadastro preenchendo as informações abaixo</p>
-        <form>
-            <label for="email">E-mail:</label><br>
-            <input type="text" id="email" name="email"><br>
-            <label for="password">Senha:</label><br>
-            <input type="password" id="password" name="password"><br>
-            <label for="password">Confirme a senha:</label><br>
-            <input type="password" id="password" name="password"><br>
-            <input class="bold" type="submit" value="Cadastrar">
-        </form>
-        <div class="retangulo">
-            <div class="signup-box">
-                <h2>Já possui uma conta?</h2>
-                <button class="button-cadastro" onclick="window.location.href='login.html'">Login</button>
-            </div>
-        </div>
+  <div class="register-box">
+    <h2 class="titulos">Matricule-se</h2>
+    <p>Realize o cadastro preenchendo as informações abaixo</p>
+    <form (ngSubmit)="register()">
+      <label for="userName">Usuário:</label><br>
+      <input type="text" id="username" name="username" [(ngModel)]="userName" >
+      <label for="email">E-mail:</label><br>
+      <input type="email" id="email" name="email" [(ngModel)]="email" required><br>
+      <label for="password">Senha:</label><br>
+      <input type="password" id="password" name="password" [(ngModel)]="password" required><br>
+      <label for="passwordConfirm">Confirme a senha:</label><br>
+      <input type="password" id="passwordConfirm" name="password" [(ngModel)]="confirmPassword" required><br>
+      <button class="bold" type="submit" [disabled]="isLoading">
+        <span *ngIf="!isLoading">Cadastrar</span>
+        <span *ngIf="isLoading" class="spinner"></span>
+      </button>
+    </form>
+    <div class="retangulo">
+      <div class="signup-box">
+        <h2>Já possui uma conta?</h2>
+        <button class="button-cadastro" routerLink="/login">Login</button>
+      </div>
     </div>
+  </div>
 </div>

@@ -1,121 +1,138 @@
 package com.planbtech.prostudy.services.implementations;
 
 import com.planbtech.prostudy.DTO.ProjectDTO.ProjectAddDTO;
+import com.planbtech.prostudy.DTO.ProjectDTO.ProjectToSendDTO;
 import com.planbtech.prostudy.DTO.SkillTestDTO.TestCompleteDTO;
 import com.planbtech.prostudy.DTO.UserDTO.UserDTO;
-import com.planbtech.prostudy.config.security.DTO.UserRegisterDTO;
-import com.planbtech.prostudy.config.security.service.TokenService;
-import com.planbtech.prostudy.entities.model.Project;
-import com.planbtech.prostudy.entities.model.User;
-import com.planbtech.prostudy.entities.model.User_Project;
-import com.planbtech.prostudy.entities.model.User_ProjectId;
+import com.planbtech.prostudy.DTO.UserDTO.UserLoadDTO;
+import com.planbtech.prostudy.component.Exception.ClassException.SecurityException.RoleNotFound;
+import com.planbtech.prostudy.component.Exception.ClassException.UserException.UserAddProjectError;
+import com.planbtech.prostudy.component.Exception.ClassException.UserException.UserCreateError;
+import com.planbtech.prostudy.component.Exception.ClassException.UserException.UserNotFound;
+import com.planbtech.prostudy.component.security.DTO.UserRegisterDTO;
+import com.planbtech.prostudy.component.security.service.TokenService;
+import com.planbtech.prostudy.entities.model.*;
 import com.planbtech.prostudy.repositories.*;
 import com.planbtech.prostudy.services.interfaces.IUserServices;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Collections;
 import java.util.Optional;
+import java.util.Collections;
 
 @Service
 public class UserServices implements IUserServices {
 
-    @Autowired
-    private TokenService tokenService;
+  @Autowired
+  private TokenService tokenService;
 
-    @Autowired
-    private UserRepository userRepository;
+  @Autowired
+  private UserRepository userRepository;
 
-    @Autowired
-    private RoleRepository roleRepository;
+  @Autowired
+  private RoleRepository roleRepository;
 
-    @Autowired
-    private TestRepository testRepository;
+  @Autowired
+  private TestRepository testRepository;
 
-    @Autowired
-    private ProjectRepository projectRepository;
+  @Transactional
+  @Override
+  public void createUser(UserRegisterDTO userToRegister) {
+    String encodedPassword = new BCryptPasswordEncoder().encode(userToRegister.password());
+    User userToSave = User.builder()
+        .userName(userToRegister.userName())
+        .userPassword(encodedPassword)
+        .userEmail(userToRegister.email())
+        .userRole(Collections.singletonList(roleRepository.findByRoleName("USER")
+            .orElseThrow(() -> new RoleNotFound("Role not found in creating user"))))
+        .build();
+    userRepository.save(userToSave);
+  }
 
-    @Autowired
-    private CategoryReporitory categoryRepository;
+  @Override
+  @Transactional
+  public Optional<User> findByUserName(String userName) {
+    return userRepository.findByUserName(userName);
+  }
 
-    @Transactional
-    @Override
-    public void createUser(UserRegisterDTO userToRegister) {
-        String encodedPassword = new BCryptPasswordEncoder().encode(userToRegister.password());
-        User userToSave = User.builder()
-                .userName(userToRegister.userName())
-                .userPassword(encodedPassword)
-                .userEmail(userToRegister.email())
-                .userRole(Collections.singletonList(roleRepository.findByRoleName("USER")))
-                .build();
-        userRepository.save(userToSave);
-    }
-
-    @Override
-    @Transactional
-    public Optional<User> findByUserName(String userName) {
-        return userRepository.findByUserName(userName);
-    }
-
-
-    @Transactional
+  @Transactional
     @Override
     public UserDTO update(UserDTO user) {
-        return userRepository.findById(user.getUserId()).map((x -> new UserDTO(userRepository.save(x)))).orElseThrow(()
-        -> new RuntimeException("Usuario não encontrado")
-        );
+        return userRepository
+                .findById(user.getUserId())
+                .map((x -> new UserDTO(userRepository.save(x))))
+                .orElseThrow(() -> new UserNotFound("User to update not found"));
     }
 
-    @Transactional
+  @Transactional
+  @Override
+  public void createCompany(UserRegisterDTO userToRegister) {
+    String encodedPassword = new BCryptPasswordEncoder().encode(userToRegister.password());
+    User userToSave = User.builder()
+        .userName(userToRegister.userName())
+        .userPassword(encodedPassword)
+        .userEmail(userToRegister.email())
+        .userRole(Collections.singletonList(roleRepository.findByRoleName("Company")
+            .orElseThrow(() -> new RoleNotFound("Role not found in creating company"))))
+        .build();
+    userRepository.save(userToSave);
+  }
+
+  @Transactional
+  @Override
+  public void addProject(ProjectAddDTO projectDTO) {
+    User user = userRepository
+        .findByUserName(projectDTO.getProjectOwner())
+        .orElseThrow(() -> new UserNotFound("User not found in add project"));
+
+    Project project = Project.builder()
+        .projectName(projectDTO.getProjectName())
+        .projectURL(projectDTO.getProjectURL())
+        .projectDescription(projectDTO.getShortDescription())
+        .build();
+    project.generateProjectId(project.getProjectName(), user.getUsername(), user.getUserId());
+    user.getUserProjects().add(project);
+
+    try {
+      userRepository.save(user);
+    } catch (Exception e) {
+      throw new UserAddProjectError("Error on associate a project to a user");
+    }
+  }
+
+  @Transactional
+  @Override
+  public void completeTest(TestCompleteDTO testCompleteDTO) {
+    User userToComplete = userRepository
+        .findByUserName(testCompleteDTO.getUserName())
+        .orElseThrow(() -> new UserNotFound("User not found in complete test"));
+
+    userToComplete.getSkillTests().add(testRepository.findById(testCompleteDTO
+        .getTestId()).orElseThrow());
+    userRepository.save(userToComplete);
+  }
+
+  @Transactional
+  @Override
+  public UserLoadDTO loadUser(String userName) {
+
+    User user = userRepository.findByUserName(userName).orElseThrow();
+
+    return new UserLoadDTO(user);
+  }
+
+  @Transactional
     @Override
-    public void createCompany(UserRegisterDTO userToRegister) {
-        String encodedPassword = new BCryptPasswordEncoder().encode(userToRegister.password());
-        User userToSave = User.builder()
-                .userName(userToRegister.userName())
-                .userPassword(encodedPassword)
-                .userEmail(userToRegister.email())
-                .userRole(Collections.singletonList(roleRepository.findByRoleName("Company")))
-                .build();
-        userRepository.save(userToSave);
+    public void sendProject(ProjectToSendDTO projectToSendDTO) {
+        throw new RuntimeException("Method to be implemented");
     }
 
-    @Transactional
+  @Transactional
     @Override
-    public void addProject(ProjectAddDTO projectDTO) {
-        String username = tokenService.validateToken(projectDTO.getProjectOwner());
-        User user = userRepository.findByUserName(username).orElseThrow();
-        user.getUserProjects().add(
-                User_Project.builder()
-                        .id(
-                                User_ProjectId
-                                        .builder()
-                                        .userId(user)
-                                        .projectId(Project
-                                                .builder()
-                                                .projectName(projectDTO.getProjectName())
-                                                .projectDescription(projectDTO.getShortdescription())
-                                                .tools(projectDTO
-                                                        .getTools()
-                                                        .stream()
-                                                        .map(categoryRepository::findByCategoryName)
-                                                        .toList())
-                                                .projectURL(projectDTO.getProjectURL())
-                                                .build())
-                                        .build()
-
-        )
-                        .permission("Owner")
-                        .build()
-        );
-    }
-
-    @Transactional
-    @Override
-    public void completeTest(TestCompleteDTO testCompleteDTO) {
-        User userToComplete = userRepository.findByUserName(testCompleteDTO.getUserName()).orElseThrow();
-        userToComplete.getSkillTests().add(testRepository.findById(testCompleteDTO.getTestId()).orElseThrow());
-        userRepository.save(userToComplete);
+    public void CheckUserCreate  (String userName) throws UserCreateError {
+         if (userRepository.findByUserName(userName).isPresent()){
+             throw new UserCreateError("User already exists");
+        }
     }
 }

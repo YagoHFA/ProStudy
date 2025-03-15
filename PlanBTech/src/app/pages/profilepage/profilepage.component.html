@@ -1,0 +1,22 @@
+<header><app-main-header></app-main-header></header>
+<div class="content">
+    <div class="centralizado">
+        <div class="img-text-container">
+            <img src="https://dl.dropboxusercontent.com/scl/fi/l3k1cqg3xubukf16584c7/perfil.png?rlkey=w5q4ovy666eojd35q0k433tdy&st=hxgjluly&" alt="Imagem">
+            <div class="centralizado">
+                <h1 class="titulo">{{user.userName}}</h1>
+            </div>
+        </div>
+        <div class="botao">
+            <button class="botao-menu-azul" (click)="chageStatus(false)" [ngClass]="{'botao-menu-azul':!project, 'botao-menu-transp':project}">Conquistas</button>
+            <button class="botao-menu-transp" (click)="chageStatus(true)" [ngClass]="{'botao-menu-azul':project, 'botao-menu-transp':!project}" >Projetos</button>
+            <button class="botao-menu-azul" *ngIf="permission && project" mat-button (click)="addProject()">Adicionar</button>
+        </div>
+    </div>
+    <section *ngIf="!project">
+        <app-test-card-list [tests]="user.skillTests" ></app-test-card-list>
+    </section>
+    <section *ngIf="project" class="project-menu">
+      <app-project-lists [projects]="user.projects" ></app-project-lists>
+    </section>
+</div>

@@ -1,0 +1,20 @@
+.card-item {
+  border: 1px solid #888;
+  border-radius: 8px;
+  padding: 16px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 16px;
+  width: 150px;
+  margin-left: 20px;
+}
+
+.card-item img {
+  max-width: 40%;
+  border-radius: 8px;
+}
+
+.card-item h2 {
+  margin-top: 16px;
+  font-size: 1em;
+}
