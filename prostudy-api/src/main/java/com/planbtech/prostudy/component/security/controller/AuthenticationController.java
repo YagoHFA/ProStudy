@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 @Tag(name = "Gerenciamento de autenticação", description = "Gerencia as autenticações de usuários")
@@ -46,7 +47,7 @@ public class AuthenticationController {
         catch (UsernameNotFoundException e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-        }
+    }
 
     @Operation(summary = "Cria um usuário", description = "Cria um usuário com permissões de usuário no banco de dados")
     @PostMapping("/register/user")

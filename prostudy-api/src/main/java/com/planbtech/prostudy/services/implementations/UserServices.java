@@ -15,12 +15,10 @@ import com.planbtech.prostudy.entities.model.*;
 import com.planbtech.prostudy.repositories.*;
 import com.planbtech.prostudy.services.interfaces.IUserServices;
 import jakarta.transaction.Transactional;
-import org.aspectj.weaver.ast.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
+import java.util.Optional;
 import java.util.Collections;
 
 @Service
@@ -37,12 +35,6 @@ public class UserServices implements IUserServices {
 
   @Autowired
   private TestRepository testRepository;
-
-  @Autowired
-  private ProjectRepository projectRepository;
-
-  @Autowired
-  private CategoryReporitory categoryRepository;
 
   @Transactional
   @Override
@@ -67,8 +59,10 @@ public class UserServices implements IUserServices {
   @Transactional
     @Override
     public UserDTO update(UserDTO user) {
-        return userRepository.findById(user.getUserId()).map((x -> new UserDTO(userRepository.save(x)))).orElseThrow(()
-        -> new UserNotFound("User to update not found")
+        return userRepository
+                .findById(user.getUserId())
+                .map((x -> new UserDTO(userRepository.save(x))))
+                .orElseThrow(() -> new UserNotFound("User to update not found"));
     }
 
   @Transactional
@@ -132,13 +126,13 @@ public class UserServices implements IUserServices {
     @Override
     public void sendProject(ProjectToSendDTO projectToSendDTO) {
         throw new RuntimeException("Method to be implemented");
-    }<<<<<<<HEAD
+    }
 
   @Transactional
     @Override
     public void CheckUserCreate  (String userName) throws UserCreateError {
          if (userRepository.findByUserName(userName).isPresent()){
              throw new UserCreateError("User already exists");
-        };
-    }=======>>>>>>>main
+        }
+    }
 }
