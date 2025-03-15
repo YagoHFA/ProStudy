@@ -3,6 +3,8 @@ package com.planbtech.prostudy.services.implementations;
 import com.planbtech.prostudy.DTO.VideoDTO.VideoCadDTO;
 import com.planbtech.prostudy.DTO.VideoDTO.VideoDTO;
 import com.planbtech.prostudy.DTO.VideoDTO.VideoFullDTO;
+import com.planbtech.prostudy.component.Exception.ClassException.CategoryException.CategoryNotFound;
+import com.planbtech.prostudy.component.Exception.ClassException.VideoException.VideoNotFound;
 import com.planbtech.prostudy.entities.model.Video;
 import com.planbtech.prostudy.repositories.CategoryReporitory;
 import com.planbtech.prostudy.repositories.VideoRepository;
@@ -38,6 +40,7 @@ public class VideosServices implements IVideoServices {
       videoRepository.save(videoToSave);
    }
 
+   @Transactional
    @Override
    public void deleteVideo(String id) {
       try{
@@ -48,12 +51,13 @@ public class VideosServices implements IVideoServices {
       }
    }
 
+   @Transactional
    @Override
    public void updateVideo(VideoFullDTO videoDTO) {
-      Video videoToUpdate = videoRepository.findByVideoId(videoDTO.getVideoId()).orElseThrow(()-> new EntityNotFoundException("Não foi possível encontrar o vídeo"));
+      Video videoToUpdate = videoRepository.findByVideoId(videoDTO.getVideoId()).orElseThrow(()-> new VideoNotFound("Video to update not found"));
       videoToUpdate.setVideoTitle(videoDTO.getVideoTitle());
       videoToUpdate.setVideoThumbnail(videoDTO.getThumb());
-      videoToUpdate.setCategory(categoryRepository.findByCategoryName(videoDTO.getCategory()).orElseThrow(() -> new EntityNotFoundException("Category not found")));
+      videoToUpdate.setCategory(categoryRepository.findByCategoryName(videoDTO.getCategory()).orElseThrow(() -> new CategoryNotFound("Category to include video not found")));
       videoRepository.save(videoToUpdate);
    }
 }

@@ -1,7 +1,7 @@
-package com.planbtech.prostudy.config.security;
+package com.planbtech.prostudy.component.security;
 
-import com.planbtech.prostudy.config.security.component.SecurityFilter;
-import com.planbtech.prostudy.config.security.service.AuthorizationService;
+import com.planbtech.prostudy.component.security.component.SecurityFilter;
+import com.planbtech.prostudy.component.security.service.AuthorizationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

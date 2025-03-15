@@ -11,14 +11,14 @@ import java.util.Optional;
 @Repository
 public interface CategoryReporitory extends JpaRepository<Category, Long> {
 
-    @Query(value = "Select * from category where categoryname = ?1", nativeQuery = true)
-    Category findCategory(String s);
+    @Query(value = "Select cc from category cc where cc.categoryName = ?1", nativeQuery = true)
+    Optional<Category> findCategory(String categoryName);
 
     @Query(value = "Select cc from Category cc left join fetch cc.skillTestList")
-    List<Category> findAllCategoryWithTest();
+    Optional<List<Category>> findAllCategoryWithTest();
 
     Optional<Category> findByCategoryName(String categoryName);
 
     @Query(value = "select categoryname from category", nativeQuery = true)
-    List<Category> findAllCategorName();
+    List<Category> findAllCategoryName();
 }

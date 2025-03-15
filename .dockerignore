@@ -1,0 +1,32 @@
+# 💾 Ignorar arquivos do Git
+.git
+.gitignore
+
+# 📦 Ignorar dependências do backend (Maven ou Gradle)
+**/target
+**/build
+**/.mvn
+**/.gradle
+**/mvnw
+**/mvnw.cmd
+
+# 📦 Ignorar dependências do PlanBTech (Angular)
+PlanBTech/node_modules
+PlanBTech/dist
+PlanBTech/.angular
+PlanBTech/.cache
+PlanBTech/.npm
+PlanBTech/.yarn
+
+# ⚙️ Ignorar arquivos de configuração locais
+.env
+.env.local
+*.log
+*.swp
+.vscode/
+.idea/
+*.iml
+
+# 🔥 Ignorar Docker volumes e pastas temporárias
+docker-compose.override.yml
+docker-data/

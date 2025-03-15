@@ -1,19 +1,17 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:testdb
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
-    initialization-mode: always
-    data: import.sql
+    url: jdbc:mysql://${DB_HOST:db}:3306/meu_banco
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:root}
   jpa:
     show-sql: true
     open-in-view: false
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
       hibernate:
-        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
   h2:
     console:
       enabled: true
@@ -25,7 +23,7 @@ spring:
     host: smtp.gmail.com
     port: 587
     username: planbtechnology59@gmail.com
-    password: ${Email_password}
+    password: ${Senha_Email}
     properties:
       mail:
         smtp:

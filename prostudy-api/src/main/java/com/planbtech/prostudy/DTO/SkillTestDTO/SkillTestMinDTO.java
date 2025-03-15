@@ -1,6 +1,7 @@
 package com.planbtech.prostudy.DTO.SkillTestDTO;
 
 import com.planbtech.prostudy.entities.model.SkillTest;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 @Getter
@@ -8,6 +9,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(description = "Minimum solo visualization Tests info", name = "MinTest")
 public class SkillTestMinDTO {
 
     private String testTitle;
