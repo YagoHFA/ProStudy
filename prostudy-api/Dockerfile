@@ -14,4 +14,7 @@ COPY --from=build /app/build/libs/*.jar app.jar
 
 EXPOSE 8080
 
+ARG PROFILE=hom
+ENV SPRING_PROFILES_ACTIVE=${PROFILE}
+
 CMD ["java", "-jar", "app.jar"]
