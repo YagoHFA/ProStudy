@@ -1,6 +1,6 @@
 services:
   backend:
-    image: yagohfa/prostudy-backend:latest
+    image: yagohfa/prostudy-backend
     build: ./prostudy-api
     ports:
       - "8080:8080"
